@@ -1,0 +1,112 @@
+.rec_order-id {
+    font-size: 25px !important;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgb(226, 222, 222);
+    width: 110px;
+    margin-top: 15px;
+}
+
+.rec_order-open {
+    color: rgb(0, 226, 68);
+    font-size: 8px;
+    position: relative;
+    bottom: 4px;
+}
+
+.rec_order-closed {
+    color: rgb(255, 153, 0);
+    font-size: 8px;
+    position: relative;
+    bottom: 4px;
+}
+
+.rec-order-archived {
+    color: rgb(179, 179, 179);
+    font-size: 8px;
+    position: relative;
+    bottom: 4px;
+}
+
+.receipt p {
+    font-size: 15px;
+    width: 100%;
+}
+
+.rec_shrink-ico {
+    position: absolute;
+    right: 32px;
+    top: 38px;
+    font-size: 18px;
+}
+
+.rec_addNew-ico {
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    font-size: 25px;
+}
+
+.rec_archive-ico {
+    position: absolute;
+    right: 30px;
+    top: 130px;
+    font-size: 23px;
+}
+
+.rece_circle {
+    width: 5px;
+    position: relative;
+    top: 3px;
+}
+
+.rece_cart-total {
+    margin-top: 10px;
+}
+
+.rece_cart-item-note {
+    margin-left: 9px;
+    color: rgb(134, 134, 134);
+}
+
+.rece_total-price {
+    color: rgb(156, 63, 0);
+    font-weight: bold;
+}
+
+.total_in-bottom {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.receipt {
+    height: 70vh;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    display: grid;
+    justify-content: center;
+}
+
+.rece_actions {
+    text-align: center;
+}
+
+.rece_Checkout-btn {
+    background-color: rgb(255, 123, 0);
+    border: none;
+    font-size: 22px;
+    padding: 15px;
+    width: 200px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: white;
+
+}
+
+.rece_Checkout-btn:active {
+    background-color: rgb(255, 153, 57);
+    padding: 16px;
+    font-size: 23px;
+    width: 202px;
+
+}

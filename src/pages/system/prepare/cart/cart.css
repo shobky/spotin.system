@@ -1,0 +1,91 @@
+.cart-container{
+    max-height: 30vh;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item-note {
+    border: none;
+    border-bottom: .5px solid rgb(179, 179, 179);
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.cart-item_prcie {
+    font-size: 15px;
+}
+
+.cart_action-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 1px;
+    cursor: pointer;
+
+}
+
+.cart_action-btn:active {
+    opacity: 60%;
+
+}
+
+.cart-item_remove-btn {
+    color: rgb(255, 0, 0);
+}
+
+.checking-container {
+    margin-bottom: 15px;
+}
+
+.checkin-number {
+    font-size: 16px;
+}
+
+.checkin-action-btns {
+    position: absolute;
+    right: 14px;
+    cursor: pointer;
+
+}
+
+.checkin_action-btn {
+    font-size: 19px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+.checkin_qty-increase {
+    color: rgb(0, 206, 93);
+    cursor: pointer;
+
+}
+
+.checkin_qty-decrease {
+    color: rgb(255, 57, 57);
+    cursor: pointer;
+    
+}
+
+.check-in_btn {
+ background-color: transparent;
+ position: relative;
+
+ border: none;
+ font-size: 30px;
+ font-size: 15px;
+ padding: 2px;
+ background-color: black;
+ margin-left: 10px;
+ color: white;
+ width: 150px;
+
+
+}

@@ -1,0 +1,332 @@
+.checkin_checkd-div {
+    display: flex;
+    gap: 5vw;
+}
+
+.checkin-tkt-num {
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+    padding: 0 5px 0 5px;
+}
+
+.sumary_cart {
+    max-height: 13vh;
+    margin-bottom: 2vh;
+    overflow-y: scroll;
+}
+
+@media (min-width:951px) {
+    .prepare-container {
+        box-shadow: 0 0 10px 1px rgb(231, 226, 226);
+        position: absolute;
+        right: 0%;
+        top: 0;
+        width: calc(35vw - 120px);
+        height: 97%;
+        overflow-y: scroll;
+        z-index: 6;
+    }
+
+    .prepare-container {
+        padding: 10px;
+    }
+
+    .prepare_order-id span {
+        font-size: 20px;
+    }
+
+    .fullDate {
+        font-size: 15px;
+        margin-left: 2vw;
+    }
+
+    .select-user_input {
+        border: none;
+        border-bottom: 1px solid orange;
+        width: 15vw;
+        font-size: 17px;
+        margin-top: 20px;
+    }
+
+    .select-user_input:focus {
+        outline: none;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        width: 15vw;
+        font-size: 17px;
+        margin-top: 20px;
+    }
+
+    .select-user_list-ico {
+        margin-left: 2vw;
+        position: relative;
+        top: 10px;
+        font-size: 22px;
+        cursor: pointer;
+
+    }
+
+    .select-user_back-ico {
+        margin-left: 4vw;
+        position: relative;
+        top: 8px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .select-user_add-ico {
+        position: relative;
+        margin-left: 2vw;
+        top: 3px;
+        cursor: pointer;
+
+        font-size: 20px;
+    }
+
+    .select-user_back-ico {
+        position: relative;
+        margin-left: 4vw;
+        top: -1px;
+        font-size: 20px;
+        cursor: pointer;
+
+    }
+
+    .selected_user-list-name {
+        margin-top: 18px;
+    }
+
+    .summary_text {
+        font-size: 14px;
+    }
+
+    .summary_text-group {
+        margin-left: 10px;
+    }
+
+    .summary_tkts-total {
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    .summary_subtotal {
+        margin-bottom: -5px;
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    .place-btn-div {
+        text-align: center;
+    }
+
+    .prepare_place-order-btn {
+        background-color: rgb(245, 131, 0);
+        border: none;
+        font-size: 25px;
+        padding: 7px 35px 7px 35px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+        cursor: pointer;
+    }
+
+    .prepare_place-order-btn:disabled {
+        background-color: rgb(255, 145, 0);
+        border: none;
+        font-size: 25px;
+        padding: 7px 35px 7px 35px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+        cursor: auto;
+
+
+    }
+
+    .prepare_place-order-btn:active {
+        background-color: rgb(255, 167, 52);
+        border: none;
+        font-size: 26px;
+        padding: 8px 36px 8px 36px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+        cursor: pointer;
+
+
+    }
+
+}
+
+@media (max-width:950px) {
+
+    /* show and hide  */
+    .mb_prepare__show {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0% !important;
+        width: 77%;
+        box-shadow: 0 0 10px 1px rgb(94, 94, 94);
+        height: 100%;
+        z-index: 6;
+
+    }
+
+    .prepare-container {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 77%;
+        height: 98vh !important;
+
+    }
+
+    /* end */
+    .prepare-container {
+        padding: 10px;
+    }
+
+    .prepare_order-id span {
+        font-size: 20px;
+    }
+
+    .fullDate {
+        font-size: 15px;
+        margin-left: 2vw;
+    }
+
+    .select-user_input {
+        border: none;
+        border-bottom: 1px solid orange;
+        width: 45vw;
+        font-size: 17px;
+        margin-top: 20px;
+        margin-left: 12px;
+
+    }
+
+    .select-user_input:focus {
+        outline: none;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        width: 45vw;
+        font-size: 17px;
+        margin-top: 20px;
+    }
+
+    .select-user_list-ico {
+        margin-left: 4vw;
+        position: relative;
+        top: 10px;
+        font-size: 25px;
+        cursor: pointer;
+
+    }
+
+    .select-user_back-ico {
+        margin-left: 4vw;
+        position: relative;
+        top: 8px;
+        font-size: 20px;
+        cursor: pointer;
+
+    }
+
+    .select-user_add-ico {
+        position: relative;
+        margin-left: 4vw;
+        top: 7px;
+        font-size: 23px;
+        cursor: pointer;
+
+    }
+
+    .select-user_back-ico {
+        position: relative;
+        margin-left: 4vw;
+        top: -1px;
+        font-size: 20px;
+        cursor: pointer;
+
+    }
+
+    .selected_user-list-name {
+        margin-top: 20px;
+        width: 250px ;
+        margin-left: 12px;
+    }
+
+    .summary_text {
+        font-size: 14px;
+    }
+
+    .summary_text-group {
+        margin-left: 10px;
+    }
+
+    .summary_tkts-total {
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    .summary_subtotal {
+        margin-bottom: -15px;
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    .place-btn-div {
+        text-align: center;
+    }
+
+    .prepare_place-order-btn {
+        background-color: rgb(255, 145, 0);
+        border: none;
+        font-size: 25px;
+        padding: 7px 35px 7px 35px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+    }
+
+    .prepare_place-order-btn:disabled,
+    .prepare_place-order-btn:disabled:active {
+        background-color: rgb(255, 145, 0);
+        border: none;
+        font-size: 25px;
+        padding: 7px 35px 7px 35px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+        opacity: 60%;
+
+    }
+
+    .prepare_place-order-btn:active {
+        background-color: rgb(255, 187, 98);
+        border: none;
+        font-size: 26px;
+        padding: 8px 36px 8px 36px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 25px;
+        position: relative;
+        box-shadow: 2px 3px 0px 2px rgb(245, 245, 245);
+
+    }
+
+}

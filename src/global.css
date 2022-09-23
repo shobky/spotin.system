@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat-regular;
+}
+
+/*temp */
+.add-new-item-input{
+    font-size: 25px;
+}
+
+.flex{
+    display: flex;
+}
+.option-acive-add-item{
+    color: blue;
+}

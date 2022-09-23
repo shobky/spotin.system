@@ -1,0 +1,25 @@
+.system_header{
+    padding: 20px 0px 0px 30px;
+}
+@media (min-width:951px) {
+    .system{
+        width: calc(100% - 120px);
+        margin-left: 120px;
+    }
+    .system_products-container{
+        width: 60vw;
+    
+    }
+ 
+}
+
+@media (max-width:950px) {
+    .system{
+        width: calc(100% - 20px);
+        margin-left: 20px;
+    }
+    .system_products-container{
+        width: calc(100vw - 40px) ;
+    }
+
+}
