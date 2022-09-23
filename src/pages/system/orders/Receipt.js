@@ -30,7 +30,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             timeSpent: timeSpent ?? ''
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
-        await deleteDoc(doc(db, "open-orders", `#${order.id}`));
+        await deleteDoc(doc(db, "open-orders", `#${order.user.uid}`));
         onSetReceipt()
     }
 
