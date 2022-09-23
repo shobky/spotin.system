@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { auth, db } from "../firebase/Config"
+import { db } from "../firebase/Config"
 import { collection, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { useAuth } from "./AuthContext";
@@ -14,32 +14,32 @@ export const DataProvider = ({ children }) => {
     const { user } = useAuth()
 
     const productsQ = collection(db, `pos`)
-    const [products, productsLoading] = useCollectionData(productsQ)
+    const [products] = useCollectionData(productsQ)
 
     const currentOrderq = collection(db, `current-order`)
-    const [currentOrder, currentOrderLoading] = useCollectionData(currentOrderq)
+    const [currentOrder] = useCollectionData(currentOrderq)
 
     const freshQ = collection(db, `fresh`)
-    const [freshProducts, freshProductsLoading] = useCollectionData(freshQ)
+    const [freshProducts] = useCollectionData(freshQ)
 
     const fillQ = collection(db, `fresh`)
-    const [fillProducts, fillProductsLoading] = useCollectionData(fillQ)
+    const [fillProducts] = useCollectionData(fillQ)
 
     const openOrdersQ = collection(db, `open-orders`)
-    const [openOrders, openOrdersLoading] = useCollectionData(openOrdersQ)
+    const [openOrders,] = useCollectionData(openOrdersQ)
 
     const closedOrdersQ = collection(db, `closed-orders`)
-    const [closedOrders, closedOrdersLoading] = useCollectionData(closedOrdersQ)
+    const [closedOrders] = useCollectionData(closedOrdersQ)
     const orderId = (openOrders?.length + closedOrders?.length) + 1;
 
     const deletedOrdersQ = collection(db, `archived-orders`)
-    const [deletedOrders, deletedOrdersLoading] = useCollectionData(deletedOrdersQ)
+    const [deletedOrders] = useCollectionData(deletedOrdersQ)
 
     const cartQ = collection(db, `cart#${orderId}-${(user?.uid).slice(-5)}`)
-    const [cart, cartLoading] = useCollectionData(cartQ)
+    const [cart] = useCollectionData(cartQ)
 
     const usersQ = collection(db, `Users`)
-    const [users, usersLoading] = useCollectionData(usersQ)
+    const [users] = useCollectionData(usersQ)
 
     const upload = async (path, id, data) => {
         const docRef = doc(db, path, id);

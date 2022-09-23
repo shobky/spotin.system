@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaReceipt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 const Order = ({ order, onSetReceipt }) => {
 
     const openreceipt = () => {
