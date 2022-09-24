@@ -1,12 +1,14 @@
-import React, {useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import './system.css'
 import Header from './header/Header'
 import Nav from './nav/Nav'
 import { useDb } from '../../contexts/Database'
 import UserList from './selectUser/UserList'
 import { useAuth } from '../../contexts/AuthContext'
-import Produts from './products/Produts'
-import Prepare from './prepare/Prepare'
+import Loading from '../../components/loadingAnimaitno/Loading'
+const Produts = React.lazy(() => import('./products/Produts'))
+const Prepare = React.lazy(() => import('./prepare/Prepare'))
+
 
 const System = () => {
 
@@ -49,14 +51,24 @@ const System = () => {
           <div className='system_products-container'>
             {
               choose ?
-                <UserList onShowPrepare={onShowPrepare} onSetSelectedUser={onSetSelectedUser} onSetChoose={onSetChoose} />
+                <UserList onShowPrepare={onShowPrepare}
+                  onSetSelectedUser={onSetSelectedUser}
+                  onSetChoose={onSetChoose} />
                 :
-                <Produts onAddToCart={onAddToCart} />
-
+                <Suspense fallback={<Loading />}>
+                  <Produts onAddToCart={onAddToCart} />
+                </Suspense>
             }
           </div>
         </div>
-        <Prepare onShowPrepare={onShowPrepare} onSetChoose={onSetChoose} selectedUser={selectedUser} onSetSelectedUser={onSetSelectedUser} choose={choose} />
+        <Suspense fallback={<Loading />}>
+          <Prepare
+            onShowPrepare={onShowPrepare}
+            onSetChoose={onSetChoose}
+            selectedUser={selectedUser}
+            onSetSelectedUser={onSetSelectedUser}
+            choose={choose} />
+        </Suspense>
       </div>
     </>
   )

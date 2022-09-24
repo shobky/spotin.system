@@ -1,6 +1,22 @@
-.strike-through{
+.strike-through {
     text-decoration: line-through 2px rgb(255, 103, 14);
 }
+
+.order-container-footer {
+    justify-content: center;
+    justify-content: space-between;
+    margin-left: 8vw;
+    margin-right: 8vw;
+
+    padding: 8px;
+    display: flex;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.order-footer-stats-ico {
+    font-size: 19px;
+}
+
 @media (min-width:750px) {
     .order_header {
         margin-top: 30px;
@@ -79,9 +95,18 @@
         height: 30vh;
         font-size: 27px;
         font-weight: bold;
+    }
 
-
-
+    .orders_confirmation-archive-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 25px;
+        padding: 35px;
+        display: grid;
+        justify-content: center;
+        height: 30vh;
+        font-size: 27px;
+        font-weight: bold;
     }
 
     .msg_confirm_btn-accept {
@@ -109,6 +134,7 @@
         color: pointer;
 
     }
+
     .order-container {
         display: grid;
         grid-template-columns: 5vw 8vw 40vw 7vw;
@@ -118,8 +144,8 @@
         border-bottom: 1px solid whitesmoke;
         font-size: 22px;
     }
-    
-    
+
+
 
 
 
@@ -199,6 +225,16 @@
 
     }
 
+    .orders_confirmation-delete-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 25px;
+        padding: 25px;
+        display: grid;
+        width: 60vw;
+        height: 13vh;
+    }
+
     .msg_confirm_btn-accept {
         color: rgb(0, 170, 65);
         cursor: pointer;
@@ -210,14 +246,31 @@
         cursor: pointer;
         margin-top: 10px;
     }
+    .msg_confirm_btn-go-back{
+        cursor: pointer;
+        color: rgb(0, 153, 255);
+        font-weight: bold;
+        margin-top: 15px;
+
+
+    }
+    .msg_confirm_btn-delete {
+        cursor: pointer;
+        color: red;
+        font-weight: bold;
+        margin-top: 30px;
+
+
+    }
 
     .order_checkOut-btn {
         background-color: transparent;
         border: none;
         font-size: 18px;
         color: rgb(56, 51, 51);
-        cursor: pointer;    
+        cursor: pointer;
     }
+
     .order-container {
         display: grid;
         grid-template-columns: 5vw 8vw 40vw 7vw;
@@ -226,8 +279,8 @@
         padding: 8px;
         border-bottom: 1px solid whitesmoke;
     }
-    
-    
+
+
 
 
 
@@ -279,6 +332,20 @@
 
 }
 
+.orders_confirmation-delete-msg {
+    display: none;
+}
+
+.orders_confirmation-delete-msg-bg {
+    background-color: rgba(0, 0, 0, 0.548);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 0;
+}
+
 .orders_confirmation-archive-msg-bg {
     background-color: rgba(0, 0, 0, 0.548);
     width: 100%;
@@ -297,8 +364,26 @@
     width: 100%;
 }
 
+.orders_confirmation-delete-msg__active button {
+    background-color: transparent;
+    border: none;
+}
 
 .orders_confirmation-archive-msg__active button {
     background-color: transparent;
     border: none;
+}
+
+.order_checkOut-btn:active {
+    color: rgb(0, 216, 65);
+}
+
+.orders_delete-all-ico {
+    cursor: pointer;
+    font-size: 27px;
+    position: absolute;
+    right: 17px;
+    top: 105px;
+    color: rgb(255, 0, 55);
+
 }

@@ -199,7 +199,6 @@
     }
 
     .prepare_order-id {
-        margin-left: 3vw;
 
     }
 
@@ -212,7 +211,6 @@
 
     .fullDate {
         font-size: 15px;
-        margin-left: 4vw;
     }
 
     .select-user_input {
@@ -221,7 +219,6 @@
         width: 45vw;
         font-size: 17px;
         margin-top: 20px;
-        margin-left: 12px;
 
     }
 
@@ -280,7 +277,6 @@
     .selected_user-list-name {
         margin-top: 20px;
         width: 250px;
-        margin-left: 12px;
         font-weight: bold;
         font-size: 18px;
     }

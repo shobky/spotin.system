@@ -7,6 +7,7 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
     const handleOnSelectUser = () => {
         onSetSelectedUser(user.name, user.uid)
         onSetChoose()
+        onShowPrepare()
     }
     const deleteUser = () => {
         deleteDoc(doc(db, `Users/${user?.name}`));

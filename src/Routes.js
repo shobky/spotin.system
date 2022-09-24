@@ -11,8 +11,10 @@ import Loading from "./components/loadingAnimaitno/Loading"
 import UserRotues from "./components/privateRoutes/UserRoutes"
 import AddNewItems from "./components/addNewItems/AddNewItems"
 import { DataProvider } from "./contexts/Database"
+import System from './pages/system/System'
 const Orders = React.lazy(() => import("./pages/system/orders/Orders"))
-const System = React.lazy(() => import('./pages/system/System'))
+const Page404 = React.lazy(() => import("./components/404/Page404"))
+
 
 const AllRoutes = () => {
     return (
@@ -21,14 +23,17 @@ const AllRoutes = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route exact path='/' element={<Home />} />
+            <Route path='*' element={
+                <Suspense>
+                    <Page404 />
+                </Suspense>
+            } />
             <Route element={<UserRotues />}>
                 <Route element={<AdminRoutes />} >
                     <Route path="/cashier.system" element={
-                        <Suspense fallback={<Loading />}>
-                            <DataProvider>
-                                <System />
-                            </DataProvider>
-                        </Suspense>
+                        <DataProvider>
+                            <System />
+                        </DataProvider>
                     } />
                     <Route path="/cashier.system/add-new-item" element={
                         <Suspense fallback={<Loading />}>

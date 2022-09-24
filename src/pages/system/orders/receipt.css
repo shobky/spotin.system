@@ -94,9 +94,19 @@
     cursor: pointer;
 
 }
+.rece_Checkout-btn:active {
+    font-size: 23px;
+    padding: 16px;
+    opacity: 5%;
+}
 .rece_archive-btn{
     background-color: rgb(255, 123, 0) !important;
 
+}
+.rece_archive-btn:active {
+    font-size: 23px;
+    padding: 16px;
+    opacity: 5%;
 }
 
 .rece_Checkout-btn:active {

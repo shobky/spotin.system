@@ -36,7 +36,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
 
     const onArchive = async () => {
         const data = {
-            id: `${order.id}A`,
+            id: `${order.id}`,
             status: "archived",
             user: { name: order.user.name, uid: order.user.uid },
             time: order.time,
@@ -48,7 +48,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
 
         }
         await setDoc(doc(db, "archived-orders", `#${order.id}`), data);
-        await deleteDoc(doc(db, "closed-orders", `${order.id}#${order.id}`));
+        await deleteDoc(doc(db, "closed-orders", `#${order.id}`));
         onSetReceipt()
     }
 

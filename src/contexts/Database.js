@@ -33,7 +33,7 @@ export const DataProvider = ({ children }) => {
 
     const deletedOrdersQ = collection(db, `archived-orders`)
     const [deletedOrders] = useCollectionData(deletedOrdersQ)
-    const orderId = (openOrders?.length + closedOrders?.length) + 1;
+    const orderId = (openOrders?.length + closedOrders?.length + deletedOrders?.length) + 1;
 
 
     const cartQ = collection(db, `cart#${orderId}-${(user?.uid).slice(-5)}`)
