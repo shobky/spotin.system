@@ -3,13 +3,7 @@
     gap: 5vw;
 }
 
-.checkin-tkt-num {
-    font-size: 15px;
-    position: relative;
-    top: 2px;
-    font-weight: bold;
-    padding: 0 5px 0 5px;
-}
+
 
 .sumary_cart {
     max-height: 13vh;
@@ -48,6 +42,8 @@
         width: 15vw;
         font-size: 17px;
         margin-top: 20px;
+        margin-left: 15px;
+        margin-bottom: 10px;
     }
 
     .select-user_input:focus {
@@ -55,6 +51,8 @@
         border-bottom: 1px solid rgb(0, 0, 0);
         width: 15vw;
         font-size: 17px;
+        margin-left: 15px;
+
         margin-top: 20px;
     }
 
@@ -63,14 +61,15 @@
         position: relative;
         top: 10px;
         font-size: 22px;
+        margin-left: 6vw;
         cursor: pointer;
 
     }
 
-    .select-user_back-ico {
-        margin-left: 4vw;
+
+    .select-user_edit-ico {
+        margin-left: 3vw;
         position: relative;
-        top: 8px;
         font-size: 20px;
         cursor: pointer;
     }
@@ -85,16 +84,17 @@
     }
 
     .select-user_back-ico {
-        position: relative;
-        margin-left: 4vw;
-        top: -1px;
-        font-size: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 25px;
         cursor: pointer;
 
     }
 
     .selected_user-list-name {
         margin-top: 18px;
+        margin-left: 15px;
     }
 
     .summary_text {
@@ -168,6 +168,7 @@
 
 @media (max-width:950px) {
 
+
     /* show and hide  */
     .mb_prepare__show {
         background-color: white;
@@ -192,17 +193,26 @@
     }
 
     /* end */
+
     .prepare-container {
         padding: 10px;
     }
 
+    .prepare_order-id {
+        margin-left: 3vw;
+
+    }
+
+
     .prepare_order-id span {
-        font-size: 20px;
+        font-size: 22px;
+        text-decoration: underline;
+        color: rgb(255, 126, 5);
     }
 
     .fullDate {
         font-size: 15px;
-        margin-left: 2vw;
+        margin-left: 4vw;
     }
 
     .select-user_input {
@@ -241,6 +251,14 @@
 
     }
 
+    .select-user_edit-ico {
+        margin-left: 4vw;
+        position: relative;
+        font-size: 20px;
+        cursor: pointer;
+
+    }
+
     .select-user_add-ico {
         position: relative;
         margin-left: 4vw;
@@ -261,8 +279,10 @@
 
     .selected_user-list-name {
         margin-top: 20px;
-        width: 250px ;
+        width: 250px;
         margin-left: 12px;
+        font-weight: bold;
+        font-size: 18px;
     }
 
     .summary_text {

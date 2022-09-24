@@ -22,7 +22,7 @@ export const DataProvider = ({ children }) => {
     const freshQ = collection(db, `fresh`)
     const [freshProducts] = useCollectionData(freshQ)
 
-    const fillQ = collection(db, `fresh`)
+    const fillQ = collection(db, `fill`)
     const [fillProducts] = useCollectionData(fillQ)
 
     const openOrdersQ = collection(db, `open-orders`)
@@ -30,10 +30,11 @@ export const DataProvider = ({ children }) => {
 
     const closedOrdersQ = collection(db, `closed-orders`)
     const [closedOrders] = useCollectionData(closedOrdersQ)
-    const orderId = (openOrders?.length + closedOrders?.length) + 1;
 
     const deletedOrdersQ = collection(db, `archived-orders`)
     const [deletedOrders] = useCollectionData(deletedOrdersQ)
+    const orderId = (openOrders?.length + closedOrders?.length) + 1;
+
 
     const cartQ = collection(db, `cart#${orderId}-${(user?.uid).slice(-5)}`)
     const [cart] = useCollectionData(cartQ)
@@ -47,6 +48,13 @@ export const DataProvider = ({ children }) => {
     }
     const changeCartQty = async (cartItem, qty) => {
         const docRef = doc(db, `cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`);
+        await updateDoc(docRef, {
+            qty
+        })
+    }
+    const changeNewCartQty = async (id, cartItem, qty) => {
+        const path = `newcart#${id}-${(user?.uid).slice(-5)}/${cartItem.item.name}`
+        const docRef = doc(db, path);
         await updateDoc(docRef, {
             qty
         })
@@ -78,6 +86,7 @@ export const DataProvider = ({ children }) => {
         changeCartQty,
         remove,
         users,
+        changeNewCartQty
 
 
     }

@@ -4,8 +4,8 @@ import './receipt.css'
 import { ImShrink2 } from 'react-icons/im'
 import TimeSpent from './TimeSpent'
 
-import {  BsCartPlus, BsFillCircleFill } from 'react-icons/bs'
-import {  deleteDoc, doc, setDoc } from 'firebase/firestore'
+import { BsCartPlus, BsFillCircleFill } from 'react-icons/bs'
+import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { GiPlainCircle } from 'react-icons/gi'
 import { db } from '../../../firebase/Config'
 
@@ -30,13 +30,13 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             timeSpent: timeSpent ?? ''
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
-        await deleteDoc(doc(db, "open-orders", `#${order.user.uid}`));
+        await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
         onSetReceipt()
     }
 
     const onArchive = async () => {
         const data = {
-            id: order.id,
+            id: `${order.id}A`,
             status: "archived",
             user: { name: order.user.name, uid: order.user.uid },
             time: order.time,
@@ -48,7 +48,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
 
         }
         await setDoc(doc(db, "archived-orders", `#${order.id}`), data);
-        await deleteDoc(doc(db, "closed-orders", `#${order.id}`));
+        await deleteDoc(doc(db, "closed-orders", `${order.id}#${order.id}`));
         onSetReceipt()
     }
 
@@ -58,7 +58,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             <div className='receipt'>
                 <h1
                     style={{ fontFamily: "montserrat-black", marginTop: "25px", textAlign: "center" }}
-                    className='system_header_name'>Spot
+                    className='system_header_name-rece'>Spot
                     <span
                         style={{
                             fontFamily: "sans-seriref",
@@ -74,9 +74,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     className="rec_shrink-ico" />
 
                 {
-                    !order.newCart?.newCartDoc ?
-                        order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
-                        : ""
+                    order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
                 }
 
                 <div className='receipt_container'>
@@ -105,8 +103,6 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     {
                         order.tickets.number > 0 ?
                             <>
-                                <p><strong>Tickets:</strong> {order.tickets.number}</p>
-
                                 {
                                     order.timeSpent ?
                                         <p> <strong>Ticket type: </strong>{
@@ -122,9 +118,14 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                                 }
                                 {
                                     timeSpent ?
-                                        <p> <strong>Total: </strong>{
-                                            timeSpent[0] >= 2 ? order.tickets.price + 15 * order.tickets.number : order.tickets.price
-                                        }</p> : ""
+                                        <>
+                                            <p> <strong>Ticket type: </strong>{
+                                                timeSpent[0] >= 2 ? "Full day" : "Half Day"
+                                            }</p>
+                                            <p> <strong>Total: </strong>{
+                                                timeSpent[0] >= 2 ? order.tickets.price + 15 * order.tickets.number : order.tickets.price
+                                            }L.e</p>
+                                        </> : ""
                                 }
                             </>
                             : <strong>No Tickets Sold</strong>
@@ -135,10 +136,8 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                         order.cart.length > 0 ?
 
                             <div>
-                                <br />
-
                                 <strong>Cart: {`{`} </strong>
-                                {order.cart.map((cartItem, index) => (
+                                {order?.cart?.map((cartItem, index) => (
                                     <div key={index}>
                                         <div style={{ marginLeft: "10px" }}>
                                             <p> <BsFillCircleFill className='rece_circle' /> {cartItem.qty}x{cartItem.item.name} {cartItem.item.price * cartItem.qty}L.e</p>
@@ -149,32 +148,10 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                                 <strong>{`}`}</strong>
                                 {
                                     order.newCart?.newCartDoc ?
-                                        <p className='rece_cart-total'><strong>Total:</strong> {(order.total - order.newCart.total)}L.e</p>
+                                        <p className='rece_cart-total'><strong>Total:</strong> {(order.total + order.newCart.total) - order.tickets.price}L.e</p>
                                         :
                                         <p className='rece_cart-total'><strong>Total:</strong> {order.total - order.tickets.price}L.e</p>
                                 }
-
-                            </div>
-
-                            :
-                            <strong>No Items Sold</strong>
-                    }
-                    {
-                        order.newCart?.newCartDoc.length > 0 ?
-                            <div>
-                                <br />
-
-                                <strong>New Cart: {`{`} </strong>
-                                {order.newCart?.newCartDoc.map((cartItem, index) => (
-                                    <div key={index}>
-                                        <div style={{ marginLeft: "10px" }}>
-                                            <p> <BsFillCircleFill className='rece_circle' /> {cartItem.qty}x{cartItem.item.name} {cartItem.item.price * cartItem.qty}L.e</p>
-                                            <p className='rece_cart-item-note'>{cartItem.note}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                                <strong>{`}`}</strong>
-                                <p className='rece_cart-total'><strong>Total:</strong> {order.newCart?.total}L.e</p>
 
                             </div>
 
@@ -188,11 +165,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     order.status === "open" ?
                         timeSpent ?
                             <p className='total_in-bottom'>{
-                                timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total 
+                                timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total
                             }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                         : order.timeSpent ?
                             <p className='total_in-bottom'>{
-                                order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total 
+                                order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total
                             }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                 }
                 {
@@ -205,7 +182,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                         </button> :
                         order.status === "closed" ?
                             <button
-                                className='rece_Checkout-btn'
+                                className='rece_Checkout-btn rece_archive-btn '
                                 onClick={onArchive}
                             >
                                 Archive

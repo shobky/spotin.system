@@ -34,7 +34,7 @@ const SelectUser = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onSh
                 selectedUser.name ?
                     <div className=' selected_user-list-name flex'>
                         <p >{selectedUser.name}</p>
-                        <TbEditCircle className='select-user_back-ico' onClick={() => onSetSelectedUser("", "")} />
+                        <TbEditCircle className='select-user_edit-ico' onClick={() => onSetSelectedUser("", "")} />
                         <TbListSearch style={{ marginLeft: "10px", fontSize: "22px", marginTop: "-2px", cursor: "pointer" }} onClick={openUserList} />
                     </div>
                     :

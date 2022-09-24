@@ -1,8 +1,9 @@
-.cart-container{
+.cart-container {
     max-height: 30vh;
     overflow-y: scroll;
     margin-bottom: 15px;
 }
+
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -37,6 +38,8 @@
 
 .cart-item_remove-btn {
     color: rgb(255, 0, 0);
+    margin-right: 10px;
+
 }
 
 .checking-container {
@@ -47,12 +50,22 @@
     font-size: 16px;
 }
 
-.checkin-action-btns {
-    position: absolute;
-    right: 14px;
-    cursor: pointer;
-
+@media (max-width:950px) {
+    .checkin-action-btns {
+        position: absolute;
+        right: 17px;
+        border-radius: 25px;
+        padding: 3px;
+    }
 }
+
+@media (min-width:951px) {
+    .checkin-action-btns {
+        position: absolute;
+        right: 33px;
+    }
+}
+
 
 .checkin_action-btn {
     font-size: 19px;
@@ -62,30 +75,68 @@
 
 }
 
+.checkin-tkt-num {
+    font-size: 13px;
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+    padding: 0 5px 0 5px;
+
+}
+
 .checkin_qty-increase {
     color: rgb(0, 206, 93);
     cursor: pointer;
+    margin-right: 2px;
+
 
 }
 
 .checkin_qty-decrease {
     color: rgb(255, 57, 57);
     cursor: pointer;
-    
+    margin-left: 2px;
+
+
+
 }
 
 .check-in_btn {
- background-color: transparent;
- position: relative;
+    background-color: transparent;
+    position: relative;
 
- border: none;
- font-size: 30px;
- font-size: 15px;
- padding: 2px;
- background-color: black;
- margin-left: 10px;
- color: white;
- width: 150px;
+    border: none;
+    font-size: 30px;
+    font-size: 15px;
+    padding: 2px;
+    background-color: black;
+    margin-left: 10px;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgb(129, 118, 118);
 
+
+}
+
+@media (min-width:951px) {
+    .New-cart-item-note {
+        width: 15vw;
+        border: none;
+        border-bottom: 1px solid whitesmoke;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width:950px) {
+    .New-cart-item-note {
+        width: 40vw;
+        border: none;
+        border-bottom: 1px solid whitesmoke;
+    }
+}
+
+.New-cart-item-note:focus {
+    outline: none;
 
 }

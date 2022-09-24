@@ -21,6 +21,8 @@ const OrderList = ({ orders, onSetReceipt, searchTerm }) => {
             return filterd;
           } else if (filterd.user.uid.includes(searchTerm)) {
             return filterd
+          } else if (filterd.id.includes(searchTerm)) {
+            return filterd
           } else {
           }
         }).map((order, index) => (

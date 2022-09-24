@@ -71,7 +71,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
 
 
   const onPlaceOrder = async () => {
-    await setDoc(doc(db, `open-orders`, `#${selectedUser.uid}`), {
+    await setDoc(doc(db, `open-orders`, `${orderId}#${selectedUser.uid}`), {
       id: orderId,
       status: "open",
       user: { name: selectedUser.name, uid: selectedUser.uid },

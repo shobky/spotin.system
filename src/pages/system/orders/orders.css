@@ -1,29 +1,246 @@
-.order_header {
-    margin-left: 20px;
-    margin-bottom: 30px;
+.strike-through{
+    text-decoration: line-through 2px rgb(255, 103, 14);
+}
+@media (min-width:750px) {
+    .order_header {
+        margin-top: 30px;
+        margin-left: 75px;
+        margin-bottom: 60px;
+    }
+
+    .order-nav_containre {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin-left: 150px;
+        font-weight: bold;
+        font-size: 26px;
+
+    }
+
+    .ordersList-container {
+        margin-top: 40px;
+    }
+
+    .order_time {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .orders_search-input {
+        margin-bottom: 30px;
+        margin-top: -5px;
+        border: none;
+        padding-bottom: 2px;
+        border-bottom: 1px solid rgb(184, 178, 178);
+        font-size: 22px;
+        width: 420px;
+        margin-left: 8vw;
+    }
+
+    .order_bakc-btn {
+        font-size: 32px;
+        position: absolute;
+        top: 50px;
+        right: 70px;
+        color: rgb(255, 115, 0);
+        cursor: pointer;
+
+    }
+
+    .order_search-ico {
+        font-size: 32px;
+        position: absolute;
+        right: 70px;
+        top: 100px;
+        color: rgb(255, 102, 0);
+        cursor: pointer;
+
+
+    }
+
+    .orders_archive-ico {
+        color: rgb(0, 0, 0);
+        position: absolute;
+        right: 70px;
+        top: 155px;
+        font-size: 28px;
+        cursor: pointer;
+
+    }
+
+    .orders_confirmation-archive-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 25px;
+        padding: 35px;
+        display: grid;
+        justify-content: center;
+        height: 30vh;
+        font-size: 27px;
+        font-weight: bold;
+
+
+
+    }
+
+    .msg_confirm_btn-accept {
+        color: rgb(0, 170, 65);
+        cursor: pointer;
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+    .msg_confirm_btn-cancel {
+        color: red;
+        cursor: pointer;
+        font-size: 23px;
+        font-weight: bold;
+
+
+    }
+
+    .order_checkOut-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        color: rgb(56, 51, 51);
+        margin-right: 4vw;
+        color: pointer;
+
+    }
+    .order-container {
+        display: grid;
+        grid-template-columns: 5vw 8vw 40vw 7vw;
+        gap: 7vw;
+        justify-content: center;
+        padding: 8px;
+        border-bottom: 1px solid whitesmoke;
+        font-size: 22px;
+    }
+    
+    
+
+
+
+
 }
 
-.order_bakc-btn {
-    font-size: 27px;
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    color: rgb(255, 115, 0);
+@media (max-width:749px) {
+
+    .order_header {
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+
+    .order-nav_containre {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin-left: 25px;
+        font-weight: bold;
+    }
+
+    .ordersList-container {
+        margin-top: 25px;
+    }
+
+    .order_time {
+        text-align: center;
+    }
+
+    .orders_search-input {
+        margin-bottom: 30px;
+        margin-top: -5px;
+        border: none;
+        padding-bottom: 2px;
+        border-bottom: 1px solid rgb(223, 213, 213);
+        font-size: 17px;
+        width: 220px;
+        color: pointer;
+    }
+
+    .order_bakc-btn {
+        font-size: 27px;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        color: rgb(255, 115, 0);
+
+    }
+
+    .order_search-ico {
+        font-size: 25px;
+        position: absolute;
+        right: 20px;
+        top: 65px;
+        color: rgb(255, 102, 0);
+
+    }
+
+    .orders_archive-ico {
+        color: rgb(0, 0, 0);
+        font-size: 8px;
+        position: absolute;
+        right: 22px;
+        top: 116px;
+        font-size: 20px;
+    }
+
+    .orders_confirmation-archive-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 25px;
+        padding: 25px;
+        display: grid;
+        width: 60vw;
+        height: 15vh;
+
+
+    }
+
+    .msg_confirm_btn-accept {
+        color: rgb(0, 170, 65);
+        cursor: pointer;
+        margin-top: 25px;
+    }
+
+    .msg_confirm_btn-cancel {
+        color: red;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .order_checkOut-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 18px;
+        color: rgb(56, 51, 51);
+        cursor: pointer;    
+    }
+    .order-container {
+        display: grid;
+        grid-template-columns: 5vw 8vw 40vw 7vw;
+        gap: 7vw;
+        justify-content: center;
+        padding: 8px;
+        border-bottom: 1px solid whitesmoke;
+    }
+    
+    
+
+
 
 }
 
-.order-nav_containre {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin-left: 25px;
-    font-weight: bold;
 
-}
+
 
 .nav_tap-container {
     position: relative;
     color: rgb(255, 115, 0);
+    cursor: pointer;
+
 }
 
 .order-nav_orders-num {
@@ -35,56 +252,17 @@
 
 }
 
-.ordersList-container {
-    margin-top: 25px;
-}
-
 .order_cat_name {
     font-weight: bold;
     opacity: 55%;
     color: rgb(58, 58, 57);
 }
 
-.order-container {
-    display: grid;
-    grid-template-columns: 5vw 8vw 40vw 8vw;
-    gap: 7vw;
-    justify-content: center;
-    padding: 8px;
-    border-bottom: 1px solid whitesmoke;
-}
-
-.order_time {
-    text-align: center;
-}
-
-.order_checkOut-btn {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    color: rgb(56, 51, 51);
-}
-
-.order_search-ico {
-    font-size: 25px;
-    position: absolute;
-    right: 20px;
-    top: 65px;
-    color: rgb(255, 102, 0);
-
-}
-
-.orders_search-input {
-    margin-bottom: 30px;
-    margin-top: -5px;
-    border: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgb(223, 213, 213);
-    font-size: 17px;
-    width: 220px;
 
 
-}
+
+
+
 
 .orders_search-input:focus {
     outline: none;
@@ -95,49 +273,32 @@
     margin-left: 32px;
 }
 
-.orders_archive-ico {
-    color: rgb(0, 0, 0);
-    font-size: 8px;
-    position: absolute;
-    right: 22px;
-    top: 116px;
-    font-size: 20px;
+
+.orders_confirmation-archive-msg {
+    display: none;
+
 }
 
-.orders_confirmation-archive-msg{
-    display: none;
-}
-.orders_confirmation-archive-msg-bg{
+.orders_confirmation-archive-msg-bg {
     background-color: rgba(0, 0, 0, 0.548);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     z-index: 6;
-}
-.orders_confirmation-archive-msg__active{
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 10px 1px rgb(124, 123, 123);
-    border-radius: 25px;
-    position: absolute;
-    padding: 25px;
-    display: grid;
-    width: 70%;
-    top: 35vh;
-    height: 15vh;
-    left: 8%;
 
- 
 }
-.orders_confirmation-archive-msg__active button{
+
+.center-confirm-msg {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.orders_confirmation-archive-msg__active button {
     background-color: transparent;
     border: none;
-}
-.msg_confirm_btn-accept{
-    color: rgb(0, 170, 65);
-    cursor: pointer;
-}
-.msg_confirm_btn-cancel{
-    color: red;
-    cursor: pointer;
 }

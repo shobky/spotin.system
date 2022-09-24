@@ -1,6 +1,6 @@
 import { deleteDoc, doc } from 'firebase/firestore'
 import React from 'react'
-import { MdDelete } from 'react-icons/md'
+import { FaUserMinus } from 'react-icons/fa'
 import { db } from '../../../firebase/Config'
 
 const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
@@ -15,11 +15,11 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
         <div className='user-contaienr' >
 
             <div className='user_name-id-container' onClick={handleOnSelectUser}>
-                <strong><p className='user-name-select-user' >{user?.name}</p></strong>
                 <p>#{user?.uid}</p>
+                <p className='user-name-select-user' >{user?.name}</p>
             </div>
 
-            <button onClick={deleteUser} className='user-delete-btn'><MdDelete /></button>
+            <button onClick={deleteUser} className='user-delete-btn'><FaUserMinus /></button>
 
 
         </div>

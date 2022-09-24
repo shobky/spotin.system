@@ -39,6 +39,7 @@ const Orders = () => {
   const onArchiveAllMsg = () => {
     if (closedOrders?.length > 0) {
       msg.classList.remove("orders_confirmation-archive-msg")
+
     }
   }
   const closeArchiveMsg = () => {
@@ -67,7 +68,7 @@ const Orders = () => {
   return (
     <div>
       {
-        receipt ? newCart ? <AddToOrder handleAddNewItems={handleAddNewItems} order={order} /> :
+        receipt ? newCart ? <AddToOrder  handleAddNewItems={handleAddNewItems} order={order} /> :
           <Receipt handleAddNewItems={handleAddNewItems} onSetReceipt={onSetReceipt} order={order} />
           :
           <>
@@ -88,10 +89,12 @@ const Orders = () => {
               }
             </div>
             <div id='orders_msg_confirm' className='orders_confirmation-archive-msg orders_confirmation-archive-msg-bg  '>
-              <div className='orders_confirmation-archive-msg__active'>
-                <p style={{ textAlign: "center" }}> You sure you want to archive all {closedOrders?.length} closed orders ?</p>
-                <button onClick={handleArchiveAllOrders} className='msg_confirm_btn-accept'>Yes, I am Sure</button>
-                <button onClick={closeArchiveMsg} className='msg_confirm_btn-cancel'>No, Go Back</button>
+              <div className='center-confirm-msg'>
+                <div onClick={closeArchiveMsg} className='orders_confirmation-archive-msg__active'>
+                  <p style={{ textAlign: "center" }}> You sure you want to archive all {closedOrders?.length} closed orders ?</p>
+                  <button onClick={handleArchiveAllOrders} className='msg_confirm_btn-accept'>Yes, I am Sure</button>
+                  <button onClick={closeArchiveMsg} className='msg_confirm_btn-cancel'>No, Go Back</button>
+                </div>
               </div>
 
             </div>

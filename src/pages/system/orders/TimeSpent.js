@@ -30,7 +30,7 @@ const TimeSpent = ({ order, onSetTimeSpent, timeSpent }) => {
     }, [order])
     return (
         <div>
-            <p><strong>Checked in for:</strong> {timeSpent}</p>
+            <p style={{width:"190px"}} className='time_spent-num-of-persons'><strong>{order.tickets.number} person Checked in for:</strong> {timeSpent}</p>
         </div>
     )
 }

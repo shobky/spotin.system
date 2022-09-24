@@ -1,8 +1,7 @@
 import React from 'react'
 // icons
-import { RiAddCircleFill } from 'react-icons/ri'
+import { RiAddCircleFill, RiDeleteBin2Fill } from 'react-icons/ri'
 import { AiFillMinusCircle } from 'react-icons/ai'
-import { MdDelete } from 'react-icons/md'
 import { useDb } from '../../../../contexts/Database'
 import { useAuth } from '../../../../contexts/AuthContext'
 
@@ -41,7 +40,7 @@ const CartItem = ({ cartItem }) => {
             <div className='cart-item_action-btns'>
                 <button className=" cart_action-btn cart_qty-increase" onClick={increaceQty}><RiAddCircleFill className="cart_add-ico" /></button>
                 <button className=" cart_action-btn cart_qty-decrease" onClick={decreaceQty}><AiFillMinusCircle className="cart-decreese-ico" /></button>
-                <button className=" cart_action-btn cart-item_remove-btn" onClick={removeFromCart}><MdDelete /></button>
+                <button className=" cart_action-btn cart-item_remove-btn" onClick={removeFromCart}><RiDeleteBin2Fill /></button>
             </div>
         </div>
     )

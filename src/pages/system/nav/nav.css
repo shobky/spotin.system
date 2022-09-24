@@ -45,7 +45,7 @@
     }
 
     .nav_order-ico-num-length {
-        background-color: red;
+        background-color: rgb(0, 218, 47);
         width: 15px;
         height: 15px;
         font-size: 12px;
@@ -53,7 +53,7 @@
         color: white;
         position: absolute;
         border: none;
-        right: 40px;
+        right: 42px;
         top: -3px;
         z-index: 2;
         border-radius: 50%;
