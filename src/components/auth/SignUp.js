@@ -164,7 +164,7 @@ export default function Signup() {
                 }
                 <form onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div"><label className="auth_label">Name </label>
-                        <input  autocomplete="name" placeholder="Ahmed Shobky" className="sign-up_auth_input auth_input " ref={nameRef} required name="name" type="text" /></div>
+                        <input autocomplete="name" placeholder="Ahmed Shobky" className="sign-up_auth_input auth_input " ref={nameRef} required name="name" type="text" /></div>
 
                     <div className="auth-form-label-div"><label className="auth_label">Email </label>
                         <input placeholder="examble@provider.com" className="sign-up_auth_input auth_input" ref={emailRef} required name="email" type="email" /></div>

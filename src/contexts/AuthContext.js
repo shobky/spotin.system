@@ -20,12 +20,14 @@ export const AuthProvider = ({ children }) => {
             displayName: name,
             photoURL: url
         })
-        setDoc(doc(db, "Users", name), {
-            email: email,
-            name: name,
-            uid: uuidv4().slice(-5),
-            url: url
-        })
+        if (url?.length > 0) {
+            setDoc(doc(db, "Users", name), {
+                email: email,
+                name: name,
+                uid: uuidv4().slice(-5),
+                url: url
+            })
+        }
     }
 
     const login = (email, password) => {
