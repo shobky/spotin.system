@@ -21,8 +21,6 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
             </div>
 
             <button onClick={deleteUser} className='user-delete-btn'><FaUserMinus /></button>
-
-
         </div>
     )
 }
