@@ -1,4 +1,4 @@
-import {  doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { useDb } from '../../../contexts/Database'
@@ -74,7 +74,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
     await setDoc(doc(db, `open-orders`, `${orderId}#${selectedUser.uid}`), {
       id: orderId,
       status: "open",
-      user: { name: selectedUser.name, uid: selectedUser.uid },
+      user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "" },
       time,
       date,
       total,

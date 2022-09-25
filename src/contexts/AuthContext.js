@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { auth, db } from "../firebase/Config"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-
+import { uuidv4 } from "@firebase/util";
 const AuthContext = React.createContext()
 
 export const useAuth = () => {
@@ -19,6 +19,12 @@ export const AuthProvider = ({ children }) => {
         await updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: url
+        })
+        setDoc(doc(db, "Users", name), {
+            email: email,
+            name: name,
+            uid: uuidv4().slice(-5),
+            url: url
         })
     }
 
@@ -46,6 +52,7 @@ export const AuthProvider = ({ children }) => {
                     email: user.email,
                     name: user.displayName,
                     uid: user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13],
+                    url: user.photoURL
                 })
             }
         }

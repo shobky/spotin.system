@@ -152,6 +152,13 @@
 }
 
 @media (max-width:800px) {
+    .rece_avatar{
+        width: 45px;
+        position: absolute;
+        right: 20px;
+        top: 130px;
+        border-radius: 50%;
+    }
     .time_spent-num-of-persons {
         width: 2vw;
     }

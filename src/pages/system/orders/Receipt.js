@@ -9,6 +9,7 @@ import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { GiPlainCircle } from 'react-icons/gi'
 import { db } from '../../../firebase/Config'
 
+import avataro from '../../../assets/avatars/man.png'
 const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
     const [timeSpent, setTimeSpent] = useState()
 
@@ -22,7 +23,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
         const data = {
             id: order.id,
             status: "closed",
-            user: { name: order.user.name, uid: order.user.uid },
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "" },
             time: order.time,
             date: order.date,
             total: order.total,
@@ -39,7 +40,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
         const data = {
             id: `${order.id}`,
             status: "archived",
-            user: { name: order.user.name, uid: order.user.uid },
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "" },
             time: order.time,
             date: order.date,
             total: order.total,
@@ -77,7 +78,10 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                 {
                     order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
                 }
-
+                {
+                    order.user.url ?
+                        <img className="rece_avatar" alt='' src={order.user.url} /> : ""
+                }
                 <div className='receipt_container'>
 
                     <p className='rec_order-id'><GiPlainCircle className={

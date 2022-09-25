@@ -5,7 +5,7 @@ import { db } from '../../../firebase/Config'
 
 const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
     const handleOnSelectUser = () => {
-        onSetSelectedUser(user.name, user.uid)
+        onSetSelectedUser(user.name, user.uid, user.url?? "")
         onSetChoose()
         onShowPrepare()
     }
