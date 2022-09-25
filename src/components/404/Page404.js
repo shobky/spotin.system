@@ -15,7 +15,7 @@ const Page404 = () => {
 
                             <div className="contant_box_404">
                                 <h3 className="h2">
-                                    Look like you're lost
+                                    Looks like you're lost
                                 </h3>
 
                                 <p>This page doesn't exist, or maybe you don't have the credentials to visit it !</p>

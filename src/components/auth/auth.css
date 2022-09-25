@@ -1,7 +1,8 @@
 .auth-container {
     padding: 0 5vw 0 5vw;
     height: 100%;
-    overflow:hidden;
+    overflow-x: hidden;
+
 
 }
 
@@ -115,10 +116,10 @@
 .auth_input {
     border: none;
     border-bottom: 1.5px solid rgb(184, 184, 184);
-    padding-bottom: 3px;
     font-size: 15px;
     width: 85vw;
     max-width: 500px;
+    padding: 5px;
 }
 
 .auth_input:focus {
@@ -207,58 +208,6 @@
     color: #5a5454;
 }
 
-.sumbit-btn-signup {
-    background-color: transparent;
-    border: 1.5px solid black;
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 15px;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    left: 70vw;
-    top: 25px;
-
-}
-
-.submit-btn-loading {
-    background-color: transparent;
-    border: 1.5px solid black;
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 15px;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    left: 70vw;
-    top: 25px;
-    animation: loading-signup 1.5s infinite;
-}
-
-@keyframes loading-signup {
-
-    /* 0 & 100% might not be needed */
-    10% {
-        transform: rotate(720deg);
-        border: 1.5px solid rgb(0, 0, 0);
-
-
-    }
-
-    50% {
-        transform: rotate(360deg);
-        border: 2px solid rgb(0, 0, 0);
-
-    }
-
-    25%,
-    75% {
-        transform: rotate(720deg);
-        border: 2.5px solid rgb(133, 133, 133);
-
-
-    }
-}
 
 .submit-btn-loading::after {
     content: "--";
@@ -310,7 +259,8 @@
     left: 80vw;
     bottom: 35vh;
 }
-.auth_forgot-pass{
+
+.auth_forgot-pass {
     text-decoration: none;
     position: relative;
     margin-bottom: -3vh;
@@ -318,14 +268,16 @@
     color: #ff8800;
     font-weight: bold;
 }
-.auth_err{
+
+.auth_err {
     color: rgb(255, 0, 0);
     font-weight: bold;
     position: relative;
     top: 50px;
     text-align: center;
 }
-.auth_err-signUp{
+
+.auth_err-signUp {
     color: rgb(255, 0, 0);
     font-weight: bold;
     position: relative;
@@ -333,13 +285,14 @@
     text-align: center;
 
 }
+
 @media (max-width:635px) {
     .auth-black-circle-container {
         overflow: hidden;
         position: relative;
         padding-left: 60px;
     }
-    
+
     .auth-black-circle {
         position: relative;
         width: 250px;
@@ -348,12 +301,13 @@
         border-radius: 50%;
         top: -35px;
         right: 40px;
-    
+
     }
+
     .auth_hello-txt-div {
         width: 40vw;
     }
-    
+
     .auth_hello-text {
         font-size: 40px;
         font-family: montserrat-bold;
@@ -361,7 +315,7 @@
         letter-spacing: 1px;
         margin-top: 130px;
     }
-    
+
     .auth_hello-sub-text {
         font-size: 13px;
         font-weight: bold;
@@ -369,6 +323,7 @@
         color: #5a5454;
         margin-top: 10px;
     }
+
     .auth-user-image {
         width: 110px;
         border-radius: 50%;
@@ -378,13 +333,69 @@
         bottom: 110px;
         left: 15px;
     }
+
+    .auth_user-photo_actions {
+        position: relative;
+        right: -75px;
+        bottom: 35px;
+    }
     
-.auth_user-photo_actions {
+.sumbit-btn-signup {
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
     position: relative;
-    right: -75px;
-    bottom: 35px;
+    left: 70vw;
+    top: 25px;
+
 }
+.submit-btn-loading {
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 70vw;
+    top: 25px;
+    animation: loading-signup 1.5s infinite;
 }
+
+
+
+@keyframes loading-signup {
+
+    /* 0 & 100% might not be needed */
+    10% {
+        transform: rotate(720deg);
+        border: 1.5px solid rgb(0, 0, 0);
+
+
+    }
+
+    50% {
+        transform: rotate(360deg);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    25%,
+    75% {
+        transform: rotate(720deg);
+        border: 2.5px solid rgb(133, 133, 133);
+
+
+    }
+}
+    
+}
+
 @media (min-width:636px) {
     .auth-black-circle-container {
         overflow: hidden;
@@ -393,7 +404,7 @@
         left: 5vw;
         margin-bottom: -15vw;
     }
-    
+
     .auth-black-circle {
         position: relative;
         width: 30vw;
@@ -405,11 +416,12 @@
         border-radius: 50%;
         top: -35px;
     }
+
     .auth_hello-txt-div {
         width: 40vw;
         margin-left: 10vw;
     }
-    
+
     .auth_hello-text {
         font-size: 55px;
         font-family: montserrat-bold;
@@ -417,7 +429,7 @@
         letter-spacing: 1px;
         margin-top: 120px;
     }
-    
+
     .auth_hello-sub-text {
         font-size: 20px;
         font-weight: bold;
@@ -425,7 +437,7 @@
         color: #5a5454;
         margin-top: 10px;
     }
-    
+
     .auth-user-image {
         width: 180px;
         border-radius: 50%;
@@ -435,11 +447,64 @@
         bottom: 160px;
         left: 15px;
     }
+
+    .auth_user-photo_actions {
+        position: relative;
+        right: -125px;
+        bottom: 95px;
+    }
     
-.auth_user-photo_actions {
+.sumbit-btn-signup {
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
     position: relative;
-    right: -125px;
-    bottom: 95px;
+    left: 33.5vw;
+    top: 25px;
+
 }
+.submit-btn-loading {
+    background-color: transparent;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 33.5vw;
+    top: 25px;
+    animation: loading-signup 1.5s infinite;
 }
 
+
+
+@keyframes loading-signup {
+
+    /* 0 & 100% might not be needed */
+    10% {
+        transform: rotate(720deg);
+        border: 1.5px solid rgb(0, 0, 0);
+
+
+    }
+
+    50% {
+        transform: rotate(360deg);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    25%,
+    75% {
+        transform: rotate(720deg);
+        border: 2.5px solid rgb(133, 133, 133);
+
+
+    }
+}
+}

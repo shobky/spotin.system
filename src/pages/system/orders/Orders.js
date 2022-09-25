@@ -2,18 +2,19 @@ import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { BsArchive } from 'react-icons/bs'
 import { IoMdAdd } from 'react-icons/io'
-import { MdDeleteSweep, MdOutlineDelete } from 'react-icons/md'
+import { MdDeleteSweep } from 'react-icons/md'
 import { TbSearch, TbSearchOff } from 'react-icons/tb'
 
 import { Link } from 'react-router-dom'
 import { useDb } from '../../../contexts/Database'
-import { db } from '../../../firebase/Config'
+import { auth, db } from '../../../firebase/Config'
 import AddToOrder from '../addNewToOrder/AddToOrder'
 import Header from '../header/Header'
 import OrderList from './OrderList'
 import OrderNav from './OrderNav'
 import './orders.css'
 import Receipt from './Receipt'
+import { useAuth } from '../../../contexts/AuthContext'
 
 const Orders = () => {
   const { remove, openOrders, closedOrders, deletedOrders } = useDb()
@@ -22,9 +23,13 @@ const Orders = () => {
   const [showSearch, setShowSearch] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [newCart, setNewCart] = useState(false)
-
+  const { user } = useAuth()
   const [receipt, setReceipt] = useState(false)
   const msg = document.getElementById("orders_msg_confirm")
+
+  const ownerId = process.env.REACT_APP_OWNER_ID;
+  const devId = process.env.REACT_APP_DEV_ID;
+
 
 
 
@@ -114,10 +119,14 @@ const Orders = () => {
 
 
                   </div>
-                  <MdDeleteSweep onClick={onMsgDelete} className="orders_delete-all-ico" /></>
+                  {
+                    auth.currentUser.uid ===  devId || ownerId ?
+                      <MdDeleteSweep onClick={onMsgDelete} className="orders_delete-all-ico" />
+                      : ""
+                  }
+
+                </>
               }
-
-
 
               <Header />
               {

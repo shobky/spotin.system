@@ -85,7 +85,7 @@ export default function Login() {
                 <div style={{ display: "flex", marginTop: "10px", justifyContent: "center" }}>
                     <Link className="auth_forgot-pass" to='/forgor-password'>Forgot Password</Link>
                 </div>
-                <p className="auth_footer">Don't have an account? <span ><Link className="auth_footer-btn" to="/signup">Sign Up</Link></span></p>
+                <p className="auth_footer">Don't have an account? <span ><Link className="auth_footer-btn" to="/signup">sign up</Link></span></p>
             </div>
             <GiPlainCircle className="auth_circle-fill auth_circle-fill1 " />
             <GiPlainCircle className="auth_circle-fill auth_circle-fill2 " />
