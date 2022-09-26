@@ -27,6 +27,12 @@ export const AuthProvider = ({ children }) => {
                 uid: uuidv4().slice(-5),
                 url: url
             })
+        } else {
+            setDoc(doc(db, "Users", name), {
+                email: email,
+                name: name,
+                uid: uuidv4().slice(-5),
+            })
         }
     }
 

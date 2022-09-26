@@ -164,11 +164,11 @@ export default function Signup() {
                 }
                 <form onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div"><label className="auth_label">Name </label>
-                        <input autocomplete="name" placeholder="Ahmed Shobky" className="sign-up_auth_input auth_input " ref={nameRef} required name="name" type="text" /></div>
+                        <input autoComplete="name" placeholder="Ahmed Shobky" className="sign-up_auth_input auth_input " ref={nameRef} required name="name" type="text" /></div>
 
                     <div className="auth-form-label-div"><label className="auth_label">Email </label>
                         <input placeholder="examble@provider.com" className="sign-up_auth_input auth_input" ref={emailRef} required name="email" type="email" /></div>
-                    <label autocomplete="current-password" className="auth_label"> Password </label>
+                    <label autoComplete="current-password" className="auth_label"> Password </label>
                     <div className="auth-form-label-div" style={{ position: "relative" }}>
                         <input placeholder="Type your passowrd" className="sign-up_auth_input auth_input" ref={passwordRef} required name="new-password" type={showPassword} />
                         <button type="button" className="auth_show-password-btn" onClick={(e) => showingthePassword(e)}>{showPassword === 'password' ? <RiEyeCloseLine className="passIco" /> : <RiEyeLine className="passIco" />}</button>

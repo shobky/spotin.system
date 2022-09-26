@@ -68,14 +68,14 @@ export default function Login() {
                 <form autoComplete="true" onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div">
                         <label className="auth_label">Email </label>
-                        <input placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />
+                        <input autoComplete="email" placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />
                     </div>
 
                     <div className="auth-form-label-div">
-                        <label className="auth_label"> Password </label>
+                        <label  className="auth_label"> Password </label>
                         <div style={{ position: "relative" }}>
 
-                            <input placeholder="enter your password" id="password_input" className="Log-in_auth_input auth_input" ref={passwordRef} required name="password" type={showPassword ? "text" : "password"} />
+                            <input autoComplete="current-password" placeholder="enter your password" id="password_input" className="Log-in_auth_input auth_input" ref={passwordRef} required name="password" type={showPassword ? "text" : "password"} />
                             <button type="button" className="auth_show-password-btn" onClick={showingthePassword}>{showPassword ? <RiEyeLine className="passIco" /> : <RiEyeCloseLine className="passIco" />}</button>
                         </div>
                     </div>

@@ -1,0 +1,248 @@
+.home {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+/* dots */
+
+.home_circle {
+    font-size: 15px;
+    border-radius: 50%;
+}
+
+.home_circle-1 {
+    position: absolute;
+    top: 36vh;
+    right: 20vw;
+    color: #604001;
+    background-color: #604001;
+}
+
+.home_circle-2 {
+    position: absolute;
+    top: 38vh;
+    right: 30vw;
+    color: #fa800e;
+    background-color: #fa800e;
+
+
+}
+
+.home_circle-3 {
+    position: absolute;
+    top: 43vh;
+    right: 34vw;
+    color: #70906e;
+    background-color: #70906e;
+}
+
+/* style */
+
+.home_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px;
+    position: relative;
+}
+
+.home_name {
+    font-family: montserrat-black;
+}
+
+.home_name span {
+    font-family: montserrat-regular;
+    font-size: 28px;
+}
+
+
+
+.home_search-ico {
+    position: absolute;
+    top: 12px;
+    right: 40px;
+    font-size: 23px;
+    z-index: 8;
+}
+.home_header_search-input{
+    width: 125px;
+    position: absolute;
+    top: 8px;
+    right: 40px;
+    border-radius: 25px;
+    border: 1px solid rgb(187, 187, 187);
+    z-index: 5;
+    height: 31px;
+    font-size: 16px;
+    padding: 6px;
+}
+.home_header_search-input:focus{
+    outline: none;
+    border: 1px solid rgb(255, 123, 0);
+    text-decoration: none;
+    padding: 7px;
+}
+
+.home_search-ico__active{
+    z-index: 6;
+    position: absolute;
+    top: 9px;
+    right: 41px;
+    border-radius:  0 25px 25px 0 ;
+    font-size: 21px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    padding: 4px;
+
+}
+.home_circle_container {
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: -80px;
+    top: -75px;
+}
+
+.home_circle_content {
+    position: relative;
+    top: 130px;
+    right: -20px;
+
+}
+
+.home_userPhoto {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 0px 2px rgb(255, 255, 255);
+}
+
+.home_userAvatar {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.home_login-icon {
+    transform: rotate(180deg);
+    font-size: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px 1px rgb(54, 54, 54);
+    color: #000000;
+    padding: 4px;
+    border-radius: 50px;
+    position: relative;
+    right: 45px;
+    top: 6px;
+}
+
+.home_logout-icon {
+    font-size: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px 1px rgb(54, 54, 54);
+    color: #000000;
+    padding: 4px;
+    border-radius: 50px;
+    position: relative;
+    right: 45px;
+    top: 6px;
+}
+
+.home_logout-icon:active {
+    opacity: 85%;
+    padding: 6px;
+    font-size: 23px;
+}
+
+.home_content {
+    margin-top: 120px;
+    padding: 25px;
+    font-size: 17px;
+}
+
+.home_content_username {
+    font-weight: bold;
+}
+
+.home-content-slogan {
+    font-size: 18px;
+}
+
+.home-content-slogan span {
+    font-weight: bold;
+}
+.home_no-user-crete-link{
+    text-decoration: none;
+    color: #ffffff;
+    position: relative;
+    top: 30px;
+    left: -5px;
+    background-color: #fa800e;
+    padding: 8px 10px 8px 10px;
+    font-weight: bold;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 25px;
+}
+.home_no-user-crete-link:hover{
+    background-color: #b15500;
+    font-size: 19px;
+    padding: 9px 10px 9px 10px;
+
+}
+.home_content-link-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 150px;
+}
+
+.home_content-Link {
+    text-decoration: none;
+    font-size: 17px;
+    color: #fa800e;
+    font-family: montserrat-light;
+    font-weight: bold;
+
+}
+
+
+
+.home_content_section-2-header {
+    margin-top: 147px;
+    width: 170px;
+    font-size: 18px;
+}
+
+.home_content_section-2_link-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.home_section-2_user-links::first-letter {
+    text-transform: capitalize;
+}
+
+.home_section-2_user-links {
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 25px;
+    color: #5c420f;
+    font-weight: bold;
+    font-family: montserrat-light;
+    width: 25px;
+
+}
+
+.home_content_sectino-2_img {
+    width: 245px;
+    transform: rotatey(180deg);
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    z-index: 8;
+}
