@@ -12,11 +12,12 @@ const Prepare = React.lazy(() => import('./prepare/Prepare'))
 
 const System = () => {
 
-  const { upload, orderId } = useDb()
+  const { upload, orderId, cart } = useDb()
   const { user } = useAuth()
   const [choose, setChoose] = useState(false)
   const [selectedUser, setSelectedUser] = useState([])
   const [showPrebare, setShowPrepare] = useState(true)
+  const [total, setTotal] = useState(0)
 
   const onShowPrepare = () => {
     setShowPrepare(!showPrebare)
@@ -27,11 +28,16 @@ const System = () => {
       document.getElementById('prepare').classList.remove("mb_prepare__show")
     }
   }
+
+  const getTotalPrices = (number) => {
+    setTotal(number)
+  }
+
   const onAddToCart = async (item) => {
     const path = `cart#${orderId}-${(user?.uid).slice(-5)}`
     await upload(path, item.name, {
       item,
-      qty: 1
+      qty: 1,
     })
   }
 
@@ -63,6 +69,7 @@ const System = () => {
         </div>
         <Suspense fallback={<Loading />}>
           <Prepare
+          getTotalPrices={getTotalPrices}
             onShowPrepare={onShowPrepare}
             onSetChoose={onSetChoose}
             selectedUser={selectedUser}

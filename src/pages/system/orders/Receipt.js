@@ -96,12 +96,12 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                         order.status === "open" ?
                             timeSpent ?
                                 <p className='rece_total-price'>Subtotal: {
-                                    timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total + order.tickets.price
-                                }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total + order.tickets.price}L.e</p>
+                                    timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total
+                                }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total }L.e</p>
                             : order.timeSpent ?
                                 <p className='rece_total-price'>Subtotal: {
-                                    order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total + order.tickets.price
-                                }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total + order.tickets.price}L.e</p>
+                                    order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total
+                                }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total}L.e</p>
                     }
                     <br />
 
@@ -155,7 +155,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                                     order.newCart?.newCartDoc.length > 0 ?
                                         <p className='rece_cart-total'><strong>Total:</strong> {(order.total + order.newCart.total)}L.e</p>
                                         :
-                                        <p className='rece_cart-total'><strong>Total:</strong> {order.total}L.e</p>
+                                        <p className='rece_cart-total'><strong>Total:</strong> {order.total - order.tickets.price}L.e</p>
                                 }
 
                             </div>
@@ -170,12 +170,12 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     order.status === "open" ?
                         timeSpent ?
                             <p className='total_in-bottom'>{
-                                timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total + order.tickets?.price
-                            }L.e</p> : <p className='total_in-bottom'>{order.total + order.tickets.price}L.e</p>
+                                timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total 
+                            }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                         : order.timeSpent ?
                             <p className='total_in-bottom'>{
-                                order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total + order.tickets?.price
-                            }L.e</p> : <p className='total_in-bottom'>{order.total + order.tickets?.price}L.e</p>
+                                order.timeSpent[0] >= 2 ? order.total + 15 * order.tickets.number : order.total 
+                            }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                 }
                 {
                     order.status === 'open' ?

@@ -180,7 +180,10 @@ export default function Signup() {
                     </div>
                     <button className={loading ? "submit-btn-loading" : "sumbit-btn-signup"} type="submit"><IoSend /></button>
                 </form>
-                <p className="auth_footer">Already have an account ? <span ><Link className="auth_footer-btn" to="/login">log in</Link></span></p>
+               <div className="footer-container"> 
+               <p className="auth_footer">Already have an account ? </p>
+                <Link className="auth_footer-btn" to="/login">log in</Link>
+               </div>
             </div>
             <GiPlainCircle className="auth_circle-fill auth_circle-fill1 " />
             <GiPlainCircle className="auth_circle-fill auth_circle-fill2 " />

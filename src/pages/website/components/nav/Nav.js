@@ -5,17 +5,11 @@ import "./nav.css"
 
 const Nav = () => {
     const navDiv = document.getElementById('navMenu')
-    const [menu, setMenu] = useState(false)
+    const [menu, setMenu] = useState(true)
 
     const onShowMenu = () => {
         setMenu(!menu)
-        if (menu === true) {
-            navDiv.classList.remove('nav-menu__hidden')
-            navDiv.classList.add('nav-menu__visible')
-        } else {
-            navDiv.classList.add('nav-menu__hidden')
-            navDiv.classList.remove('nav-menu__visible')
-        }
+
     }
     return (
         <>
@@ -26,9 +20,15 @@ const Nav = () => {
                 <div className={menu ? 'menu-line-bottom burger-line' : 'menu-line-bottom__open burger-line'}></div>
             </div>
 
-            <div className='nav-menu__hidden' id='navMenu'>
+            <div className={menu ? 'nav-menu__hidden' : 'nav-menu__visible'} id='navMenu'>
                 <div className='home_nav-container'>
-                    hi
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>My Profile</p>
+                    <p>Events</p>
+                    <p>Workshops</p>
+                    <p>Menu</p>
+
                 </div>
             </div>
 

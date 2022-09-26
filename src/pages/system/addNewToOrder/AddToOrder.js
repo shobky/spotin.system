@@ -76,7 +76,7 @@ const AddToOrder = ({ order, handleAddNewItems }) => {
                 price: order.tickets.price + tickets.price ?? "",
                 time: time
             },
-            total: order.total + newTotal ?? 0
+            total: order.total + newTotal + tickets?.price ?? 0
 
         }).then(() => {
             newCartDoc?.map(async (cartItem) => {

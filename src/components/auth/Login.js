@@ -49,10 +49,10 @@ export default function Login() {
     return (
         <div className="auth-container">
             <div className="auth_backk-container">
-                <Link to="/"> <MdKeyboardBackspace className="auth_back-arr" /><span className="auth_back-arrow-longer"></span> </Link>
+                <Link to="/"> <MdKeyboardBackspace className="auth_back-arr" /></Link>
             </div>
             <div className="auth_content">
-                <h1 className="auth_header">Log In </h1>
+                <p className="auth_header">Log In </p>
                 <div className="auth_header-contaeirn">
                     <div className="auth_hello-txt-div">
                         <p className="auth_hello-text">Hello <br /> Again,</p>
@@ -72,20 +72,23 @@ export default function Login() {
                     </div>
 
                     <div className="auth-form-label-div">
-                        <label  className="auth_label"> Password </label>
+                        <label className="auth_label"> Password </label>
                         <div style={{ position: "relative" }}>
 
                             <input autoComplete="current-password" placeholder="enter your password" id="password_input" className="Log-in_auth_input auth_input" ref={passwordRef} required name="password" type={showPassword ? "text" : "password"} />
                             <button type="button" className="auth_show-password-btn" onClick={showingthePassword}>{showPassword ? <RiEyeLine className="passIco" /> : <RiEyeCloseLine className="passIco" />}</button>
                         </div>
                     </div>
-                    <button className={loading ? "submit-btn-loading" : "sumbit-btn-signup"} type="submit"><IoSend /></button>
+                    <button className={loading ? "submit-btn-loading loginsubmit" : "sumbit-btn-signup loginsubmit"} type="submit"><IoSend /></button>
 
                 </form>
                 <div style={{ display: "flex", marginTop: "10px", justifyContent: "center" }}>
                     <Link className="auth_forgot-pass" to='/forgor-password'>Forgot Password</Link>
                 </div>
-                <p className="auth_footer">Don't have an account? <span ><Link className="auth_footer-btn" to="/signup">sign up</Link></span></p>
+                <div className="footer-container">
+                    <p className="auth_footer">Don't have an account? </p>
+                    <Link to="/signup" className="auth_footer-btn" >sign up</Link>
+                </div>
             </div>
             <GiPlainCircle className="auth_circle-fill auth_circle-fill1 " />
             <GiPlainCircle className="auth_circle-fill auth_circle-fill2 " />

@@ -10,7 +10,7 @@ import './prepare.css'
 import Summary from './Summary'
 import CurrentDate from './time/CurrentDate'
 
-const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowPrepare }) => {
+const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowPrepare, getTotalPrices }) => {
 
   const { cart, orderId, remove } = useDb()
   const { user } = useAuth()
@@ -48,8 +48,6 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
       allPrices.push(products.item.price * products.qty)
     )
     setTotal(allPrices.reduce((a, b) => a + b, 0) + tickets.price)
-
-
   }
 
   useEffect(() => {

@@ -59,11 +59,11 @@ const Home = () => {
 
                 <h1 className='home_name'>Spot<span>In</span></h1>
                 <div>
-                    {searchActv ? <>
-                        <input placeholder='search...' type="text" className='home_header_search-input' />
-                        <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico__active' /> </>
-                        :
-                        <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico' />}
+                    <input placeholder='search...' type="text" className={!searchActv ? 'home_header_search-input__active' : 'home_header_search-input'} />
+                    {searchActv ? <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico__active' />
+                        : <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico' />
+                    }
+
                 </div>
                 <div className='home_circle_container'>
                     <div className='home_circle_content'>
