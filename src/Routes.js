@@ -44,7 +44,7 @@ const AllRoutes = () => {
                         </DataProvider>
                     } />
                     <Route path="/cashier.system/add-new-item" element={
-                        <Suspense fallback={<Loading />}>
+                        <Suspense fallback={<Logo />}>
                             <DataProvider>
                                 <AddNewItems />
                             </DataProvider>
@@ -52,7 +52,7 @@ const AllRoutes = () => {
                         </Suspense>
                     } />
                     <Route path="/cashier.system/orders" element={
-                        <Suspense fallback={<Loading />}>
+                        <Suspense fallback={<Logo />}>
                             <DataProvider>
                                 <Orders />
                             </DataProvider>

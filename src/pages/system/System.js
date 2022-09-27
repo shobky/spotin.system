@@ -5,6 +5,7 @@ import Nav from './nav/Nav'
 import { useDb } from '../../contexts/Database'
 import UserList from './selectUser/UserList'
 import { useAuth } from '../../contexts/AuthContext'
+import Logo from '../../components/loadingAnimaitno/Logo'
 import Loading from '../../components/loadingAnimaitno/Loading'
 const Produts = React.lazy(() => import('./products/Produts'))
 const Prepare = React.lazy(() => import('./prepare/Prepare'))
