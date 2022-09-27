@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 const Header = () => {
     const navigate = useNavigate()
     const goToHome = () => {
-        navigate("/home")
+        navigate("/")
     }
     return (
         <div onClick={goToHome} className='system_header'>
