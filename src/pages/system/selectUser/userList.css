@@ -176,7 +176,53 @@
         color: rgb(0, 0, 0);
     }
 
-    .user-delete-btn:hover {}
+    .msg-confirm-delete-user__hidden{
+        display: none;
+    }
+    .msg-confirm-delete-user__vis {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 40vh;
+        left: 15vw;
+        z-index: 5;
+        border-radius: 25px;
+        box-shadow: 0 0 10px 1px rgb(202, 202, 202);
+        color: black;
+        height: 20vh;
+        width: 70vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .msg-confirm-delete-user__vis p {
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 25px;
+    }
+
+    .msg-confirm-delete-user__vis button {
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 2.5px;
+        border-radius: 25px;
+        height: 30px;
+        margin-bottom: -4px;
+        background-color: transparent;
+    }
+
+    .msg-dlt-use-delete {
+        color: red;
+
+    }
+
+    .msg-dlt-use-cancel {
+        color: rgb(97, 199, 105);
+    }
+
+
 
 
 }

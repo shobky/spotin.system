@@ -1,3 +1,9 @@
+.current-open,
+.current-closed,
+.current-deleted {
+    border-bottom: 2px solid rgb(255, 103, 14);
+}
+
 .strike-through {
     text-decoration: line-through 2px rgb(255, 103, 14);
 }
@@ -238,15 +244,16 @@
     .msg_confirm_btn-accept {
         color: rgb(0, 170, 65);
         cursor: pointer;
-        margin-top: 25px;
+        margin-top: 20px;
     }
 
     .msg_confirm_btn-cancel {
         color: red;
         cursor: pointer;
-        margin-top: 10px;
+        margin-top: 15px;
     }
-    .msg_confirm_btn-go-back{
+
+    .msg_confirm_btn-go-back {
         cursor: pointer;
         color: rgb(0, 153, 255);
         font-weight: bold;
@@ -254,6 +261,7 @@
 
 
     }
+
     .msg_confirm_btn-delete {
         cursor: pointer;
         color: red;
@@ -280,7 +288,7 @@
         border-bottom: 1px solid whitesmoke;
     }
 
-
+   
 
 
 
@@ -384,6 +392,6 @@
     position: absolute;
     right: 17px;
     top: 105px;
-    color: rgb(255, 0, 55);
+    color: rgb(0, 0, 0);
 
 }

@@ -1,3 +1,5 @@
+import { db } from '../../../firebase/Config'
+import { deleteDoc, doc } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import { useDb } from '../../../contexts/Database'
@@ -7,6 +9,21 @@ import './userList.css'
 const UserList = ({ onSetSelectedUser, onSetChoose, onShowPrepare }) => {
     const { users } = useDb()
     const [searchQ, setSearchQ] = useState('')
+    const [user, setUser] = useState()
+
+    const deleteUser = async () => {
+        await deleteDoc(doc(db, `Users/${user?.name}`));
+        document.getElementById("msg-confirm-delete-user").classList.remove("msg-confirm-delete-user__vis")
+
+    }
+    const cancelDeleteUser = () => {
+        document.getElementById("msg-confirm-delete-user").classList.remove("msg-confirm-delete-user__vis")
+
+    }
+
+    const onSetUser = (person) => {
+        setUser(person)
+    }
     return (
         <>
             <div className='searc-input-user-div'>
@@ -26,8 +43,15 @@ const UserList = ({ onSetSelectedUser, onSetChoose, onShowPrepare }) => {
                         } else {
                         }
                     }).map((user, index) => (
-                        <User onShowPrepare={onShowPrepare} index={index} onSetChoose={onSetChoose} onSetSelectedUser={onSetSelectedUser} user={user} key={index} />
+                        <User onSetUser={onSetUser} onShowPrepare={onShowPrepare} index={index} onSetChoose={onSetChoose} onSetSelectedUser={onSetSelectedUser} user={user} key={index} />
                     ))}
+
+                <div id="msg-confirm-delete-user" className=' msg-confirm-delete-user__hidden'>
+                    <p> Are You sure you want to remove this user ?</p>
+                    <button onClick={deleteUser} className='msg-dlt-use-delete'>Delete</button>
+                    <button onClick={cancelDeleteUser} className='msg-dlt-use-cancel'>Cancel</button>
+
+                </div>
 
             </div></>
     )

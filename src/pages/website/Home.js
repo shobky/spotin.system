@@ -89,7 +89,10 @@ const Home = () => {
                                             <Link className='home_content-Link' to="/cashier.system">Cashier System</Link>
                                             <Link className='home_content-Link home_btw-link' to="/cashier.system/orders">Orders</Link>
                                             <Link className='home_content-Link home_btw-link' to="/cashier.system/add-new-item">Add Items</Link>
-
+                                            {
+                                                (user?.uid === process.env.REACT_APP_OWNER_ID || user?.uid === process.env.REACT_APP_DEV_ID) &&
+                                                <Link className='home_content-Link home_btw-link' to="/cashier.system/orders/ledger">ledger</Link>
+                                            }
                                         </div>
 
                                     </div>

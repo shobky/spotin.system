@@ -1,11 +1,11 @@
-import { deleteDoc, doc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { RiUserSharedFill, RiUserUnfollowFill } from 'react-icons/ri'
-import { db } from '../../../firebase/Config'
+
+
 import man from '../../../assets/avatars/man.png'
 import { useDb } from '../../../contexts/Database'
 
-const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
+const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare, onSetUser }) => {
     const { openOrders, closedOrders } = useDb()
     const [inSpace, setInSpace] = useState(false)
     const [paid, setPaid] = useState(false)
@@ -16,9 +16,11 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
         onSetChoose()
         onShowPrepare()
     }
-    const deleteUser = () => {
-        deleteDoc(doc(db, `Users/${user?.name}`));
+    const showMsgConfirm = () => {
+        onSetUser(user)
+        document.getElementById("msg-confirm-delete-user").classList.add("msg-confirm-delete-user__vis")
     }
+  
     console.log(user)
     useEffect(() => {
         const userPlace = () => {
@@ -51,7 +53,7 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare }) => {
                 </div>
 
             </div>
-            <button onClick={deleteUser} className='user-delete-btn'><RiUserUnfollowFill /></button>
+            <button onClick={showMsgConfirm} className='user-delete-btn'><RiUserUnfollowFill /></button>
             <button onClick={handleOnSelectUser} className='user-select-btn'><RiUserSharedFill /></button>
 
         </div>

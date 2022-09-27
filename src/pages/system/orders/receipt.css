@@ -148,6 +148,13 @@
         cursor: pointer;
 
     }
+    .rece_avatar{
+        width: 65px;
+        position: absolute;
+        right: 62px;
+        top: 140px;
+        border-radius: 50%;
+    }
 
 }
 

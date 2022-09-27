@@ -120,7 +120,7 @@ const Orders = () => {
 
                   </div>
                   {
-                    auth.currentUser.uid ===  devId || ownerId ?
+                    auth.currentUser.uid === devId || ownerId ?
                       <MdDeleteSweep onClick={onMsgDelete} className="orders_delete-all-ico" />
                       : ""
                   }
@@ -150,6 +150,7 @@ const Orders = () => {
               {showSearch && <input onChange={event => setSearchTerm(event.target.value)} className='orders_search-input' placeholder='search...' />}
             </div>
             <OrderNav
+              tab={tab}
               openOrders={openOrders}
               closedOrders={closedOrders}
               deletedOrders={deletedOrders}

@@ -65,7 +65,7 @@ export default function Login() {
                 {error &&
                     <p className="auth_err">{error}</p>
                 }
-                <form autoComplete="true" onSubmit={handleSubmit} className="auth_form">
+                <form autoComplete={true} onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div">
                         <label className="auth_label">Email </label>
                         <input autoComplete="email" placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />

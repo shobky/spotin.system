@@ -13,6 +13,7 @@ import AddNewItems from "./components/addNewItems/AddNewItems"
 import { DataProvider } from "./contexts/Database"
 import System from './pages/system/System'
 import Logo from "./components/loadingAnimaitno/Logo"
+import Ledger from "./pages/system/ledger/Ledger"
 const Orders = React.lazy(() => import("./pages/system/orders/Orders"))
 const Page404 = React.lazy(() => import("./components/404/Page404"))
 
@@ -60,6 +61,11 @@ const AllRoutes = () => {
                     } />
 
                     <Route element={<OwnerRoutes />}>
+                        <Route path="/cashier.system/orders/ledger" element={
+                            <DataProvider>
+                                <Ledger />
+                            </DataProvider>
+                        } />
                     </Route>
                 </Route>
             </Route>
