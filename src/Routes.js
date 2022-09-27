@@ -12,6 +12,7 @@ import UserRotues from "./components/privateRoutes/UserRoutes"
 import AddNewItems from "./components/addNewItems/AddNewItems"
 import { DataProvider } from "./contexts/Database"
 import System from './pages/system/System'
+import Logo from "./components/loadingAnimaitno/Logo"
 const Orders = React.lazy(() => import("./pages/system/orders/Orders"))
 const Page404 = React.lazy(() => import("./components/404/Page404"))
 
@@ -20,12 +21,18 @@ const AllRoutes = () => {
     return (
         <Routes>
             {/* Public */}
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route exact path='/' element={<Home />} />
+            <Route path='/login' element={<Suspense fallback={<Logo />}>
+                <Login />
+            </Suspense>} />
+            <Route path='/signup' element={<Suspense fallback={<Logo />}>
+                <Signup />
+            </Suspense>} />
+            <Route exact path='/' element={<Suspense fallback={<Logo />}>
+                <Home />
+            </Suspense>} />
 
             <Route path='*' element={
-                <Suspense>
+                <Suspense fallback={<Logo />}>
                     <Page404 />
                 </Suspense>
             } />

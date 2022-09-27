@@ -2,7 +2,7 @@
 
 .loading {
     box-sizing: border-box;
-    display: flex ;
+    display: flex;
     height: 100%;
     width: 100%;
     justify-content: center;
@@ -12,7 +12,7 @@
 .loading::before,
 .loading::after {
     box-sizing: border-box;
- 
+
 }
 
 .loading .loading .loading {
@@ -260,5 +260,36 @@
 @media (min-width: 62rem) {
     #container {
         transform: scale(0.85);
+    }
+}
+
+.logo-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #eeeeee;
+}
+
+.logo-loading-png {
+    width: 295px;
+    animation: logo-png .9s infinite;
+    transition: ease-in-out .4;
+
+}
+
+@keyframes logo-png {
+    70% {
+        opacity: 70%;
+        width: 290px;
+        transition: ease-in-out .4;
+    }
+
+    90% {
+        opacity: 100%;
+        width: 300px;
+
+
     }
 }
