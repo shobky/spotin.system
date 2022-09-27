@@ -21,7 +21,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         overflow: scroll;
-        max-height: 74vh;
+        max-height: 85%;
     }
     .pos_product-name {
         font-size: 22px;

@@ -7,7 +7,7 @@ const Header = () => {
         navigate("/")
     }
     return (
-        <div onClick={goToHome} className='system_header'>
+        <div style={{ width: "150px"}} onClick={goToHome} className='system_header'>
             <h1
                 style={{ fontFamily: "montserrat-black" }}
                 className='system_header_name'>Spot
