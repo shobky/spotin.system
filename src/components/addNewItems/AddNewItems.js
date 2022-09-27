@@ -67,7 +67,7 @@ const AddNewItems = () => {
             setTimeout(() => {
                 setDone(false)
 
-            }, 1000);
+            }, 1500);
             setPhotoexist(false)
         } else {
             setError(2)
