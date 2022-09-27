@@ -74,7 +74,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     className="rec_shrink-ico" />
 
                 {
-                    // order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
+                    order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
                 }
                 {
                     order.user.url ?
