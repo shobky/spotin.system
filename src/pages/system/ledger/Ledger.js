@@ -12,16 +12,26 @@ const Ledger = () => {
     console.log(openOrders)
 
     const [dayTotal, setDayTotal] = useState()
+    const [waitTotal, swtWaitTotal] = useState()
+
     const [tktNum, setTktNum] = useState()
 
 
     useEffect(() => {
         const countDayTotal = () => {
             let allPrices = [];
+            console.log(allPrices, "jhk")
             closedOrders?.map((order) =>
-                allPrices.push(order.timeSpent[0] >= 2 ? order.total + order.tickets.number * 15 : order.total)
+                allPrices.push(order.timeSpent[0] >= 2 ? (order.total + order.tickets.number * 15) : order.total)
             )
             setDayTotal(allPrices.reduce((a, b) => a + b, 0))
+        }
+        const countwaitiTotal = () => {
+            let waitingTotalprices = [];
+            openOrders?.map((order) =>
+                waitingTotalprices.push(order.total)
+            )
+            swtWaitTotal(waitingTotalprices.reduce((a, b) => a + b, 0))
         }
         const countPropleInSpace = () => {
             let allPrices = [];
@@ -32,7 +42,8 @@ const Ledger = () => {
         }
         countDayTotal()
         countPropleInSpace()
-    }, [deletedOrders, openOrders])
+        countwaitiTotal()
+    }, [closedOrders, openOrders])
 
     return (
         <>
@@ -75,7 +86,7 @@ const Ledger = () => {
                     </div>
                     <div className='ledger_day-total-div'>
                         <p className='ledger_day-total-header'>Total open Orders:</p>
-                        <p className='ledger_day-total-num'>Your are waiting for <span>{dayTotal}L.e</span> to enter registry</p>
+                        <p className='ledger_day-total-num'>Your are waiting for <span>{waitTotal}L.e</span> to enter registry</p>
                     </div>
 
                     <p className='ledger_prople-tkts'>Currently there is {tktNum} people in the workspace</p>
