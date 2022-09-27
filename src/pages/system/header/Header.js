@@ -1,8 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 const Header = () => {
+    const navigate = useNavigate()
+    const goToHome = () => {
+        navigate("/home")
+    }
     return (
-        <div className='system_header'>
+        <div onClick={goToHome} className='system_header'>
             <h1
                 style={{ fontFamily: "montserrat-black" }}
                 className='system_header_name'>Spot
