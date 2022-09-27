@@ -27,7 +27,7 @@ const Home = () => {
     const [searchActv, setSearchActv] = useState(false)
 
 
-    const ownderId = process.env.REACT_APP_OWNER_ID
+    const ownderId = "NcHM2FUvdgNQ2BGhrIFCrl7oPTt1"
     const devId = process.env.REACT_APP_DEV_ID
 
     const signOut = () => {
@@ -90,7 +90,7 @@ const Home = () => {
                                             <Link className='home_content-Link home_btw-link' to="/cashier.system/orders">Orders</Link>
                                             <Link className='home_content-Link home_btw-link' to="/cashier.system/add-new-item">Add Items</Link>
                                             {
-                                                (user?.uid === process.env.REACT_APP_OWNER_ID || user?.uid === process.env.REACT_APP_DEV_ID) &&
+                                                (user?.uid === ownderId || user?.uid === process.env.REACT_APP_DEV_ID) &&
                                                 <Link className='home_content-Link home_btw-link' to="/cashier.system/orders/ledger">ledger</Link>
                                             }
                                         </div>
