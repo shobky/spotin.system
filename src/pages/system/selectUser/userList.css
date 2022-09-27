@@ -67,9 +67,33 @@
         color: rgb(255, 77, 77);
 
     }
+
+    .select_user_photo {
+        width: 65px;
+        border-radius: 50%;
+        height: 65px;
+    }
 }
 
 @media (max-width:949px) {
+    .select_user_photo {
+        width: 55px;
+        border-radius: 50%;
+        height: 55px;
+        margin: 5px 0 5px 0;
+        border: 2.5px solid #b4b4b4;
+    }
+
+    .user-in-space {
+        border: 2.5px solid #00ffaa;
+
+    }
+
+    .user-paid-order {
+        border: 2.5px solid #fa800e;
+
+    }
+
     .searc-input-user-div {
         display: flex;
         justify-content: center;
@@ -107,9 +131,8 @@
 
     .user-contaienr {
         display: grid;
-        grid-template-columns: 66vw 5vw;
-
-        column-gap: 50px;
+        grid-template-columns: 65vw 60px 20px;
+        align-items: center;
         border-top: 1px solid whitesmoke;
         padding: 5px 0 0 0;
         font-size: 16px;
@@ -118,9 +141,19 @@
 
     .user_name-id-container {
         display: grid;
-        grid-template-columns: 25vw 50vw;
+        grid-template-columns: 65px 55vw;
         cursor: pointer;
+        align-items: center;
 
+    }
+
+    .user-name-select-user {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .user-name-select-uid {
+        font-size: 14px;
     }
 
     .user-delete-btn {
@@ -129,15 +162,21 @@
         font-size: 25px;
         background-color: transparent;
         z-index: 5;
-        color: rgb(255, 0, 0);
+        color: rgb(255, 36, 36);
 
 
     }
 
-    .user-delete-btn:hover {
-        color: rgb(255, 0, 0);
-
+    .user-select-btn {
+        border: none;
+        cursor: pointer;
+        font-size: 25px;
+        background-color: transparent;
+        z-index: 5;
+        color: rgb(0, 0, 0);
     }
+
+    .user-delete-btn:hover {}
 
 
 }

@@ -9,7 +9,7 @@ const TimeSpent = ({ order, onSetTimeSpent, timeSpent }) => {
             const fullDate =
                 `  ${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}
                 `
-            let startTime = moment(`${order.time[0]}:${order.time[1]}:00`, 'HH:mm:ss ');
+            let startTime = moment(`${order.time[0] }:${order.time[1]}:00`, 'HH:mm:ss ');
             let endTime = moment(fullDate, 'HH:mm:ss ');
 
             // calculate total duration
@@ -22,7 +22,7 @@ const TimeSpent = ({ order, onSetTimeSpent, timeSpent }) => {
             let minutes = parseInt(duration.asMinutes()) % 60;
 
             onSetTimeSpent(
-                `${hours} hours : ${minutes} minutes.`
+                [hours, minutes]
             )
 
         }
@@ -30,7 +30,11 @@ const TimeSpent = ({ order, onSetTimeSpent, timeSpent }) => {
     }, [order])
     return (
         <div>
-            <p style={{width:"190px"}} className='time_spent-num-of-persons'><strong>{order.tickets.number} person Checked in for:</strong> {timeSpent}</p>
+            {
+                timeSpent &&
+                <p style={{ width: "190px" }} className='time_spent-num-of-persons'><strong>{order.tickets.number} person Checked in for:</strong> {timeSpent[0] + " hours : " + timeSpent[1] + " minutes"}</p>
+
+            }
         </div>
     )
 }

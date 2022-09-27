@@ -1,4 +1,4 @@
-import { doc, setDoc } from 'firebase/firestore'
+import { arrayUnion, doc, setDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { useDb } from '../../../contexts/Database'
@@ -15,7 +15,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
   const { cart, orderId, remove } = useDb()
   const { user } = useAuth()
   const [date, setDate] = useState()
-  const [time, setTime] = useState()
+  const [time, setTime] = useState([])
   const [checked, setChecked] = useState(false)
   const [tickets, setTickets] = useState({
     number: 0,

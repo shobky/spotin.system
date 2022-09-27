@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const CurrentDate = ({ onSetTime, onSetDate, time ,date}) => {
+const CurrentDate = ({ onSetTime, onSetDate, time, date }) => {
 
     useEffect(() => {
 
@@ -15,10 +15,11 @@ const CurrentDate = ({ onSetTime, onSetDate, time ,date}) => {
 
         const getTime = () => {
             const currentdate = new Date();
-            let time =
-                [currentdate.getHours() + ":" +
-                currentdate.getMinutes()]
-            onSetTime(time)
+            let hours =
+                currentdate.getHours()
+            let minutes = ":" +
+                currentdate.getMinutes()
+            onSetTime([hours, minutes])
 
         }
         getdate()
