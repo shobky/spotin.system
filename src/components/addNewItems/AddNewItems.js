@@ -54,13 +54,7 @@ const AddNewItems = () => {
                 url
             })
             console.log(docRef.id)
-                .catch((error) => {
-                    setError(3)
-                    setTimeout(() => {
-                        setError(false)
 
-                    }, 1000);
-                })
             document.getElementById("addNewItemsForm").reset();
             setLoading(false)
             setUploaded(false)
@@ -72,6 +66,7 @@ const AddNewItems = () => {
             setPhotoexist(false)
         } else {
             setError(2)
+            setPhotoexist((false))
             setTimeout(() => {
                 setError(false)
 

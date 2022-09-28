@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { TbCalendarStats } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 import { useDb } from '../../../contexts/Database'
 import Order from './Order'
 
@@ -46,7 +47,7 @@ const OrderList = ({ orders, onSetReceipt, searchTerm, tab }) => {
           tab === "deleted" &&
           <div className='order-container-footer'>
             <p><strong><span>{deletedOrders.length + 1}</span> orders</strong> today, Total:<strong> {dayTotal}L.e</strong> </p>
-            <p><TbCalendarStats className='order-footer-stats-ico' /></p>
+            <Link to='/cashier.system/orders/ledger'><TbCalendarStats className='order-footer-stats-ico' /></Link>
           </div> : ""
       }
     </div>

@@ -13,12 +13,11 @@ const Header = () => {
                 className='system_header_name'>Spot
                 <span
                     style={{
-                        fontFamily: "sans-seriref",
+                        fontFamily: "montserrat-regular",
                         fontWeight: 'light',
                         fontSize: "28px",
-                        marginLeft: "3px"
                     }}
-                    className='pos_name-span'>IN
+                    className='pos_name-span'>In
                 </span>
             </h1>
             <p className='system_header_sub-name'>Cashier System</p>

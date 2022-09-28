@@ -94,7 +94,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
   return (
     <div id='prepare' className='prepare-container'>
       <div className='prepare_header'>
-        <h2 className='prepare_order-id'>Order <span claasName="prepare_order-id-number">#{orderId}</span></h2>
+        <h2 className='prepare_order-id'>Order <span>#{orderId}</span></h2>
         <CurrentDate onSetTime={onSetTime} onSetDate={onSetDate} date={date} time={time} />
       </div>
       <SelectUser onShowPrepare={onShowPrepare} selectedUser={selectedUser} onSetSelectedUser={onSetSelectedUser} choose={choose} onSetChoose={onSetChoose} />

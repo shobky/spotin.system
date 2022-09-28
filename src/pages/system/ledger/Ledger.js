@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { useDb } from '../../../contexts/Database'
-import Header from '../header/Header'
 import './ledger.css'
 import greenaccountant from '../../../assets/imgs/ledger.png'
 import { IoIosHome } from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import man from '../../../assets/avatars/man.png'
+import { BsReceipt } from 'react-icons/bs'
+
 const Ledger = () => {
     const { user } = useAuth()
     const { openOrders, closedOrders, deletedOrders } = useDb()
@@ -54,6 +56,8 @@ const Ledger = () => {
                 </p>
                 <Link to='/'><IoIosHome className="ledger_home-icon" />
                 </Link>
+                <Link to='/cashier.system/orders'><BsReceipt className="cashier-system-orders" />
+                </Link>
                 <div className='ledger'>
                     <p className='ledger_welcome'>Welcome {user?.displayName}, Let's take a look at your ledger. </p>
 
@@ -61,7 +65,7 @@ const Ledger = () => {
                         {
                             openOrders?.map((order) => (
                                 <>
-                                    <img alt='' src={order.user.url} className="ledger-user-inspace-photo" />
+                                    <img alt='' src={order.user.url ? order.user.url :  man } className="ledger-user-inspace-photo" />
                                     <div className='ledger_order-id-div'>
                                         <p className='ledger_order-id'>{order.id}</p>
                                     </div>

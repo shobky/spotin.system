@@ -38,8 +38,8 @@
 
     .user-contaienr {
         display: grid;
-        grid-template-columns: 37vw 100px;
-        column-gap: 50px;
+        grid-template-columns: 37vw 50px 50px;
+        gap: 15px;
         border-top: 1px solid whitesmoke;
         padding: 5px;
         font-size: 20px;
@@ -48,8 +48,9 @@
 
     .user_name-id-container {
         display: grid;
-        grid-template-columns: 25vw 15vw;
+        grid-template-columns: 90px 15vw;
         cursor: pointer;
+        align-items: center;
 
     }
 
@@ -73,6 +74,75 @@
         border-radius: 50%;
         height: 65px;
     }
+    .user-select-btn {
+        border: none;
+        cursor: pointer;
+        font-size: 25px;
+        background-color: transparent;
+        z-index: 5;
+        color: rgb(0, 0, 0);
+    }
+    .msg-confirm-delete-user__hidden{
+        display: none;
+    }
+    .msg-confirm-delete-user__vis {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 40vh;
+        left: 20vw;
+        z-index: 5;
+        border-radius: 25px;
+        box-shadow: 0 0 10px 1px rgb(202, 202, 202);
+        color: black;
+        height: 30vh;
+        width: 40vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .msg-confirm-delete-user__vis p {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        margin-top: 40px;
+    }
+
+    .msg-confirm-delete-user__vis button {
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 2.5px;
+        border-radius: 25px;
+        height: 40px;
+        background-color: transparent;
+        cursor:pointer;
+        margin: 5px 15vw 5px 15vw;
+    }
+
+    .msg-dlt-use-delete {
+        color: red;
+
+    }
+
+    .msg-dlt-use-cancel {
+        
+        color: rgb(97, 199, 105);
+    }
+
+
+
+    .user-in-space {
+        border: 3.5px solid #00ffaa;
+
+    }
+
+    .user-paid-order {
+        border: 3.5px solid #fa800e;
+
+    }
+
 }
 
 @media (max-width:949px) {
