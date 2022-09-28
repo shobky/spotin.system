@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 const AddNewItems = () => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState()
-    const [category, setCategory] = useState('focus')
+    const [category, setCategory] = useState('pos')
     const [image, setImage] = useState(null)
     const [uploaded, setUploaded] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -47,12 +47,13 @@ const AddNewItems = () => {
         if (uploaded === true && category.length > 1) {
             setLoading(true)
             const url = await getDownloadURL(ref(storage, `items-imgs/${image.name}`))
-            await setDoc(doc(db, category, name), {
+            const docRef = await addDoc(collection(db, category), {
                 name,
-                price,
                 qty: 1,
+                price: Number(price),
                 url
             })
+            console.log(docRef.id)
                 .catch((error) => {
                     setError(3)
                     setTimeout(() => {
@@ -95,7 +96,7 @@ const AddNewItems = () => {
                     <select
                         onChange={(e) => setCategory(e.target.value)}
                         className='category-select-addnew' >
-                        <option value="focus" className={category === "focus" ? "option-acive-add-item" : ""} >focus</option>
+                        <option value="pos" className={category === "pos" ? "option-acive-add-item" : ""} >focus</option>
                         <option value="fresh" className={category === "fresh" ? "option-acive-add-item" : ""}>fresh</option>
                         <option value="fill" className={category === "fill" ? "option-acive-add-item" : ""}>fill</option>
                     </select>
