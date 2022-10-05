@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const CurrentDate = ({ onSetTime, onSetDate, time, date }) => {
+const CurrentDate = ({ onSetTime, onSetDate, time, date, selectedUser }) => {
 
     useEffect(() => {
 
@@ -24,7 +24,7 @@ const CurrentDate = ({ onSetTime, onSetDate, time, date }) => {
         }
         getdate()
         getTime()
-    }, [])
+    }, [selectedUser])
     return (
         <div>
             <p className="fullDate">{date} {time}</p>
