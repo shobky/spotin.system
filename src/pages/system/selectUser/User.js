@@ -1,27 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { RiUserSharedFill, RiUserUnfollowFill } from 'react-icons/ri'
+import { useNavigate } from 'react-router'
 
 
 import man from '../../../assets/avatars/man.png'
+import { useAuth } from '../../../contexts/AuthContext'
 import { useDb } from '../../../contexts/Database'
 
 const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare, onSetUser }) => {
     const { openOrders, closedOrders } = useDb()
+    const { onSetWantedOrder } = useAuth()
     const [inSpace, setInSpace] = useState(false)
     const [paid, setPaid] = useState(false)
 
     const [orderId, setOrderId] = useState('')
+    const navigate = useNavigate()
     const handleOnSelectUser = () => {
-        onSetSelectedUser(user.name, user.uid, user.url ?? "")
-        onSetChoose()
-        onShowPrepare()
+        if (openOrders?.length > 0) {
+            openOrders?.map((order) => {
+                if (order?.user.uid === user?.uid) {
+                    onSetChoose()
+                    onShowPrepare()
+                    onSetWantedOrder(user?.uid)
+                    navigate('/cashier.system/orders')
+                }
+                else {
+                    onSetSelectedUser(user.name, user.uid, user.url ?? "")
+                    onSetChoose()
+                    onShowPrepare()
+                }
+            })
+        } else {
+            onSetSelectedUser(user.name, user.uid, user.url ?? "")
+            onSetChoose()
+            onShowPrepare()
+        }
+
     }
     const showMsgConfirm = () => {
         onSetUser(user)
         document.getElementById("msg-confirm-delete-user").classList.add("msg-confirm-delete-user__vis")
     }
-  
-    console.log(user)
+
     useEffect(() => {
         const userPlace = () => {
             openOrders.map((order) => {
@@ -48,7 +68,7 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare, onSetUser }
                     <p className='user-name-select-user' >{user?.name}</p>
                     <p className='user-name-select-uid'>#{user?.uid}</p>
                     {
-                        orderId && <strong style={{fontSize:"14px"}}>#{orderId}</strong>
+                        orderId && <strong style={{ fontSize: "14px" }}>#{orderId}</strong>
                     }
                 </div>
 

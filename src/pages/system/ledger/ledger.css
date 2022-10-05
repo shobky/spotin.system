@@ -5,7 +5,8 @@
     font-size: 30px;
     color: rgb(255, 140, 198);
 }
-.cashier-system-orders{
+
+.cashier-system-orders {
     position: absolute;
     right: 60px;
     top: 36px;
@@ -13,14 +14,15 @@
     color: rgb(255, 140, 198);
 }
 
-.ledger-first-page-container {
-    height: 100vh;
-    overflow: hidden;
-}
+
 
 
 
 @media (min-width:950px) {
+    .ledger-first-page-container {
+        overflow: hidden;
+        min-height: 100vh;
+    }
     .ledger_name {
         margin-top: 35px;
         text-align: center;
@@ -31,16 +33,17 @@
     .ledger_ledgerPhoto {
         position: absolute;
         bottom: 0px;
-        width: 22%;
+        width: 30%;
         transform: rotatey(180deg);
         z-index: -1;
-        right: 150px;
+        right: 100px;
     }
 
     .ledger_ledgerPhoto::-webkit-scrollbar-track {
         background: rgb(247, 247, 247) !important;
 
     }
+
     .ledger_user-photos {
         margin-top: 20px;
         margin-left: -25px;
@@ -49,7 +52,7 @@
         max-width: 100vw;
         padding-bottom: 15px;
     }
-    
+
     .ledger-user-inspace-photo {
         width: 100px;
         height: 100px;
@@ -109,6 +112,10 @@
 }
 
 @media (max-width:949px) {
+    .ledger-first-page-container {
+        overflow: hidden;
+        min-height: 70vh;
+    }
     .ledger_name {
         margin-top: 25px;
         text-align: center;
@@ -124,15 +131,16 @@
         z-index: -1;
         right: 0;
     }
+
     .ledger_user-photos {
         margin-top: 20px;
         margin-left: -25px;
         display: flex;
-        overflow: scroll;
+        overflow-x: scroll;
         width: 100vw;
         padding-bottom: 15px;
     }
-    
+
 
     .ledger-user-inspace-photo {
         width: 60px;
@@ -144,11 +152,16 @@
         left: 10px;
     }
 
+    .ledger-user-inspace-name{
+        font-size: 13px;
+        position: relative;
+        left: 13px;
+    }
 
     .ledger_order-id-div {
         position: relative;
-        left: -56px;
-        top: 2px;
+        left: 12px;
+        top: -82px;
     }
 
     .ledger_order-id {
@@ -179,7 +192,7 @@
         background-color: rgb(255, 169, 40);
         width: 100%;
         height: 150px;
-        margin-top: -65px;
+        margin-top: 25px;
         color: white;
         font-size: 100px;
     }
@@ -209,6 +222,7 @@
 .ledger_day-total-div {
     margin-bottom: 20px;
     z-index: 10;
+    position: relative;
 }
 
 .ledger_day-total-header {
@@ -230,4 +244,27 @@
     margin-top: 50px;
     font-weight: bold;
     width: 55%;
+}
+
+.ledger_day-total-div__open::before {
+    content: ".";
+    background-color: rgb(0, 255, 98);
+    height: 8px;
+    overflow: hidden;
+    width: 8px;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 7px;
+}
+.ledger_day-total-div__closed::before {
+    content: ".";
+    background-color: rgb(255, 176, 29);
+    height: 8px;
+    overflow: hidden;
+    width: 8px;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 7px;
 }

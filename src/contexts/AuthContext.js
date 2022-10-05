@@ -13,6 +13,8 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(false)
+    const [wantedOrder, setWantedOrder] = useState('')
+
 
     const signup = async (email, password, name, url) => {
         await createUserWithEmailAndPassword(auth, email, password);
@@ -67,12 +69,17 @@ export const AuthProvider = ({ children }) => {
         addUser()
     }, [user])
 
+    const onSetWantedOrder = (userid) => {
+        setWantedOrder(userid)
+    }
 
     const value = {
         signup,
         login,
         user,
         logout,
+        onSetWantedOrder,
+        wantedOrder
     }
 
     return (

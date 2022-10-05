@@ -2,7 +2,7 @@
 
     .home {
         position: relative;
-        height: 117.5vh;
+        height: 110vh;
         overflow: hidden;
     }
 
@@ -26,7 +26,7 @@
 
 
     .home_header_search-input {
-        width: 305px;
+        width: 25px;
         position: absolute;
         top: 8px;
         right: 40px;
@@ -36,11 +36,12 @@
         height: 31px;
         font-size: 16px;
         padding: 6px;
+        transition: ease-in-out .4s;
+
     }
 
     .home_header_search-input__active {
         z-index: 10;
-
         width: 305px;
         position: absolute;
         top: 8px;
@@ -50,6 +51,7 @@
         height: 31px;
         font-size: 16px;
         padding: 6px;
+        transition: ease-in-out .4s;
     }
 
     .home_login-icon {
@@ -73,14 +75,16 @@
         padding: 6px;
         border-radius: 50px;
         position: relative;
-        right: 45px;
+        right: 65px;
         top: 6px;
     }
 
-    .home_logout-icon:active {
+    .home_logout-icon:hover {
         opacity: 85%;
-        padding: 7px;
         font-size: 36px;
+        top: 7px;
+        cursor: pointer;
+        
     }
 
 
@@ -132,19 +136,18 @@
     }
 
     .home_content_sectino-2_img {
-        width: 18vw;
+        width: 300px;
         max-width: 350px;
         transform: rotatey(180deg);
-        position: relative;
+        position: absolute;
         bottom: 0;
-        bottom: 340px;
         float: right;
-        right: 200px;
+        right: 300px;
         z-index: 8;
     }
 
     .home_content_section-2-header {
-        margin-top: 100px;
+        margin-top: 90px;
         font-size: 25px;
     }
 
@@ -195,20 +198,22 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        width: 150px;
+        width: 200px;
     }
 
     .home_content-Link {
         text-decoration: none;
-        font-size: 17px;
+        font-size: 20px;
         color: #fa800e;
         font-family: montserrat-light;
         font-weight: bold;
 
     }
 
-
-
+    
+    .home_content-Link:hover {
+        color: #000000;
+    }
 
     .home_section-2_user-links::first-letter {
         text-transform: capitalize;
@@ -229,6 +234,19 @@
     .home_section-2_user-links:hover {
         font-size: 28px;
         color: #8a6417;
+
+    }
+
+    .home_search-ico__active {
+        position: absolute;
+        top: 9px;
+        right: 41px;
+        border-radius: 0 25px 25px 0;
+        font-size: 21px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        padding: 4px;
+        z-index: 11;
 
     }
 
@@ -440,6 +458,18 @@
     }
 
 
+    .home_search-ico__active {
+        position: absolute;
+        top: 7px;
+        right: 41px;
+        border-radius: 0 25px 25px 0;
+        font-size: 21px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        padding: 4px;
+        z-index: 11;
+
+    }
 }
 
 @media (max-width:649px) {
@@ -685,6 +715,19 @@
 
     }
 
+    .home_search-ico__active {
+        position: absolute;
+        top: 7px;
+        right: 41px;
+        border-radius: 0 25px 25px 0;
+        font-size: 21px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        padding: 4px;
+        z-index: 11;
+
+    }
+
 
 }
 
@@ -731,6 +774,7 @@
     border-radius: 0 25px 25px 0;
     background-color: rgb(255, 255, 255);
     z-index: 11;
+    cursor: pointer;
 }
 
 
@@ -740,17 +784,4 @@
     border: 1px solid rgb(255, 123, 0);
     text-decoration: none;
     padding: 7px;
-}
-
-.home_search-ico__active {
-    position: absolute;
-    top: 7px;
-    right: 41px;
-    border-radius: 0 25px 25px 0;
-    font-size: 21px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    padding: 4px;
-    z-index: 11;
-
 }

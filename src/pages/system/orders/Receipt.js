@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './receipt.css'
 
 import { ImShrink2 } from 'react-icons/im'
@@ -10,14 +10,44 @@ import { GiPlainCircle } from 'react-icons/gi'
 import { db } from '../../../firebase/Config'
 
 import avataro from '../../../assets/avatars/man.png'
+import { MdCancel, MdOutlineAddShoppingCart, MdOutlineNoteAdd } from 'react-icons/md'
+import { HiOutlineCurrencyDollar } from 'react-icons/hi'
 const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
     const [timeSpent, setTimeSpent] = useState()
+    const [loading, setLoading] = useState(false)
+    const [paidAmout, setPaidAmount] = useState(0)
+    const [orderTotal, setOrderTotal] = useState(0)
+
 
     const onSetTimeSpent = (time) => {
         setTimeSpent(time)
     }
+    useEffect(() => {
+        const onSetOrderTotal = () => {
+            setOrderTotal(
+                order.status === "open" ?
+                    timeSpent?.length > 0 ?
+                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                        : order.total
+                    : order.timeSpent ?
+                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                        : order.total
+            )
+        }
+        onSetOrderTotal()
+    }, [order, timeSpent])
+
+    const handleOnCheckOut = () => {
+        const paymentMsg = document.getElementById('rec_checkout-payment')
+        paymentMsg.classList.add("rec_checkout-payment__vis")
+    }
+    const onCloseCheckoutMsg = () => {
+        const paymentMsg = document.getElementById('rec_checkout-payment')
+        paymentMsg.classList.remove("rec_checkout-payment__vis")
+    }
 
     const onCheckout = async () => {
+        setLoading(true)
         const data = {
             id: order.id,
             status: "closed",
@@ -27,14 +57,17 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             total: order.total,
             tickets: order.tickets,
             cart: order.cart,
-            timeSpent: timeSpent ?? ''
+            timeSpent: timeSpent ?? '',
+            paidAmout
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
         await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
         onSetReceipt()
+        setLoading(false)
     }
 
     const onArchive = async () => {
+        setLoading(true)
         const data = {
             id: `${order.id}`,
             status: "archived",
@@ -44,12 +77,15 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             total: order.total,
             tickets: order.tickets,
             cart: order.cart,
-            timeSpent: order.timeSpent
+            timeSpent: order.timeSpent,
+            paidAmout
 
         }
         await setDoc(doc(db, "archived-orders", `#${order.id}`), data);
         await deleteDoc(doc(db, "closed-orders", `#${order.id}`));
         onSetReceipt()
+        setLoading(false)
+
     }
 
     return (
@@ -72,14 +108,15 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                 <ImShrink2
                     onClick={() => onSetReceipt()}
                     className="rec_shrink-ico" />
-
-                {
-                    order.status === "open" ? <BsCartPlus onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
-                }
                 {
                     order.user.url ?
                         <img className="rece_avatar" alt='' src={order.user.url} /> : ""
                 }
+
+                {
+                    order.status === "open" ? <MdOutlineAddShoppingCart onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
+                }
+
                 <div className='receipt_container'>
 
                     <p className='rec_order-id'><GiPlainCircle className={
@@ -91,6 +128,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     <p> <strong>Username: </strong> {order.user.name}</p>
                     <p> <strong>User id: </strong> #{order.user.uid}</p>
                     {/* counting order total price with tickets */}
+                    {
+                        <p>
+                            <strong>{order.paidAmout ? `Paid: ${order.paidAmout}L.e` : ""}</strong>
+                        </p>
+                    }
 
                     {
                         order.status === "open" ?
@@ -102,6 +144,12 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                                 <p className='rece_total-price'>Subtotal: {
                                     order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                 }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total}L.e</p>
+                    }
+
+                    {
+                        <p className='change-in-rec'>
+                            <strong>{order.paidAmout ? `Change: ${order.paidAmout - orderTotal}L.e` : ""}</strong>
+                        </p>
                     }
                     <br />
 
@@ -147,7 +195,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                         order.cart.length > 0 ?
 
                             <div>
-                                <strong>Cart: {`{`} </strong>
+                                <strong>Cart:  </strong>
                                 {order?.cart?.map((cartItem, index) => (
                                     <div key={index}>
                                         <div style={{ marginLeft: "10px" }}>
@@ -156,8 +204,8 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                                         </div>
                                     </div>
                                 ))}
-                                <strong>{`}`}</strong>
                                 {/* counting order total price without tickets if there is a new cart */}
+                                <br />
 
                                 {
                                     order.newCart?.newCartDoc.length > 0 ?
@@ -171,6 +219,38 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                             :
                             <strong>No Items Sold</strong>
                     }
+                </div>
+            </div>
+
+            <div id='rec_checkout-payment' className='rec_checkout-payment__hidden'>
+                <div onClick={onCloseCheckoutMsg} className='rec_checkout-filter'></div>
+                <div className='rec_checkout-payment-container'>
+                    <div className='rec_checkout-payment-content'>
+                        <MdCancel onClick={onCloseCheckoutMsg} className='rec_checkout-cancel-ico' />
+                        <h1 className='rec_checkout-header'>Payment</h1>
+                        <div className='rec_checkuot-actions'>
+                            <div className='flex'>
+                                <p className='rec_checkout-payment-label'>Subtotal: {orderTotal} L.e</p>
+                            </div>
+                            <div className='flex paid_section-chekcout'>
+                                <p className='rec_checkout-payment-label'>Paid: </p>
+                                <input onChange={(e) => setPaidAmount(e.target.value)} autoFocus={true} placeholder='99 L.e' type="number" className='rec_checkout-payment-input' />
+                            </div>
+                            <hr className='rec_checkout-line' />
+                            <br />
+                            <div className='flex'>
+                                <p className='rec_checkout-payment-label'>Change:</p>
+                                {
+                                    paidAmout > 0 ? paidAmout >= orderTotal ? paidAmout - orderTotal + " L.e" : "Not Enough" : "No Input"
+                                }
+                            </div>
+                            <button
+                                disabled={paidAmout < orderTotal ? true : loading}
+                                onClick={onCheckout}
+
+                                className={paidAmout < orderTotal || loading ? "rec_chekcout-continue-btn__disable" : 'rec_chekcout-continue-btn'}>Continue</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='rece_actions'>
@@ -190,14 +270,14 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                 {
                     order.status === 'open' ?
                         <button
-
-                            onClick={onCheckout}
+                            onClick={handleOnCheckOut}
                             className='rece_Checkout-btn'>
                             Checkout
                         </button> :
                         order.status === "closed" ?
                             <button
-                                className='rece_Checkout-btn rece_archive-btn '
+                                disabled={loading}
+                                className={loading ? " rece_archive-btn__disabled  " : 'rece_Checkout-btn rece_archive-btn '}
                                 onClick={onArchive}
                             >
                                 Archive

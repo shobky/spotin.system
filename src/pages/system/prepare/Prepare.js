@@ -24,7 +24,6 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
   const [total, setTotal] = useState(0)
   const [disabled, setDisabled] = useState(true)
 
-
   const onSetTime = (res) => {
     setTime(res)
   }

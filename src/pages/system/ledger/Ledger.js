@@ -50,7 +50,7 @@ const Ledger = () => {
     return (
         <>
             <div className='ledger-first-page-container'>
-                <img alt='' src={greenaccountant} className="ledger_ledgerPhoto" />
+                {/* <img alt='' src={greenaccountant} className="ledger_ledgerPhoto" /> */}
                 <p className='ledger_name'>
                     Spot<span >In</span>
                 </p>
@@ -64,12 +64,15 @@ const Ledger = () => {
                     <div className='ledger_user-photos'>
                         {
                             openOrders?.map((order) => (
-                                <>
-                                    <img alt='' src={order.user.url ? order.user.url :  man } className="ledger-user-inspace-photo" />
+                                <div style={{margin:"5px"}}>
+                                    <div>
+                                        <img alt='' src={order.user.url ? order.user.url : man} className="ledger-user-inspace-photo" />
+                                        <p className='ledger-user-inspace-name'>{order?.user.name.substring(0, 7)}...</p>
+                                    </div>
                                     <div className='ledger_order-id-div'>
                                         <p className='ledger_order-id'>{order.id}</p>
                                     </div>
-                                </>
+                                </div>
                             ))
                         }
                     </div>
@@ -84,13 +87,14 @@ const Ledger = () => {
                     <br />
 
 
-                    <div className='ledger_day-total-div'>
-                        <p className='ledger_day-total-header'>Total Closed Orders:</p>
-                        <p className='ledger_day-total-num'>Your should have <span>{dayTotal}L.e</span> in registry</p>
-                    </div>
-                    <div className='ledger_day-total-div'>
+
+                    <div className='ledger_day-total-div ledger_day-total-div__open'>
                         <p className='ledger_day-total-header'>Total open Orders:</p>
                         <p className='ledger_day-total-num'>Your are waiting for <span>{waitTotal}L.e</span> to enter registry</p>
+                    </div>
+                    <div className='ledger_day-total-div ledger_day-total-div__closed'>
+                        <p className='ledger_day-total-header'>Total Closed Orders:</p>
+                        <p className='ledger_day-total-num'>Your should have <span>{dayTotal}L.e</span> in registry</p>
                     </div>
 
                     <p className='ledger_prople-tkts'>Currently there is {tktNum} people in the workspace</p>

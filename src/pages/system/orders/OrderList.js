@@ -19,6 +19,13 @@ const OrderList = ({ orders, onSetReceipt, searchTerm, tab }) => {
     countDayTotal()
   }, [deletedOrders])
 
+  orders?.sort((a, b) => {
+    return a.id - b.id
+  })
+  deletedOrders?.sort((a, b) => {
+    return b.id - a.id
+  })
+
   return (
     <div>
       <div className='order-container order-container_header'>
@@ -36,6 +43,7 @@ const OrderList = ({ orders, onSetReceipt, searchTerm, tab }) => {
           } else if (filterd.user.uid.includes(searchTerm)) {
             return filterd
           } else {
+            return filterd
           }
         }).map((order, index) => (
           <Order onSetReceipt={onSetReceipt} key={index} order={order} />

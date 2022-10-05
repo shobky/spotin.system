@@ -18,10 +18,11 @@ import { useAuth } from '../../../contexts/AuthContext'
 
 const Orders = () => {
   const { remove, openOrders, closedOrders, deletedOrders } = useDb()
+  const { wantedOrder, setWantedOrder } = useAuth()
   const [tab, setTab] = useState('open')
   const [order, setOrder] = useState()
   const [showSearch, setShowSearch] = useState(false)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState(wantedOrder)
   const [newCart, setNewCart] = useState(false)
   const { user } = useAuth()
   const [receipt, setReceipt] = useState(false)
@@ -31,6 +32,7 @@ const Orders = () => {
   const devId = process.env.REACT_APP_DEV_ID;
 
 
+  console.log(wantedOrder ? wantedOrder : "no")
 
 
 
@@ -111,9 +113,9 @@ const Orders = () => {
                   <div onClick={onCloseMsgDelete} id='delteMsg' className='orders_confirmation-delete-msg orders_confirmation-delete-msg-bg  '>
                     <div className='center-confirm-msg'>
                       <div className='orders_confirmation-delete-msg__active'>
-                        <p style={{ textAlign: "center", fontSize: "15px" }}>This will permenantly delete all {deletedOrders?.length} orders ! </p>
-                        <button onClick={handleDeleteAllOrders} className=' msg_confirm_btn-delete'> Delete forever</button>
-                        <button onClick={onCloseMsgDelete} className=' msg_confirm_btn-go-back'>No, Go Back</button>
+                        <p style={{ textAlign: "center" }}>This will permenantly delete all {deletedOrders?.length} orders ! </p>
+                        <button onClick={handleDeleteAllOrders} className=' msg_confirm_btn-delete'> Delete</button>
+                        <button onClick={onCloseMsgDelete} className=' msg_confirm_btn-go-back'>Cancel</button>
                       </div>
                     </div>
 
@@ -130,8 +132,13 @@ const Orders = () => {
 
               <Header />
               {
+
                 showSearch ?
-                  <TbSearchOff onClick={() => setShowSearch(!showSearch)} className='order_search-ico' />
+                  <div onClick={() =>
+                    setSearchTerm("")
+                  }>
+                    <TbSearchOff onClick={() => setShowSearch(!showSearch)} className='order_search-ico' />
+                  </div>
                   :
                   <TbSearch onClick={() => setShowSearch(!showSearch)} className='order_search-ico' />
               }
@@ -139,9 +146,9 @@ const Orders = () => {
             <div onClick={closeArchiveMsg} id='orders_msg_confirm' className='orders_confirmation-archive-msg orders_confirmation-archive-msg-bg  '>
               <div className='center-confirm-msg'>
                 <div onClick={closeArchiveMsg} className='orders_confirmation-archive-msg__active'>
-                  <p style={{ textAlign: "center" }}> You sure you want to archive all {closedOrders?.length} closed orders ?</p>
-                  <button onClick={handleArchiveAllOrders} className='msg_confirm_btn-accept'>Yes, I am Sure</button>
-                  <button onClick={closeArchiveMsg} className='msg_confirm_btn-cancel'>No, Go Back</button>
+                  <p style={{ textAlign: "center" }}>This will archive all {closedOrders?.length} closed orders !</p>
+                  <button onClick={handleArchiveAllOrders} className='msg_confirm_btn-accept'>Archive</button>
+                  <button onClick={closeArchiveMsg} className='msg_confirm_btn-cancel'>Cancel</button>
                 </div>
               </div>
 

@@ -153,8 +153,81 @@
         font-size: 22px;
     }
 
+    .orders_delete-all-ico {
+        cursor: pointer;
+        font-size: 32px;
+        position: absolute;
+        right: 67px;
+        top: 150px;
+        color: rgb(59, 56, 56);
+    
+    }
 
 
+    
+    .orders_confirmation-archive-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 15px;
+        padding: 25px 10px 10px 10px ;
+        display: grid;
+        width: 18vw;
+        height: 25vh;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+
+
+    }
+
+    .orders_confirmation-delete-msg__active {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px 1px rgb(124, 123, 123);
+        border-radius: 15px;
+        padding: 25px 10px 10px 10px ;
+        display: grid;
+        width: 18vw;
+        height: 25vh;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+
+
+    }
+
+    .msg_confirm_btn-accept {
+        color: rgb(0, 170, 65);
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    .msg_confirm_btn-cancel {
+        color: red;
+        cursor: pointer;
+        font-size: 18px;
+
+    }
+
+    .msg_confirm_btn-go-back {
+        cursor: pointer;
+        color: rgb(0, 153, 255);
+        font-size: 20px;
+        font-weight: bold;
+
+
+
+    }
+    .msg_confirm_btn-delete {
+        cursor: pointer;
+        color: red;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+
+
+
+    }
 
 
 
@@ -240,19 +313,24 @@
         padding: 25px;
         display: grid;
         width: 60vw;
-        height: 13vh;
+        height: 15vh;
+        font-size: 15px;
     }
 
     .msg_confirm_btn-accept {
         color: rgb(0, 170, 65);
         cursor: pointer;
-        margin-top: 20px;
+        margin-top: 30px;
+        font-weight: bold;
+
     }
 
     .msg_confirm_btn-cancel {
         color: red;
         cursor: pointer;
         margin-top: 15px;
+        font-weight: bold;
+
     }
 
     .msg_confirm_btn-go-back {
@@ -289,10 +367,15 @@
         padding: 8px;
         border-bottom: 1px solid whitesmoke;
     }
-
-   
-
-
+    .orders_delete-all-ico {
+        cursor: pointer;
+        font-size: 32px;
+        position: absolute;
+        right: 15px;
+        top: 110px;
+        color: rgb(59, 56, 56);
+    
+    }
 
 }
 
@@ -320,12 +403,6 @@
     opacity: 55%;
     color: rgb(58, 58, 57);
 }
-
-
-
-
-
-
 
 .orders_search-input:focus {
     outline: none;
@@ -388,12 +465,3 @@
     color: rgb(0, 216, 65);
 }
 
-.orders_delete-all-ico {
-    cursor: pointer;
-    font-size: 27px;
-    position: absolute;
-    right: 17px;
-    top: 105px;
-    color: rgb(0, 0, 0);
-
-}

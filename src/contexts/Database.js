@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { db } from "../firebase/Config"
 import { collection, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -42,6 +42,7 @@ export const DataProvider = ({ children }) => {
     const usersQ = collection(db, `Users`)
     const [users] = useCollectionData(usersQ)
 
+
     const upload = async (path, id, data) => {
         const docRef = doc(db, path, id);
         await setDoc(docRef, data)
@@ -71,6 +72,8 @@ export const DataProvider = ({ children }) => {
 
     }
 
+  
+
     const value = {
         upload,
         currentOrder,
@@ -86,7 +89,8 @@ export const DataProvider = ({ children }) => {
         changeCartQty,
         remove,
         users,
-        changeNewCartQty
+        changeNewCartQty,
+ 
 
 
     }

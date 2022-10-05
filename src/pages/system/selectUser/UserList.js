@@ -1,6 +1,6 @@
 import { db } from '../../../firebase/Config'
 import { deleteDoc, doc } from 'firebase/firestore'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import { useDb } from '../../../contexts/Database'
 import User from './User'
@@ -8,8 +8,20 @@ import './userList.css'
 
 const UserList = ({ onSetSelectedUser, onSetChoose, onShowPrepare }) => {
     const { users } = useDb()
-    const [searchQ, setSearchQ] = useState('')
+    const [searchQ, setSearchQ] = useState("")
     const [user, setUser] = useState()
+
+    users?.sort((a, b) => {
+        let fa = a.name.toLowerCase(),
+            fb = b.name.toLowerCase();
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
 
     const deleteUser = async () => {
         await deleteDoc(doc(db, `Users/${user?.name}`));
@@ -24,6 +36,8 @@ const UserList = ({ onSetSelectedUser, onSetChoose, onShowPrepare }) => {
     const onSetUser = (person) => {
         setUser(person)
     }
+
+
     return (
         <>
             <div className='searc-input-user-div'>

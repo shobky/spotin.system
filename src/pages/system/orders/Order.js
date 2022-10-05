@@ -1,12 +1,10 @@
 import React from 'react'
 import { FaReceipt } from 'react-icons/fa'
-import { useNavigate } from 'react-router'
 const Order = ({ order, onSetReceipt }) => {
 
-    const navigate = useNavigate()
+
     const openreceipt = () => {
         onSetReceipt(order)
-        
     }
 
 
