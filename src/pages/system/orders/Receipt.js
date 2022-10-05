@@ -78,7 +78,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             tickets: order.tickets,
             cart: order.cart,
             timeSpent: order.timeSpent,
-            paidAmout
+            paidAmout: order.paidAmout
 
         }
         await setDoc(doc(db, "archived-orders", `#${order.id}`), data);
