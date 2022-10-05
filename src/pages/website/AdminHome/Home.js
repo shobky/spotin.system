@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../../contexts/AuthContext'
 import "./home.css"
 import man from '../../../assets/avatars/man.png'
+import thinker from '../../../assets/imgs/thinkerIllus.png'
 
 const Home = () => {
     const { user } = useAuth()
@@ -21,6 +22,7 @@ const Home = () => {
                 <Link to="/cashier.system/add-new-item" className='admin-home_link admin-link-3'>Add Item</Link>
                 <Link to="/cashier.system/orders/ledger" className='admin-home_link admin-link-4'>Ledger</Link>
             </div>
+            <img src={thinker} alt="" className='home_admein_thinkerpng' />
         </div>
     )
 }
