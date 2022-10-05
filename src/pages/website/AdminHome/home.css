@@ -1,0 +1,105 @@
+.admin-home_header {
+    font-family: montserrat-black;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.admin-home_header span {
+    font-family: montserrat-regular;
+}
+
+.admin-home_link-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 35vw;
+    margin-left: 5vw;
+    column-gap: 2.5VW;
+    row-gap: 4vh;
+    margin-top: 7vh;
+}
+
+.admin-home_logout-icon {
+    position: absolute;
+    font-size: 40px;
+    right: 50px;
+    cursor: pointer;
+    top: 50px;
+}
+
+.admin-home_user-div {
+    position: absolute;
+    right: 105px;
+    cursor: pointer;
+    top: 52px;
+}
+
+.admin-home_user-photo {
+    width: 35px;
+    height: 35px;
+
+}
+
+.admin-home_user-name {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    left: -8px;
+
+}
+
+.admin-home_link {
+    text-decoration: none;
+    color: white;
+    width: 22vw;
+    height: 32vh;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: montserrat-bold;
+    box-shadow: 0 0 10px 1px rgb(211, 211, 211);
+
+}
+
+.admin-link-1 {
+    background-color: rgb(255, 139, 44);
+}
+
+.admin-link-2 {
+    background-color: rgb(100, 66, 22);
+}
+
+.admin-link-3 {
+    background-color: rgb(0, 238, 91);
+}
+
+.admin-link-4 {
+    background-color: rgb(0, 110, 255);
+}
+
+.admin-home_link:hover {
+    box-shadow: 0 0 10px 1px rgb(99, 99, 99);
+
+    font-size: 45px;
+    position: relative;
+    transform: rotate(3deg);
+}
+
+.admin-link-1:hover {
+    background-color: rgb(255, 125, 19);
+}
+
+.admin-link-2:hover {
+    background-color: rgb(80, 51, 13);
+}
+
+.admin-link-3:hover {
+    background-color: rgb(8, 190, 78);
+}
+
+.admin-link-4:hover {
+    background-color: rgb(2, 87, 199);
+}

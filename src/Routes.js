@@ -6,7 +6,7 @@ import OwnerRoutes from "./components/privateRoutes/OwnerRoutes"
 // pages imports
 import Login from './components/auth/Login'
 import Signup from './components/auth/SignUp'
-import Home from "./pages/website/Home"
+import Home from "./pages/website/AdminHome/Home"
 import Loading from "./components/loadingAnimaitno/Loading"
 import UserRotues from "./components/privateRoutes/UserRoutes"
 import AddNewItems from "./components/addNewItems/AddNewItems"

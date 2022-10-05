@@ -58,13 +58,13 @@ const Home = () => {
             <div className='home_header'>
 
                 <h1 className='home_name'>Spot<span>In</span></h1>
-                <div>
-                    <input placeholder='search...' type="text" className={!searchActv ? 'home_header_search-input__active' : 'home_header_search-input'} />
-                    {searchActv ? <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico__active' />
-                        : <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico' />
+                {/* <div>
+                    <input placeholder='search...' type="text" className={!searchActv ? 'home_header_search-input' : 'home_header_search-input__active '} />
+                    {!searchActv ? <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico' />
+                        : <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico__active' />
                     }
 
-                </div>
+                </div> */}
                 <div className='home_circle_container'>
                     <div className='home_circle_content'>
                         <img onClick={changeAvatar} src={avatar} alt="" className={user ? "home_userPhoto" : "home_userAvatar"} />
