@@ -20,6 +20,10 @@ const AddNewItems = () => {
     const [error, setError] = useState(false)
     const [done, setDone] = useState(false)
     const [photoexist, setPhotoexist] = useState(false)
+    const [smallPrice, setSmallPrice] = useState(0)
+    const [medPrice, setmedPrice] = useState(0)
+    const [largePrice, setlargePrice] = useState(0)
+
 
     const handleUploadingImage = async (e) => {
         let selectedFile = (e.target.files[0])
@@ -48,10 +52,15 @@ const AddNewItems = () => {
             setLoading(true)
             const url = await getDownloadURL(ref(storage, `items-imgs/${image.name}`))
             const docRef = await addDoc(collection(db, category), {
+                cat:"fill",
                 name,
                 qty: 1,
                 price: Number(price),
-                url
+                url,
+                small_price:smallPrice,
+                med_price: medPrice,
+                large_price: largePrice
+
             })
             console.log(docRef.id)
 
@@ -104,15 +113,56 @@ const AddNewItems = () => {
                     placeholder='item name'
                     type="text"
                     onChange={(e) => setName(e.target.value)} />
-                <label>Price</label>
-                <input
-                    required={true}
 
-                    className='add-new-item-input'
-                    type="number"
-                    placeholder='item price'
-                    onChange={(e) => setPrice(e.target.value)} />
 
+                {
+                    category === "fill" ?
+                        <div >
+                            <label>Prices</label>
+                            <div className='fill-prices-add'>
+                                <input
+                                    required={true}
+                                    className='add-new-item-input-fill-price'
+                                    type="number"
+                                    placeholder='S'
+                                    onChange={(e) => setSmallPrice({
+                                        small_price: e.target.value,
+                                        med_price: medPrice,
+                                        large_price: largePrice
+                                    })} />
+                                <input
+                                    required={true}
+                                    className='add-new-item-input-fill-price'
+                                    type="number"
+                                    placeholder='M'
+                                    onChange={(e) => setmedPrice({
+                                        small_price: smallPrice,
+                                        med_price: e.target.value,
+                                        large_price: largePrice
+                                    })} />
+                                <input
+                                    required={true}
+                                    className='add-new-item-input-fill-price'
+                                    type="number"
+                                    placeholder='L'
+                                    onChange={(e) => setlargePrice({
+                                        small_price: smallPrice,
+                                        med_price: medPrice,
+                                        large_price: e.target.value
+                                    })} />
+                            </div>
+                        </div>
+                        : <>
+                            <label>Price</label>
+                            <input
+                                required={true}
+
+                                className='add-new-item-input'
+                                type="number"
+                                placeholder='item price'
+                                onChange={(e) => setPrice(e.target.value)} />
+                        </>
+                }
                 <label>Image.PNG</label>
                 <div className='add-img-btn-area'>
                     <input
