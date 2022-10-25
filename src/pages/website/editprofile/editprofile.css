@@ -1,0 +1,125 @@
+.edit-profile_img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 10vh;
+    box-shadow: 0 0 10px 1px rgb(199, 199, 199);
+    border: 2px solid white;
+
+}
+
+.edit-profile_photo-div {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 150px;
+}
+
+.edit-profile_change-photo {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background-color: #ffa229;
+    padding: 5px;
+    bottom: 0px;
+    border-radius: 25px;
+    border: 2.5px solid white;
+
+}
+
+.edit-profile_top-left {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.edit-profile-head {
+    font-size: 22px;
+    position: relative;
+    left: 50px;
+    font-weight: bold;
+    top: 18px;
+}
+
+.edit-profile_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 6vh;
+}
+
+.edit-profile_form label {
+    margin-left: 6vw;
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    color: rgb(83, 83, 83);
+    margin-bottom: 5px;
+
+}
+
+.edit-profile_form_input {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    height: 50px;
+    border: none;
+    border: 1px solid rgb(216, 216, 216);
+    padding: 15px;
+    font-size: 18px;
+    display: block;
+    margin: auto auto 20px auto;
+}
+
+.edit-profoile_form-subm-btn {
+
+    color: #ffa229;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+.profile_x-icon {
+    color: #000000;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+}
+
+.file-input-edit-prifle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 12px;
+    bottom: -5;
+    opacity: 1%;
+}
+
+input:placeholder-shown:focus:invalid {
+    border-color: red !important;
+    outline: red;
+}
+
+/* input:placeholder-shown:invalid{
+    border-color: red !important;
+    outline: red;
+} */
+
+input:not(:focus):not(:placeholder-shown):invalid~.error-message {
+    display: block;
+}
+
+/* Only show valid ring while not focused and if a value is entered */
+/* :empty won't work here as that targets elements that have no childeren. Therefore we abuse :placeholder-shown */
+input:not(:focus):not(:placeholder-shown):valid {
+    border-color: rgb(0, 216, 97) !important;
+}

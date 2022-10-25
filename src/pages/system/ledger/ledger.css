@@ -268,3 +268,21 @@
     left: -10px;
     top: 7px;
 }
+.ledger_trafic__normal{
+    color: rgb(0, 255, 85);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.ledger_trafic__high{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.ledger_trafic__low{
+    color: rgb(255, 145, 0);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}

@@ -6,32 +6,51 @@
 
 /*temp */
 
-.flex{
+.flex {
     display: flex;
 }
+
 
 @media (min-width:720px) {
     ::-webkit-scrollbar {
         width: 10px;
     }
-    
+
     /* Track */
     ::-webkit-scrollbar-track {
         background: rgb(150, 150, 150);
-    
+
     }
+
     /* Handle */
     ::-webkit-scrollbar-thumb {
         background: rgb(128, 128, 128);
     }
-    
+
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: rgb(85, 85, 85);
     }
 }
+
 @media (max-width:719px) {
     ::-webkit-scrollbar {
         display: none;
     }
+}
+.events-container p {
+    font-weight: bold;
+    margin-left: 10vw;
+    margin-top: 30vh;
+    
+}
+.event_swap-ico{
+    font-size: 30px;
+    /* padding: 5px ;
+    border: 1px solid #ffa229;
+    border-radius: 50%; */
+    color: #ffa229;
+    position:absolute;
+    right: 36px;
+    top: 32px;
 }

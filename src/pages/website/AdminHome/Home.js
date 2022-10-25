@@ -14,10 +14,10 @@ const Home = () => {
             <IoLogOutSharp className='admin-home_logout-icon' />
             <div className='admin-home_user-div'>
                 <img className='admin-home_user-photo' src={user?.photoURL ?? man} alt="" />
-                <p className='admin-home_user-name'>{user?.displayName.substring(0,5)}..</p>
+                <p className='admin-home_user-name'>{user?.displayName.substring(0, 5)}..</p>
             </div>
             <div className='admin-home_link-grid'>
-                <Link to="/cashier.system"  className='admin-home_link admin-link-1'>Cashier</Link>
+                <Link to="/cashier.system" className='admin-home_link admin-link-1'>Cashier</Link>
                 <Link to="/cashier.system/orders" className='admin-home_link admin-link-2'>Orders</Link>
                 <Link to="/cashier.system/add-new-item" className='admin-home_link admin-link-3'>Add Item</Link>
                 <Link to="/cashier.system/orders/ledger" className='admin-home_link admin-link-4'>Ledger</Link>

@@ -64,7 +64,7 @@ const Ledger = () => {
                     <div className='ledger_user-photos'>
                         {
                             openOrders?.map((order) => (
-                                <div style={{margin:"5px"}}>
+                                <div style={{ margin: "5px" }}>
                                     <div>
                                         <img alt='' src={order.user.url ? order.user.url : man} className="ledger-user-inspace-photo" />
                                         <p className='ledger-user-inspace-name'>{order?.user.name.substring(0, 7)}...</p>
@@ -98,6 +98,9 @@ const Ledger = () => {
                     </div>
 
                     <p className='ledger_prople-tkts'>Currently there is {tktNum} people in the workspace</p>
+                    {
+                        tktNum > 15 ? <p className='ledger_trafic__high'>High Trafic</p> : tktNum > 5 ? <p className='ledger_trafic__low'>Low Trafic</p> : <p className='ledger_trafic__normal'>Normal Trafic</p>
+                    }
                 </div>
             </div>
 

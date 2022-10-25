@@ -42,6 +42,9 @@ export const DataProvider = ({ children }) => {
     const usersQ = collection(db, `Users`)
     const [users] = useCollectionData(usersQ)
 
+    const userordersQ = collection(db, `Users/${user.displayName}/orders`)
+    const [userOrders] = useCollectionData(userordersQ)
+
 
     const upload = async (path, id, data) => {
         const docRef = doc(db, path, id);
@@ -90,6 +93,7 @@ export const DataProvider = ({ children }) => {
         remove,
         users,
         changeNewCartQty,
+        userOrders
  
 
 

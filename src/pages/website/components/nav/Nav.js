@@ -1,39 +1,41 @@
 import React, { useState } from 'react'
-import { AiOutlineLine } from 'react-icons/ai'
 import "./nav.css"
 
+import { BsCalendarEvent, BsCalendarEventFill, BsHouse, BsHouseFill, BsPeople, BsPeopleFill, BsPerson, BsPersonFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../../../../contexts/AuthContext'
+import { MdWork, MdWorkOutline } from 'react-icons/md'
+import { IoPersonCircleOutline, IoPersonCircleSharp, IoSettingsOutline, IoSettingsSharp } from 'react-icons/io5'
+import { VscDebugStackframeDot } from 'react-icons/vsc'
+import Profileblank from '../../../../assets/avatars/Profile-PNG-File.png'
 
-const Nav = () => {
-    const navDiv = document.getElementById('navMenu')
-    const [menu, setMenu] = useState(true)
 
-    const onShowMenu = () => {
-        setMenu(!menu)
+const Nav = ({ page }) => {
+    const { user } = useAuth()
+    const [active, setActive] = useState(page)
+    const [userPic, setUserPic] = useState(user.photoURL ?? Profileblank)
 
-    }
     return (
-        <>
+        <div className='nav'>
+            <Link className='nav_link' onClick={() => setActive("settings")} to="/settings">{active === 'settings' ? <> <IoSettingsSharp className='nav_link-ico__active' /><VscDebugStackframeDot className="nav-link-active-dot" /> </> : <IoSettingsOutline />}</Link>
+            <Link className='nav_link' onClick={() => setActive("home")} to="/">{active === 'home' ? <> <BsHouseFill className='nav_link-ico__active' /><VscDebugStackframeDot className="nav-link-active-dot" /> </> : <BsHouse />}</Link>
+            <Link className='nav_link' onClick={() => setActive("workshops")} to="/workshops">{active === 'workshops' ? <> <BsCalendarEventFill className='nav_link-ico__active' /><VscDebugStackframeDot className="nav-link-active-dot" /> </> : <BsCalendarEvent />}</Link>
+            <Link to="/profile" className='nav_link' onClick={() => setActive("profile")}>{active === "profile" ?
+                userPic ?
+                 <>
+                    <img alt='' className='nav_user-photo__active' src={userPic } />
+                    <VscDebugStackframeDot className="nav-link-active-dot__photo" /></>
+                    :
+                    <>
+                    <IoPersonCircleSharp className='nav_link-ico__active' />
+                    <VscDebugStackframeDot className="nav-link-active-dot" /></>
+                :
+                userPic ?
+                    <img alt='' className='nav_user-photo__inactive' src={userPic } /> :
+                    <IoPersonCircleOutline />}</Link>
 
-            <div onClick={onShowMenu} className='home_menu-icon'>
-                <div className={menu ? 'menu-line-top burger-line' : 'menu-line-top__open burger-line'}></div>
-                <div className={menu ? 'menu-line-mid burger-line' : 'menu-line-mid__open burger-line'}></div>
-                <div className={menu ? 'menu-line-bottom burger-line' : 'menu-line-bottom__open burger-line'}></div>
-            </div>
 
-            <div className={menu ? 'nav-menu__hidden' : 'nav-menu__visible'} id='navMenu'>
-                <div className='home_nav-container'>
-                    <p>Home</p>
-                    <p>About</p>
-                    <p>My Profile</p>
-                    <p>Events</p>
-                    <p>Workshops</p>
-                    <p>Menu</p>
-
-                </div>
-            </div>
-
-        </>
-
+        </div>
     )
 }
 

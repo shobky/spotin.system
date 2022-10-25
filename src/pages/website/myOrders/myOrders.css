@@ -1,0 +1,127 @@
+.my-orders_header {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0 0 20px;
+    align-items: center;
+    font-size: 20px;
+}
+
+.my-orders_back-ico {
+    font-size: 25px;
+    color: #ffa229;
+    margin: 15px 0 0 17px;
+}
+
+.my-orders_main_header {
+    margin: 8vh 20px;
+    color: #ffa229;
+}
+
+.my-orders-input-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+.my-orders_search-input {
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 25px;
+    height: 40px;
+    width: 75vw;
+    max-width: 400px;
+    font-size: 20px;
+    font-family: montserrat-light;
+    padding: 15px;
+}
+
+.my-orders_search-input:focus {
+    outline: none;
+    border: 2px solid black;
+}
+
+.my-orders-order-link {
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 10px 1px rgb(228, 228, 228);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.my-orders-order-link span {
+    font-weight: 100;
+    color: rgb(194, 194, 194);
+    margin-left: 50px;
+}
+
+.userOrder-viw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    height: 50px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.userOrder-viw p {
+    margin-top: 5px;
+}
+
+.userOrder-view-star {
+    font-size: 25px;
+    color: rgb(44, 44, 44);
+    position: relative;
+    left: 5px;
+    z-index: 500;
+    top: 2px;
+    transition: ease-in-out 0.5s;
+
+    
+}
+.userOrder-view-star__active {
+    color: #ff9100;
+    font-size: 25px;
+    position: relative;
+    left: 5px;
+    top: 2px;
+    transform: rotate(180deg);
+    transition: ease-in-out 0.5s;
+
+}
+
+.order-container-containe{
+    display: flex;
+    align-items: center;
+}
+.userOrder-id-div {
+    margin-left: -20px;
+}
+
+
+
+.userOrder-view-small-details {
+    font-size: 13px;
+    text-align: right;
+}
+
+.userOrder-view-items-num {
+    font-weight: bold;
+    position: relative;
+    top: -3px;
+    color: rgb(65, 129, 89);
+}
+
+.userOrder-id {
+    font-weight: bold;
+}
+
+.userOrder-status {
+    font-family: montserrat-light;
+    font-size: 15px;
+    color: red;
+}

@@ -14,7 +14,7 @@ const SelectUser = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onSh
         setUsername(e.target.value)
     }
     const onSubmitUser = async () => {
-        await upload('Users', username, {
+        await upload('Users', uid, {
             name: username,
             uid: uid
         })

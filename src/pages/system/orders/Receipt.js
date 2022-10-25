@@ -5,14 +5,16 @@ import { ImShrink2 } from 'react-icons/im'
 import TimeSpent from './TimeSpent'
 
 import { BsCartPlus, BsFillCircleFill } from 'react-icons/bs'
-import { deleteDoc, doc, setDoc } from 'firebase/firestore'
+import { deleteDoc, doc, setDoc, updateDoc } from 'firebase/firestore'
 import { GiPlainCircle } from 'react-icons/gi'
 import { db } from '../../../firebase/Config'
 
 import avataro from '../../../assets/avatars/man.png'
 import { MdCancel, MdOutlineAddShoppingCart, MdOutlineNoteAdd } from 'react-icons/md'
 import { HiOutlineCurrencyDollar } from 'react-icons/hi'
-const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
+import { uuidv4 } from '@firebase/util'
+import { Link } from 'react-router-dom'
+const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSetter }) => {
     const [timeSpent, setTimeSpent] = useState()
     const [loading, setLoading] = useState(false)
     const [paidAmout, setPaidAmount] = useState(0)
@@ -61,6 +63,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
             paidAmout
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
+        await setDoc(doc(db, `Users/${order.user.name}/orders/${uuidv4().slice(-7)}`), data);
         await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
         onSetReceipt()
         setLoading(false)
@@ -105,9 +108,13 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                         className='pos_name-span'>IN
                     </span>
                 </h1>
-                <ImShrink2
-                    onClick={() => onSetReceipt()}
-                    className="rec_shrink-ico" />
+                {
+                    userOpen ? <ImShrink2
+                        onClick={() => showreceSetter()}
+                        className="rec_shrink-ico" /> : <ImShrink2
+                        onClick={() => onSetReceipt()}
+                        className="rec_shrink-ico" />
+                }
                 {
                     order.user.url ?
                         <img className="rece_avatar" alt='' src={order.user.url} /> : ""
@@ -253,37 +260,56 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems }) => {
                     </div>
                 </div>
             </div>
-            <div className='rece_actions'>
-                {/* counting order total price with tickets again in the bottom */}
+            {
+                !userOpen ?
+                    <div className='rece_actions'>
+                        {/* counting order total price with tickets again in the bottom */}
 
-                {
-                    order.status === "open" ?
-                        timeSpent?.length > 0 ?
-                            <p className='total_in-bottom'>{
-                                timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                            }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                        : order.timeSpent ?
-                            <p className='total_in-bottom'>{
-                                order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                            }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                }
-                {
-                    order.status === 'open' ?
-                        <button
-                            onClick={handleOnCheckOut}
-                            className='rece_Checkout-btn'>
-                            Checkout
-                        </button> :
-                        order.status === "closed" ?
-                            <button
-                                disabled={loading}
-                                className={loading ? " rece_archive-btn__disabled  " : 'rece_Checkout-btn rece_archive-btn '}
-                                onClick={onArchive}
-                            >
-                                Archive
-                            </button> : ''
-                }
-            </div>
+                        {
+                            order.status === "open" ?
+                                timeSpent?.length > 0 ?
+                                    <p className='total_in-bottom'>{
+                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
+                                : order.timeSpent ?
+                                    <p className='total_in-bottom'>{
+                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
+                        }
+                        {
+                            order.status === 'open' ?
+                                <button
+                                    onClick={handleOnCheckOut}
+                                    className='rece_Checkout-btn'>
+                                    Checkout
+                                </button> :
+                                order.status === "closed" ?
+                                    <button
+                                        disabled={loading}
+                                        className={loading ? " rece_archive-btn__disabled  " : 'rece_Checkout-btn rece_archive-btn '}
+                                        onClick={onArchive}
+                                    >
+                                        Archive
+                                    </button> : ''
+                        }
+                    </div>
+                    :
+
+                    <div style={{display:"flex", justifyContent:"center", marginTop:"55px"}}>
+                        {
+                            order.status === "open" ?
+                                timeSpent?.length > 0 ?
+                                    <p className='total_in-bottom'>{
+                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
+                                : order.timeSpent ?
+                                    <p className='total_in-bottom'>{
+                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
+                        }
+                    </div>
+
+            }
 
         </>
     )

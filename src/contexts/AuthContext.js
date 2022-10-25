@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
             photoURL: url
         })
         if (url?.length > 0) {
-            setDoc(doc(db, "Users", name), {
+            setDoc(doc(db, "Users", user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]), {
                 email: email,
                 name: name,
                 uid: uuidv4().slice(-5),
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const addUser = async () => {
             if (user) {
-                await setDoc(doc(db, "Users", user.displayName), {
+                await setDoc(doc(db, "Users", user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]), {
                     email: user.email,
                     name: user.displayName,
                     uid: user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13],

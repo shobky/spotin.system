@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
 //icons
-import { GiCircle } from 'react-icons/gi'
+import { CgMenuRight } from 'react-icons/cg'
 import { BsSearch, BsCalendarEventFill, BsFillInfoCircleFill } from 'react-icons/bs'
 import thinkerIllus from '../../assets/imgs/thinkerIllus.png'
 import { FaUserAlt, FaChalkboardTeacher } from 'react-icons/fa'
-import { MdRestaurantMenu } from 'react-icons/md'
+import { HiLogout } from 'react-icons/hi'
 // imgs
 import man from '../../assets/avatars/man.png'
 import woman from '../../assets/avatars/woman.png'
+import googleMap from '../../assets/imgs/googlemap.png'
+import commu from '../../assets/imgs/community.png'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import { auth } from '../../firebase/Config'
-import { HiMenuAlt3, HiLogin, HiLogout } from 'react-icons/hi'
 //components
 import Nav from './components/nav/Nav'
+import { useDb } from '../../contexts/Database'
+import HomeMore from './components/nav/HomeMore'
+import dnatree from '../../assets/imgs/dnaTreetxt.png'
+import { MdCopyright } from 'react-icons/md'
 
 
 
@@ -24,11 +28,44 @@ const Home = () => {
     const navigate = useNavigate()
     const [avatar, setAvatar] = useState(user?.photoURL ? user.photoURL : man)
     const [counter, setCounter] = useState(0)
+    const { openOrders } = useDb()
+    const [tktNum, setTktNum] = useState()
     const [searchActv, setSearchActv] = useState(false)
+    const [touchStart, setTouchStart] = useState(null)
+    const [touchEnd, setTouchEnd] = useState(null)
+    // the required distance between touchStart and touchEnd to be detected as a swipe
+    const minSwipeDistance = 50
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+        setTouchStart(e.targetTouches[0].clientX)
+    }
+
+    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX)
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return
+        const distance = touchStart - touchEnd
+        const isLeftSwipe = distance > minSwipeDistance
+        const isRightSwipe = distance < -minSwipeDistance
+        if (isLeftSwipe || isRightSwipe) {
+            // ('swipe', isLeftSwipe ? navigate('/home') : navigate('/profile'))
+            if (isRightSwipe) {
+                navigate('/settings')
+            } else if (isLeftSwipe) {
+                navigate('/workshops')
+            }
+        }
+        // add your conditional logic here
+    }
+
 
 
     const ownderId = "NcHM2FUvdgNQ2BGhrIFCrl7oPTt1"
     const devId = process.env.REACT_APP_DEV_ID
+
+
+
 
     const signOut = () => {
         logout()
@@ -52,79 +89,82 @@ const Home = () => {
     }
 
 
+
+    useEffect(() => {
+        const countPropleInSpace = () => {
+            let Allpeople = [];
+            openOrders?.map((order) =>
+                Allpeople.push(order.tickets.number)
+            )
+            setTktNum(Allpeople.reduce((a, b) => a + b, 0))
+        }
+        countPropleInSpace()
+    }, openOrders)
+
+    const showMoreHome = () => {
+        const moreHome = document.getElementById('homeMore')
+        moreHome.classList.remove('home_showMore__inactive')
+        moreHome.classList.add('home_showMore__active')
+    }
+
+    const page = "home"
     return (
-        <div className='home'>
-            <Nav />
-            <div className='home_header'>
+        <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+            <section className='home'>
+                <nav>
+                    <Nav page={page} />
+                </nav>
+                <div className='home_header'>
+                    <header>
+                        <h1 className='home_name'>Spot<span>IN</span></h1>
+                        <p><CgMenuRight onClick={showMoreHome} className="home_burger-menu-icon" /></p>
+                        <HomeMore />
+                    </header>
+                    <img alt='' src={avatar} className='home_logo' />
+                    <div className='db-n-mb'>
+                        <ul className="home_nav-container">
+                            <li className="home_nav-link active-link">home</li>
+                            <li className="home_nav-link">profile</li>
+                            <li className="home_nav-link">events</li>
+                            <li className="home_nav-link">workshops</li>
+                        </ul>
 
-                <h1 className='home_name'>Spot<span>In</span></h1>
-                {/* <div>
-                    <input placeholder='search...' type="text" className={!searchActv ? 'home_header_search-input' : 'home_header_search-input__active '} />
-                    {!searchActv ? <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico' />
-                        : <BsSearch onClick={() => setSearchActv(!searchActv)} className='home_search-ico__active' />
-                    }
-
-                </div> */}
-                <div className='home_circle_container'>
-                    <div className='home_circle_content'>
-                        <img onClick={changeAvatar} src={avatar} alt="" className={user ? "home_userPhoto" : "home_userAvatar"} />
-                        {
-                            user ? <HiLogout onClick={signOut} className='home_logout-icon' />
-                                : <HiLogin onClick={signOut} className='home_login-icon' />
-                        }
-
-                    </div>
-                </div>
-            </div>
-            <div onClick={() => setSearchActv(false)} className='home_content'>
-                <div>
-                    {
-                        auth.currentUser ? <div>
-                            <p className='home_content_username'>{user.displayName}, </p>
-                            {
-                                user?.uid === ownderId || user?.uid === devId
-                                    ? <div>
-                                        <p className='home-content-slogan'><span>Welcome back..</span> to start work here are some quick links </p>
-                                        <div className='home_content-link-group'>
-                                            <Link className='home_content-Link' to="/cashier.system">Cashier System</Link>
-                                            <Link className='home_content-Link home_btw-link' to="/cashier.system/orders">Orders</Link>
-                                            <Link className='home_content-Link home_btw-link' to="/cashier.system/add-new-item">Add Items</Link>
-                                            {
-                                                (user?.uid === ownderId || user?.uid === process.env.REACT_APP_DEV_ID) &&
-                                                <Link className='home_content-Link home_btw-link' to="/cashier.system/orders/ledger">ledger</Link>
-                                            }
-                                        </div>
-
-                                    </div>
-                                    :
-                                    <p className='home-content-slogan'>Welcome to the <span> space of the future.</span></p>
-
-                            }
-                        </div> : <div>
-                            <p className='home-content-slogan'>Welcome to the <span> space of the future.</span></p>
-                            <Link className='home_no-user-crete-link' to="/signup">create my accout</Link>
+                        <div className='home_img-btn-div'>
+                            <img alt='' src={avatar} className='home_user-photo' />
+                            <button className='home_nav_login'>{user ? "logout" : "login"} <HiLogout style={{ marginLeft: "5px" }} /></button>
                         </div>
-                    }
-                </div>
-                <div className='home_content_section-2'>
-                    <p className='home_content_section-2-header'>Get familar with the platform:</p>
-                    <div className='home_content_section-2_link-group'>
-                        <Link className='home_section-2_user-links' to=""><BsFillInfoCircleFill /></Link>
-                        <Link className='home_section-2_user-links' to=""><FaUserAlt /></Link>
-                        <Link className='home_section-2_user-links' to=""><BsCalendarEventFill /></Link>
-                        <Link className='home_section-2_user-links' to=""><MdRestaurantMenu /></Link>
-                        <Link className='home_section-2_user-links' to=""><FaChalkboardTeacher /></Link>
                     </div>
-                    <img alt='thinker' src={thinkerIllus} className="home_content_sectino-2_img" />
 
                 </div>
+                <main>
+                    <h2 className='home_slogan'>The Space Of The Future.</h2>
+                    <p className='home_trafic-teller'>The trafic in the space now is
+                        {
+                            tktNum > 15 ? <span className='home_trafic__high'> High </span> : tktNum < 5 ? <span className='home_trafic__low'> Low </span> : <span className='home_trafic__normal'> Normal</span>
+                        }</p>
+                    <section className='nre0sdi'>
+                        <p className='home_section-1-header'>New from SpotIN:</p>
+                        <p className='home_sectio-1-main'>Join our community and become one of us. <Link to="/join-community-form" className='home_section-1-btn'>Join</Link></p>
+                        <img alt='' src={commu} className="hom_section-1-img" />
+                    </section>
 
+                </main>
+
+            </section>
+            <div className='home-page-second-section'>
+                <h1 className='s2_header'>Don't get lost, here is the location:</h1>
+                <iframe className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <GiCircle className='home_circle home_circle-1' />
-            <GiCircle className='home_circle home_circle-2' />
-            <GiCircle className='home_circle home_circle-3' />
+            <div className='home-page-third-section'>
+                <p className='home-third_header'>Be eco. pay less.</p>
+                <p className='home-third_sub-header'>We don't use paper receipts, It's all digital <span><Link className='home-third_sub-header-link' to="/profile/orders">history</Link></span></p>
 
+                <img alt="" src={dnatree} className="dnaTree" />
+            </div>
+
+
+            <p className='copy-right-footer'><MdCopyright className='copy-right-ico'/>2022 Ahmed Shobky, Spotin EGY. All rights reserved.</p>
 
         </div>
     )

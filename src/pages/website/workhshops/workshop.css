@@ -1,0 +1,229 @@
+.workshop_name {
+    font-size: 25px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.workhsops-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 10vw 0 10vw;
+}
+.workshop_swap-ico{
+    font-size: 30px;
+    /* padding: 5px ;
+    border: 1px solid #ffa229;
+    border-radius: 50%; */
+    color: #ffa229;
+    position: relative;
+    bottom: 5px;
+}
+
+
+.workshop {
+    padding-bottom: 10vh;
+}
+
+
+.workshop_flier-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+
+
+}
+
+.workhshop_flier-cover-photo {
+    height: 400px;
+    width: 95vw;
+    border-radius: 5%;
+    margin-bottom: 50px;
+
+
+}
+
+.workhshop_flier-cover-filter {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.884) 45%, rgba(5, 5, 5, 0.212) 55%);
+    width: 95vw;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 5%;
+    color: white;
+    transition: ease-in-out .4s;
+
+}
+
+.workshop_workshop-name {
+    margin-top: 250px;
+    margin-left: 15px;
+}
+.workshop_workshop-name__graphic{
+    margin-top: 180px !important;
+}
+
+.workshop_workshop-level {
+    margin-left: 20px;
+    opacity: 75%;
+
+}
+
+.workshop_workshop-appointment {
+    margin-left: 20px;
+    opacity: 75%;
+}
+
+.workshop_workshop-price {
+    margin-left: 20px;
+    margin-top: 30px;
+    font-weight: bold;
+    padding-bottom: 20px;
+
+}
+
+.workshop_expand-ico {
+    background-color: white;
+    border: none;
+    position: absolute;
+    bottom: -27px;
+    right: 10%;
+    font-size: 35px;
+    padding: 7px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 1px rgb(170, 170, 170);
+}
+
+#workshopReadMore {
+    transition: ease-in-out .4s;
+
+}
+
+#workshopReadMoregd {
+    transition: ease-in-out .4s;
+
+}
+
+.workshopReadMore__active {
+    transition: ease-in-out .4s;
+    
+}
+
+.workshopReadMore__active .workhshop_flier-cover-photo {
+    margin-bottom: 250px;
+}
+
+.workshopReadMore__active .workhshop_flier-cover-filter {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.952) 45%, rgba(5, 5, 5, 0.212) 55%);
+    width: 95vw;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 5%;
+    color: white;
+    transition: ease-in-out .4s;
+    z-index: 50;
+
+
+}
+
+.workshopReadMore__active .workshop_expand-ico {
+    display: none
+}
+
+.workshop article {
+    background-color: rgb(0, 0, 0);
+    padding-left: 20px;
+    height: 24vh;
+    border-radius: 0 0px 25px 25px;
+    position: absolute;
+    top: 200px;
+    z-index: -1;
+    transition: ease-in-out .4s;
+
+
+}
+
+.workshopReadMore__active article {
+    background-color: rgb(0, 0, 0);
+    padding-left: 20px;
+    height: 24vh;
+    padding-top: 25px;
+    overflow-y: scroll;
+    padding-right: 5%;
+    border-radius: 0 0px 25px 25px;
+    position: absolute;
+    transition: ease-in-out .4s;
+    top: 380px;
+    z-index: 1;
+
+}
+
+.workshop_article-head {
+    margin-bottom: 15px;
+}
+
+.workshop_article-list-title {
+    font-weight: bold;
+}
+
+.workshop_article-topic-list {
+    margin-left: 20px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.workshop_article-topic-list li {
+    opacity: 95%;
+
+}
+
+.workshop_close-ico {
+    display: none;
+}
+
+.workshopReadMore__active .workshop_close-ico {
+    display: block !important;
+    font-size: 50px;
+    float: right;
+    padding: 20px;
+}
+
+.workshop_price-btn-container {
+    display: flex;
+    height: 200px;
+}
+
+.workshopReadMore__active .workshop_join-btn {
+    display: block !important;
+    height: 30px;
+    width: 70px;
+    margin-top: 25px;
+    font-size: 18px;
+    margin-left: 17vw;
+    border-radius: 25px;
+    border: none;
+    position: absolute;
+    right: 10vw;
+    top: 325px;
+
+}
+
+.workshop_join-btn {
+    display: none;
+}
+.workshop_burger-menu-icon{
+    font-size: 28px;
+    position: relative;
+    bottom: 5px;
+    margin-left: 15px;
+}

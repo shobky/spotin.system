@@ -1,0 +1,18 @@
+    .menu-menu-img {
+        width: 100vw;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+    }
+
+    .menu-page {
+        background-color: #D0D8C0;
+        height:100vh;
+        width: 100%;
+
+    }
+    .menu_burger-menu-icon{
+        float: right;
+        margin: 25px;
+        font-size: 30px;
+    }
