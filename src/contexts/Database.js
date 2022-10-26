@@ -36,7 +36,7 @@ export const DataProvider = ({ children }) => {
     const orderId = (openOrders?.length + closedOrders?.length + deletedOrders?.length) + 1;
 
 
-    const cartQ = collection(db, `cart#${orderId}-${(user?.uid).slice(-5)}`)
+    const cartQ = collection(db, `cart#${orderId}-${(user?.uid ? user.uid.slice(-5) : "")}`)
     const [cart] = useCollectionData(cartQ)
 
     const usersQ = collection(db, `Users`)
@@ -51,23 +51,29 @@ export const DataProvider = ({ children }) => {
         await setDoc(docRef, data)
     }
     const changeCartQty = async (cartItem, qty) => {
-        const docRef = doc(db, `cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`);
-        await updateDoc(docRef, {
-            qty
-        })
+        if (user?.uid) {
+            const docRef = doc(db, `cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`);
+            await updateDoc(docRef, {
+                qty
+            })
+        }
     }
     const changeNewCartQty = async (id, cartItem, qty) => {
-        const path = `newcart#${id}-${(user?.uid).slice(-5)}/${cartItem.item.name}`
-        const docRef = doc(db, path);
-        await updateDoc(docRef, {
-            qty
-        })
+        if (user?.uid) {
+            const path = `newcart#${id}-${(user?.uid).slice(-5)}/${cartItem.item.name}`
+            const docRef = doc(db, path);
+            await updateDoc(docRef, {
+                qty
+            })
+        }
     }
     const updateNote = async (cartItem, note) => {
-        const docRef = doc(db, `cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`);
-        await updateDoc(docRef, {
-            note
-        })
+        if (user?.uid) {
+            const docRef = doc(db, `cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`);
+            await updateDoc(docRef, {
+                note
+            })
+        }
     }
 
     const remove = async (path) => {
@@ -75,7 +81,7 @@ export const DataProvider = ({ children }) => {
 
     }
 
-  
+
 
     const value = {
         upload,
@@ -94,7 +100,7 @@ export const DataProvider = ({ children }) => {
         users,
         changeNewCartQty,
         userOrders
- 
+
 
 
     }

@@ -30,7 +30,7 @@ const HomeMore = () => {
             <header className='homemore-header'>
                 <div className='home_showmore_user-info'>
                     <Link to="/profile">
-                        <img alt='' className='home_showmore_userpic' src={user.photoURL ?? Profileblank} /></Link>
+                        <img alt='' className='home_showmore_userpic' src={user?.photoURL ?? Profileblank} /></Link>
                 </div>
                 <p><BsXLg onClick={closeShowMoreHome} className="home-more_x-icon" /></p>
             </header>
@@ -57,13 +57,14 @@ const HomeMore = () => {
                 </div>
 
                 {
-                    user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID || true ?
-                        <div className='home-more-admin-links'>
-                            <Link className='home-more_admin-link' to="cashier.system">Cashier</Link>
-                            <Link className='home-more_admin-link' to="cashier.system/orders">Orders</Link>
-                            <Link className='home-more_admin-link' to="cashier.system/orders/ledger">Ledger</Link>
+                    user ?
+                        user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID || true ?
+                            <div className='home-more-admin-links'>
+                                <Link className='home-more_admin-link' to="cashier.system">Cashier</Link>
+                                <Link className='home-more_admin-link' to="cashier.system/orders">Orders</Link>
+                                <Link className='home-more_admin-link' to="cashier.system/orders/ledger">Ledger</Link>
 
-                        </div> : ""
+                            </div> : "" : ""
                 }
 
             </section>

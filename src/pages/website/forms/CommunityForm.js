@@ -21,7 +21,7 @@ const CommunityForm = () => {
         e.preventDefault()
         setLoading(true)
 
-        await updateDoc(doc(db, `Users/${user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]}`), {
+        await updateDoc(doc(db, `Users/${user.email}`), {
             number: numberRef.current.value,
             age: ageRef.current.value,
             gender: genderRef.current.value,
@@ -39,7 +39,7 @@ const CommunityForm = () => {
 
             <header>
                 {/* <img alt='' src={logo} className='comm-form_logo' /> */}
-                <p className='comm-form-title'>SpotIN Community</p>
+                <p className='comm-form-title'>Spotin Community</p>
             </header>
             <p className='comm-form_head'>Hi {user.displayName}, tell us more about yourself.. </p>
             <form onSubmit={(e) => onSubmitForm(e)}>

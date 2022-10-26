@@ -29,7 +29,7 @@ const EditProfile = () => {
         e.preventDefault()
 
 
-        await updateDoc(doc(db, "Users", user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]), {
+        await updateDoc(doc(db, "Users", user.email), {
             name: nameRef.current.value ?? auth.currentUser.displayName,
             // url: user.photoURL
             number: numberRef.current.value ?? null

@@ -20,6 +20,9 @@ import { useDb } from '../../contexts/Database'
 import HomeMore from './components/nav/HomeMore'
 import dnatree from '../../assets/imgs/dnaTreetxt.png'
 import { MdCopyright } from 'react-icons/md'
+import { collection } from 'firebase/firestore'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { db } from '../../firebase/Config'
 
 
 
@@ -28,7 +31,8 @@ const Home = () => {
     const navigate = useNavigate()
     const [avatar, setAvatar] = useState(user?.photoURL ? user.photoURL : man)
     const [counter, setCounter] = useState(0)
-    const { openOrders } = useDb()
+    const openOrdersQ = collection(db, `open-orders`)
+    const [openOrders,] = useCollectionData(openOrdersQ)
     const [tktNum, setTktNum] = useState()
     const [searchActv, setSearchActv] = useState(false)
     const [touchStart, setTouchStart] = useState(null)
@@ -144,7 +148,14 @@ const Home = () => {
                         }</p>
                     <section className='nre0sdi'>
                         <p className='home_section-1-header'>New from SpotIN:</p>
-                        <p className='home_sectio-1-main'>Join our community and become one of us. <Link to="/join-community-form" className='home_section-1-btn'>Join</Link></p>
+                        <p className='home_sectio-1-main'>Join our community and become one of us. {
+                            user ?
+                                <Link to="/join-community-form" className='home_section-1-btn'>Join</Link>
+                                :
+                                <Link style={{
+                                    color: "black", fontWeight: "bold",
+                                }} to="/login"> Login First</Link>
+                        } </p>
                         <img alt='' src={commu} className="hom_section-1-img" />
                     </section>
 
@@ -164,7 +175,7 @@ const Home = () => {
             </div>
 
 
-            <p className='copy-right-footer'><MdCopyright className='copy-right-ico'/>2022 Ahmed Shobky, Spotin EGY. All rights reserved.</p>
+            <p className='copy-right-footer'><MdCopyright className='copy-right-ico' />2022 Ahmed Shobky, Spotin EGY. All rights reserved.</p>
 
         </div>
     )

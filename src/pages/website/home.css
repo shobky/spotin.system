@@ -434,7 +434,8 @@
 
     .home_section-1-header {
         font-weight: bold;
-        color: rgb(153, 153, 153);
+        color: rgb(255, 169, 41);
+
         font-size: 20px;
     }
 
@@ -449,7 +450,8 @@
         border: none;
         font-weight: bold;
         font-size: 18px;
-        color: #000000;
+        color: rgb(27, 27, 27);
+        /* color: #000000; */
         text-decoration: underline;
     }
 
@@ -563,7 +565,8 @@
     text-align: center;
 
 }
-.copy-right-ico{
+
+.copy-right-ico {
     position: relative;
     top: 2.5px;
     margin-right: 2px;

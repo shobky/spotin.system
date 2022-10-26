@@ -13,7 +13,7 @@ import Profileblank from '../../../../assets/avatars/Profile-PNG-File.png'
 const Nav = ({ page }) => {
     const { user } = useAuth()
     const [active, setActive] = useState(page)
-    const [userPic, setUserPic] = useState(user.photoURL ?? Profileblank)
+    const [userPic, setUserPic] = useState(user?.photoURL ?? Profileblank)
 
     return (
         <div className='nav'>

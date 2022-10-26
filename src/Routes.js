@@ -46,10 +46,11 @@ const AllRoutes = () => {
                 <Signup />
             </Suspense>} />
             <Route exact path='/' element={<Suspense fallback={<Logo />}>
-                <DataProvider>
-                    <Home />
-                </DataProvider>
+                <Home />
             </Suspense>} />
+            <Route path="/workshops" element={
+                <Workshop />
+            } />
 
             <Route path='*' element={
                 <Suspense fallback={<Logo />}>
@@ -101,11 +102,7 @@ const AllRoutes = () => {
                         <MyOrders />
                     </DataProvider>
                 } />
-                <Route path="/workshops" element={
-                    <DataProvider>
-                        <Workshop />
-                    </DataProvider>
-                } />
+
                 <Route path="/events" element={
                     <DataProvider>
                         <Event />
