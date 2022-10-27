@@ -48,7 +48,7 @@ const Settings = () => {
             <Nav page={page} />
             <Link to="/"> <TbArrowNarrowLeft className="auth_back-arr" /> </Link>
 
-            <Link to='/profile' style={{ textDecoration: "none", color: "black" }}>
+            <Link className='setting-profile-link' to='/profile' style={{ textDecoration: "none", color: "black" }}>
                 <header className='settings-header'>
                     <p className='settings_head'>Profile</p>
                     <img alt="" className='setttings_prfoile-img' src={user.photoURL} />

@@ -48,18 +48,10 @@
     font-size: 17px;
     border: 1px solid rgb(211, 211, 211);
     border-radius: 5px;
-    background-color: transparent;
+    background-color: white;
+
 
 }
-
-.comm-form_background-img {
-    width: 10%;
-    position: absolute;
-    bottom: 0;
-    right: -20vw;
-    z-index: -1;
-}
-
 .comm_submit-form-btn {
     padding: 7px 15px 7px 15px;
     margin-top: 20px;
@@ -87,7 +79,6 @@
 .comm-form-back-ico {
     position: absolute;
     top: 22px;
-    border: 1px solid black;
     border-radius: 50%;
     padding: 2px;
     left: 20px;

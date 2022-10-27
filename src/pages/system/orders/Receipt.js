@@ -53,7 +53,8 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
         const data = {
             id: order.id,
             status: "closed",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "" },
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "", email:order.user.email ?? "" },
+            userOrderId : order.userOrderId,
             time: order.time,
             date: order.date,
             total: order.total,
@@ -63,7 +64,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
             paidAmout
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
-        await setDoc(doc(db, `Users/${order.user.name}/orders/${uuidv4().slice(-7)}`), data);
+        await updateDoc(doc(db, `Users/${order.user.email}/orders/${order.userOrderId}`), data);
         await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
         onSetReceipt()
         setLoading(false)
@@ -74,7 +75,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
         const data = {
             id: `${order.id}`,
             status: "archived",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "" },
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url , email: order.user.email?? "" },
             time: order.time,
             date: order.date,
             total: order.total,

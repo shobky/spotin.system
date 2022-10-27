@@ -42,7 +42,7 @@ export const DataProvider = ({ children }) => {
     const usersQ = collection(db, `Users`)
     const [users] = useCollectionData(usersQ)
 
-    const userordersQ = collection(db, `Users/${user.displayName}/orders`)
+    const userordersQ = collection(db, `Users/${user.email}/orders`)
     const [userOrders] = useCollectionData(userordersQ)
 
 

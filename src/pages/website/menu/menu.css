@@ -1,3 +1,23 @@
+@media (min-width:852px) {
+    .menu-menu-img {
+        position: absolute;
+        left: 0;
+        height: 100vh;
+        border-right: 2px solid black;
+        padding: 5px;
+    }
+
+    .menu-page {
+        background-color: #D0D8C0;
+        height:100vh;
+        width: 100%;
+
+    }
+    .menu_burger-menu-icon{
+        display: none
+    }
+}
+@media (max-width:851px) {
     .menu-menu-img {
         width: 100vw;
         position: absolute;
@@ -16,3 +36,4 @@
         margin: 25px;
         font-size: 30px;
     }
+}

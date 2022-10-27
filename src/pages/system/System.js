@@ -42,8 +42,8 @@ const System = () => {
     })
   }
 
-  const onSetSelectedUser = (name, uid, url) => {
-    setSelectedUser({ name, uid, url: url ?? "" })
+  const onSetSelectedUser = (name, uid, url, email) => {
+    setSelectedUser({ name, uid, url: url ?? "", email:email ?? "" })
   }
 
   const onSetChoose = () => {

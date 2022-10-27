@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
     const signup = async (email, password, name, url) => {
         await createUserWithEmailAndPassword(auth, email, password);
-        const uid =  uuidv4().slice(-5)
+        const uid = uuidv4().slice(-5)
         await updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: url
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
             setDoc(doc(db, "Users", email), {
                 email: email,
                 name: name,
-                uid:uid,
+                uid: uid,
                 url: url
             })
         } else {
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
     // useEffect(() => {
     //     const addUser = async () => {
     //         if (user) {
-    //             await setDoc(doc(db, "Users", user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]), {
+    //             await setDoc(doc(db, "Users", user.email), {
     //                 email: user.email,
     //                 name: user.displayName,
     //                 uid: user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13],

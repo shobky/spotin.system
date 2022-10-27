@@ -17,7 +17,7 @@ const Menu = () => {
         <div className='menu-page'>
             <p><CgMenuRight onClick={showMoreHome} className="menu_burger-menu-icon" /></p>
             <HomeMore />
-            <Nav />
+            <Nav page={"menu"} />
 
             <img alt='' src={MenuJPG} className="menu-menu-img" />
         </div>

@@ -32,8 +32,6 @@ export default function Signup() {
     const [file, setFile] = useState(null)
     const navigate = useNavigate();
 
-
-
     const showingthePassword = (e) => {
         e.preventDefault()
         if (showPassword === "password") {
@@ -129,6 +127,11 @@ export default function Signup() {
     }
     return (
         <div className="auth-container">
+            {
+                loading ?
+                    <div className="auth_loading-screen-filter">
+                    </div> : ""
+            }
             <div className="auth_backk-container">
                 <Link to="/"> <MdKeyboardBackspace className="auth_back-arr" /><span className="auth_back-arrow-longer"></span> </Link>
             </div>
@@ -180,10 +183,10 @@ export default function Signup() {
                     </div>
                     <button className={loading ? "submit-btn-loading" : "sumbit-btn-signup"} type="submit"><IoSend /></button>
                 </form>
-               <div className="footer-container"> 
-               <p className="auth_footer">Already have an account ? </p>
-                <Link className="auth_footer-btn" to="/login">log in</Link>
-               </div>
+                <div className="footer-container">
+                    <p className="auth_footer">Already have an account ? </p>
+                    <Link className="auth_footer-btn" to="/login">log in</Link>
+                </div>
             </div>
             <GiPlainCircle className="auth_circle-fill auth_circle-fill1 " />
             <GiPlainCircle className="auth_circle-fill auth_circle-fill2 " />

@@ -22,7 +22,10 @@ import dnatree from '../../assets/imgs/dnaTreetxt.png'
 import { MdCopyright } from 'react-icons/md'
 import { collection } from 'firebase/firestore'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
-import { db } from '../../firebase/Config'
+import { auth, db } from '../../firebase/Config'
+import Footer from './footer/Footer'
+import musicImg from '../../assets/imgs/music.png'
+import playstaionImg from '../../assets/imgs/playstaion.png'
 
 
 
@@ -31,12 +34,17 @@ const Home = () => {
     const navigate = useNavigate()
     const [avatar, setAvatar] = useState(user?.photoURL ? user.photoURL : man)
     const [counter, setCounter] = useState(0)
-    const openOrdersQ = collection(db, `open-orders`)
-    const [openOrders,] = useCollectionData(openOrdersQ)
     const [tktNum, setTktNum] = useState()
     const [searchActv, setSearchActv] = useState(false)
     const [touchStart, setTouchStart] = useState(null)
     const [touchEnd, setTouchEnd] = useState(null)
+    const [commForm, setCommForm] = useState(false)
+
+    const openOrdersQ = collection(db, `open-orders`)
+    const [openOrders,] = useCollectionData(openOrdersQ)
+    const usersQ = collection(db, `Users`)
+    const [users] = useCollectionData(usersQ)
+
     // the required distance between touchStart and touchEnd to be detected as a swipe
     const minSwipeDistance = 50
 
@@ -105,6 +113,18 @@ const Home = () => {
         countPropleInSpace()
     }, openOrders)
 
+    useEffect(() => {
+        users?.map((userDb) => {
+            if (userDb.email === user?.email) {
+                if (userDb.commForm === "filled") {
+                    setCommForm(true)
+                } else {
+                }
+            } else {
+            }
+        })
+    }, [user, users])
+
     const showMoreHome = () => {
         const moreHome = document.getElementById('homeMore')
         moreHome.classList.remove('home_showMore__inactive')
@@ -125,7 +145,7 @@ const Home = () => {
                         <HomeMore />
                     </header>
                     <img alt='' src={avatar} className='home_logo' />
-                    <div className='db-n-mb'>
+                    {/* <div className='db-n-mb'>
                         <ul className="home_nav-container">
                             <li className="home_nav-link active-link">home</li>
                             <li className="home_nav-link">profile</li>
@@ -137,7 +157,7 @@ const Home = () => {
                             <img alt='' src={avatar} className='home_user-photo' />
                             <button className='home_nav_login'>{user ? "logout" : "login"} <HiLogout style={{ marginLeft: "5px" }} /></button>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
                 <main>
@@ -147,15 +167,22 @@ const Home = () => {
                             tktNum > 15 ? <span className='home_trafic__high'> High </span> : tktNum < 5 ? <span className='home_trafic__low'> Low </span> : <span className='home_trafic__normal'> Normal</span>
                         }</p>
                     <section className='nre0sdi'>
-                        <p className='home_section-1-header'>New from SpotIN:</p>
-                        <p className='home_sectio-1-main'>Join our community and become one of us. {
-                            user ?
-                                <Link to="/join-community-form" className='home_section-1-btn'>Join</Link>
+                        {
+                            !commForm ?
+                                <div>
+                                    <p className='home_section-1-header'>New from SpotIN:</p>
+                                    <p className='home_sectio-1-main'>Join our community and become one of us. {
+                                        user ?
+                                            <Link to="/join-community-form" className='home_section-1-btn'>Join</Link>
+                                            :
+                                            <Link style={{
+                                                color: "black", fontWeight: "bold",
+                                            }} to="/login"> Login First</Link>
+                                    } </p>
+                                </div>
                                 :
-                                <Link style={{
-                                    color: "black", fontWeight: "bold",
-                                }} to="/login"> Login First</Link>
-                        } </p>
+                                <p className='home_sectio-1-main'>Thank you for joining our community.</p>
+                        }
                         <img alt='' src={commu} className="hom_section-1-img" />
                     </section>
 
@@ -164,18 +191,33 @@ const Home = () => {
             </section>
             <div className='home-page-second-section'>
                 <h1 className='s2_header'>Don't get lost, here is the location:</h1>
-                <iframe className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowfullscreen={true} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div className='home-page-third-section'>
-                <p className='home-third_header'>Be eco. pay less.</p>
-                <p className='home-third_sub-header'>We don't use paper receipts, It's all digital <span><Link className='home-third_sub-header-link' to="/profile/orders">history</Link></span></p>
+                <div>
+                    <p className='home-third_header'>Be eco. pay less.</p>
+                    <p className='home-third_sub-header'>We don't use paper receipts, It's all digital <span><Link className='home-third_sub-header-link' to="/profile/orders">history</Link></span></p>
+                </div>
 
                 <img alt="" src={dnatree} className="dnaTree" />
             </div>
+            <div className='home_forth-section'>
+                <img alt='' src={musicImg} className="home_forth-secition-music-img" />
+                <div>
+                    <p className='home_forth_txt'><span>KARAOKE</span> NIGHTS </p>
+                    <p className='home_forth-subtxt'>check for <Link className='home_forth-link' to='/events'>NEW EVENTS</Link></p>
+                </div>
+            </div>
+            <div className='home_fifth-section'>
+                <p>gather with your friends </p>
+
+                <h1> <span>& PLAYSTATION</span> At Spotin.</h1>
+                <img alt='' src={playstaionImg} className="home_fifth-secition-music-img" />
+            </div>
+            <Footer />
 
 
-            <p className='copy-right-footer'><MdCopyright className='copy-right-ico' />2022 Ahmed Shobky, Spotin EGY. All rights reserved.</p>
 
         </div>
     )

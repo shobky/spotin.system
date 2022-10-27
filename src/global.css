@@ -54,3 +54,29 @@
     right: 36px;
     top: 32px;
 }
+
+a{
+    text-decoration: none;
+}
+.footer {
+    background-color: rgb(241, 241, 241);
+    background: linear-gradient(0deg, rgb(151, 151, 151) 10%, rgb(241, 241, 241) 90%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15vh;
+}
+.copy-right-footer {
+    padding-bottom: 70px;
+    font-size: 11px;
+    text-align: center;
+    margin-top: -10px;
+
+}
+
+.copy-right-ico {
+    position: relative;
+    top: 1.5px;
+    margin-right: 2px;
+}

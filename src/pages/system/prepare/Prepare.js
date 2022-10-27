@@ -1,4 +1,4 @@
-import { arrayUnion, doc, setDoc } from 'firebase/firestore'
+import { arrayUnion, doc, setDoc, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { useDb } from '../../../contexts/Database'
@@ -9,7 +9,7 @@ import Checkin from './Checkin'
 import './prepare.css'
 import Summary from './Summary'
 import CurrentDate from './time/CurrentDate'
-
+import { uuidv4 } from '@firebase/util'
 const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowPrepare, getTotalPrices }) => {
 
   const { cart, orderId, remove } = useDb()
@@ -68,10 +68,12 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
 
 
   const onPlaceOrder = async () => {
+    const userOrderId =  uuidv4().slice(-7);
     await setDoc(doc(db, `open-orders`, `${orderId}#${selectedUser.uid}`), {
       id: orderId,
       status: "open",
-      user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "" },
+      userOrderId: userOrderId,
+      user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "", email: selectedUser.email ?? "" },
       time,
       date,
       total,
@@ -81,6 +83,17 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
     cart?.map(async (cartItem) => {
       await remove(`cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`)
     })
+    await setDoc(doc(db, `Users/${selectedUser.email}/orders/${userOrderId}`), {
+      id: orderId,
+      userOrderId: userOrderId,
+      status: "open",
+      user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "", email: selectedUser.email ?? "" },
+      time,
+      date,
+      total,
+      tickets,
+      cart,
+    });
     setChecked(false)
     onSetSelectedUser("")
     setTickets({ number: 0, price: 0 })

@@ -44,19 +44,6 @@
     margin-top: 17px;
 }
 
-.profile_heder_user-name {
-    font-size: 22px;
-    color: #ffa229;
-
-}
-
-.profile_heder_user-name__long {
-    font-size: 21px;
-    width: 50vw;
-    margin-top: -10px;
-    color: #ffa229;
-
-}
 
 .profile_heder_uid {
     color: rgb(170, 170, 170);
@@ -136,14 +123,14 @@
     color: #ff0000;
     font-weight: bold;
     font-size: 18px;
-    margin: 20px 7px 20px 20px ;
+    margin: 20px 7px 20px 20px;
 }
 
 .profile_trafic__low {
     color: #ff9900;
     font-weight: bold;
     font-size: 18px;
-    margin: 20px 7px 20px 20px ;
+    margin: 20px 7px 20px 20px;
 
 }
 
@@ -151,20 +138,160 @@
     color: #00e932;
     font-weight: bold;
     font-size: 18px;
-    margin: 20px 7px 20px 20px ;
+    margin: 20px 7px 20px 20px;
 
 
 
 }
-.trafci-txt-profile{
+
+.trafci-txt-profile {
     display: flex;
     align-items: center;
-    
+
 }
-.special-badge{
+
+.special-badge {
     font-size: 14px;
     color: rgb(53, 147, 255);
     font-weight: bold;
     margin-left: 30px;
     margin-top: 10px;
+}
+
+@media (min-width:852px) {
+    .profile_content-container {
+        margin: 10vh 15vw 0vh 15vw;
+    }
+
+    .profile_header_user-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+
+    .profile_edit-ico {
+        font-size: 25px;
+        margin-top: 3px;
+        color: #ffad42;
+        /* border: 1px solid #ffa229; */
+        background-color: rgba(97, 97, 97, 0.13);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 50%;
+        margin-right: 5vw;
+
+    }
+
+    .profile_user-contacts-section {
+        display: flex;
+        justify-content: left;
+        margin-left: 13.5vw;
+
+    }
+
+    .profile_active-order-head {
+        font-size: 25px;
+        margin: 20px;
+        color: rgb(36, 36, 36);
+    }
+
+
+    .profile_activity-label {
+        font-size: 20px;
+        color: #8a683b;
+    }
+
+    .profile_activity-num {
+        font-weight: bold;
+        font-size: 35px;
+        color: #ffa229;
+    }
+
+    .profile_activity-section {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10vh 0 10vh;
+        margin-top: 12vh;
+        text-align: center;
+    }
+
+
+    .profile_heder_user-name {
+        font-size: 30px;
+        color: #ffa229;
+
+    }
+
+    .profile_heder_user-name__long {
+        font-size: 30px;
+        color: #ffa229;
+
+    }
+
+    .profile_heder_uid {
+        color: rgb(170, 170, 170);
+        font-size: 20px;
+    }
+
+    .special-badge {
+        font-size: 18px;
+        color: rgb(53, 147, 255);
+        font-weight: bold;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+}
+
+@media (max-width:851px) {
+    .profile_open-order-container {
+        margin: 20px;
+        overflow-y: scroll;
+        height: 250px;
+    }
+
+    .profile_open-order_cart-header{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        color: rgb(255, 157, 29);
+
+    }
+    .profile_cart-items-continaer{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    .profile_open-order_total{
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 18px;
+        color: rgb(255, 157, 29);
+    }
+    .profile_open-order_tkt-type span{
+        color: rgb(255, 157, 29);
+
+        font-weight: bold;
+    }
+    .profile_no-open-order-msg{
+        font-weight: bold;
+        font-size: 22px;
+    }
+    .profile_heder_user-name {
+        font-size: 22px;
+        color: #ffa229;
+        margin-top: -10px;
+    
+    }
+    
+    .profile_heder_user-name__long {
+        font-size: 21px;
+        width: 50vw;
+        margin-top: -15px;
+        color: #ffa229;
+    
+    }
+    
 }

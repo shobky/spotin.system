@@ -4,25 +4,26 @@ import { Route, Routes } from "react-router-dom"
 import AdminRoutes from "./components/privateRoutes/AdminRoutes"
 import OwnerRoutes from "./components/privateRoutes/OwnerRoutes"
 // pages imports
-import Login from './components/auth/Login'
-import Signup from './components/auth/SignUp'
-import Home from "./pages/website/Home"
+
 import Loading from "./components/loadingAnimaitno/Loading"
 import UserRotues from "./components/privateRoutes/UserRoutes"
 import AddNewItems from "./components/addNewItems/AddNewItems"
 import { DataProvider } from "./contexts/Database"
-import System from './pages/system/System'
 import Logo from "./components/loadingAnimaitno/Logo"
 import History from "./pages/website/history/History"
-import Profile from "./pages/website/profile/Profile"
-import MyOrders from "./pages/website/myOrders/MyOrders"
-import Workshop from "./pages/website/workhshops/Workshop"
-import CommunityForm from "./pages/website/forms/CommunityForm"
-import EditProfile from "./pages/website/editprofile/EditProfile"
-import Settings from "./pages/website/settings/Settings"
-import Menu from "./pages/website/menu/Menu"
-import Event from './pages/website/events/Evets'
-import Tikets from "./pages/website/tikets/Tikets"
+const Login = React.lazy(() => import('./components/auth/Login'))
+const Signup = React.lazy(() => import('./components/auth/SignUp'))
+const Home = React.lazy(() => import("./pages/website/Home"))
+const System = React.lazy(() => import('./pages/system/System'))
+const Profile = React.lazy(() => import("./pages/website/profile/Profile"))
+const MyOrders = React.lazy(() => import("./pages/website/myOrders/MyOrders"))
+const Workshop = React.lazy(() => import("./pages/website/workhshops/Workshop"))
+const CommunityForm = React.lazy(() => import("./pages/website/forms/CommunityForm"))
+const EditProfile = React.lazy(() => import("./pages/website/editprofile/EditProfile"))
+const Settings = React.lazy(() => import("./pages/website/settings/Settings"))
+const Menu = React.lazy(() => import("./pages/website/menu/Menu"))
+const Event = React.lazy(() => import('./pages/website/events/Evets'))
+const Tikets = React.lazy(() => import("./pages/website/tikets/Tikets"))
 const Orders = React.lazy(() => import("./pages/system/orders/Orders"))
 const Page404 = React.lazy(() => import("./components/404/Page404"))
 const Ledger = React.lazy(() => import("./pages/system/ledger/Ledger"))
@@ -123,9 +124,7 @@ const AllRoutes = () => {
                         <Settings />
                     </DataProvider>
                 } />
-
             </Route>
-
         </Routes>
     )
 }

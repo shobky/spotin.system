@@ -33,7 +33,6 @@ const TimeSpent = ({ order, onSetTimeSpent, timeSpent }) => {
             {
                 timeSpent &&
                 <p style={{ width: "190px" }} className='time_spent-num-of-persons'><strong>{order.tickets.number} person Checked in for:</strong> {(timeSpent[0] < 0 ? 24 + timeSpent[0] : timeSpent[0]) + " hours : " + (timeSpent[1] < 0 ?  60 +  timeSpent[1] : timeSpent[1] )+ " minutes"}</p>
-
             }
         </div>
     )

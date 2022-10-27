@@ -20,7 +20,6 @@
 .my-orders-input-div {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
     margin-top: -20px;
 }
 
@@ -81,8 +80,9 @@
     top: 2px;
     transition: ease-in-out 0.5s;
 
-    
+
 }
+
 .userOrder-view-star__active {
     color: #ff9100;
     font-size: 25px;
@@ -94,10 +94,11 @@
 
 }
 
-.order-container-containe{
+.order-container-containe {
     display: flex;
     align-items: center;
 }
+
 .userOrder-id-div {
     margin-left: -20px;
 }
@@ -124,4 +125,80 @@
     font-family: montserrat-light;
     font-size: 15px;
     color: red;
+    font-weight: bold;
+}
+
+.userOrder-status-open {
+    color: rgb(0, 228, 114);
+    font-weight: bold;
+
+
+}
+
+.my-orders_delete-ico {
+    color: rgb(255, 151, 31);
+    font-size: 25px;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+
+}
+
+.my-orders-deletion-filter__hid {
+    display: none;
+}
+
+.my-orders-deletion-filter__vis {
+    display: block !important;
+    position: fixed;
+    background-color: rgba(5, 5, 5, 0.295);
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.my-orders-delete-msg {
+    width: 75vw;
+    height: 30vh;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 25px;
+    box-shadow: 0 0 30px 1px rgb(138, 138, 138);
+    border: 2px solid rgb(255, 155, 23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 500000  ;
+}
+
+.my-orders-delete-msg p {
+    margin-top: 10vh;
+    font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 7vh;
+}
+.my-orders-delete-msg button {
+    border-radius: 25px;
+    background-color: rgb(255, 163, 42);
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    margin: 7px;
+}
+.my-orders_x-icon{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 17px;
 }

@@ -1,8 +1,8 @@
 @media (min-width:650px) {
 
-    .home nav {
+    /* .home nav {
         display: none;
-    }
+    } */
 
 
     .db-n-mb {
@@ -103,8 +103,7 @@
     }
 
     .home_section-1-header {
-        color: rgb(78, 78, 78);
-        font-family: montserrat-light;
+        color: #ff9811;
         font-size: 25px;
     }
 
@@ -154,9 +153,90 @@
         width: 100%;
         display: block;
         margin: 3vh auto auto auto;
-        height: 80vh;
+        height: 100vh;
 
     }
+
+    .dnaTree {
+        width: 40%;
+        margin-right: 10vw;
+    }
+
+    .home-page-third-section {
+        width: 100%;
+        background-color: rgb(241, 241, 241);
+        padding-top: 10vh;
+        padding-bottom: 18vh;
+        display: flex;
+        justify-content: space-between;
+        margin-top: -29vh;
+    }
+
+    .home-third_header {
+        font-weight: bold;
+        font-size: 50px;
+        margin-left: 10vw;
+        margin-top: 30vh;
+    }
+
+    .home-third_sub-header {
+        margin-left: 10vw;
+        margin-top: 2vh;
+        color: rgb(59, 59, 59);
+        font-size: 30px;
+    }
+
+    .home-third_sub-header-link {
+        font-weight: bold;
+        color: rgb(255, 169, 41);
+        text-decoration: underline;
+    }
+
+    .home-page-second-section {
+        padding-top: 13vh;
+        background: rgb(248, 250, 248);
+        background-color: #9CC0F9;
+    }
+
+    .s2_header {
+        margin-left: 5vw;
+        font-size: 48px;
+        width: 80vw;
+        font-family: montserrat-bold;
+        color: white;
+    }
+
+    .home-s2_map {
+        border: none;
+        margin-top: 50px;
+        width: 100%;
+        display: block;
+        margin: 4vh auto auto auto;
+        height: 100vh;
+        padding-bottom: 10vh;
+
+    }
+
+    .copy-right-footer {
+        background-color: rgb(241, 241, 241);
+        padding-bottom: 20px;
+        padding-top: 55px;
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    .copy-right-ico {
+        position: relative;
+        top: 2.5px;
+        margin-right: 2px;
+    }
+
+    .home_burger-menu-icon {
+        display: none;
+    }
+
+
 
 }
 
@@ -498,10 +578,53 @@
         width: 100%;
         display: block;
         margin: 4vh auto auto auto;
-        height: 80vh;
+        height: 100vh;
 
     }
 
+    .dnaTree {
+        width: 100%;
+
+
+    }
+
+    .home-page-third-section {
+        width: 100%;
+        background-color: rgb(241, 241, 241);
+        padding-top: 20vh;
+        padding-bottom: 18vh;
+    }
+
+    .home-third_header {
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 10vw;
+    }
+
+    .home-third_sub-header {
+        margin-left: 10vw;
+        margin-top: 1vh;
+        color: rgb(59, 59, 59);
+    }
+
+    .home-third_sub-header-link {
+        font-weight: bold;
+        color: rgb(255, 169, 41);
+        text-decoration: underline;
+    }
+
+    .copy-right-footer {
+        padding-bottom: 70px;
+        font-size: 11px;
+        text-align: center;
+
+    }
+
+    .copy-right-ico {
+        position: relative;
+        top: 1.5px;
+        margin-right: 2px;
+    }
 
 
 }
@@ -526,48 +649,82 @@
     color: rgb(0, 233, 89);
 }
 
-.dnaTree {
-    width: 100%;
-
-
-}
-
-.home-page-third-section {
-    width: 100%;
+.home_forth-section {
     background-color: rgb(241, 241, 241);
-    padding-top: 20vh;
-    padding-bottom: 18vh;
+    border-bottom: 1px solid rgb(255, 145, 43);
+    border-top: 1px solid rgb(255, 145, 43);
+    display: flex;
+    overflow: hidden;
+
 }
 
-.home-third_header {
+.home_forth-secition-music-img {
+    width: 225px;
+
+}
+
+.home_forth-section .home_forth_txt {
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 10vw;
-}
-
-.home-third_sub-header {
-    margin-left: 10vw;
-    margin-top: 1vh;
-    color: rgb(59, 59, 59);
-}
-
-.home-third_sub-header-link {
-    font-weight: bold;
-    color: rgb(255, 169, 41);
-    text-decoration: underline;
-}
-
-.copy-right-footer {
-    background-color: rgb(241, 241, 241);
-    background: linear-gradient(0deg, rgb(151, 151, 151) 10%, rgb(241, 241, 241) 90%);
-    padding-bottom: 70px;
-    font-size: 15px;
+    font-size: 27px;
+    margin-left: -24px;
+    margin-top: 32vh;
+    font-family: montserrat-bold;
     text-align: center;
+}
+
+.home_forth-section .home_forth_txt span {
+    font-family: montserrat-bold;
+    font-size: 32px;
+    color: rgb(255, 163, 43);
+    position: relative;
+    top: 5px;
+    right: 15px;
+}
+
+.home_forth-subtxt {
+    margin-left: -14vw;
+    margin-top: 2vh;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.home_forth-link {
+    text-decoration: underline;
+    text-transform: capitalize;
+    color: rgb(2, 58, 2);
+}
+
+.home_fifth-section {
+    padding-top: 150px;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.home_fifth-secition-music-img {
+    position: absolute;
+    width: 70vw;
+    right: 0;
+    top: 50vh;
 
 }
 
-.copy-right-ico {
-    position: relative;
-    top: 2.5px;
-    margin-right: 2px;
+.home_fifth-section h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.home_fifth-section h1 span {
+    font-size: 12vw;
+    color: rgb(255, 175, 56);
+    font-weight: bold;
+}
+
+.home_fifth-section p {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 20px;
 }

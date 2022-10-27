@@ -25,7 +25,8 @@ const CommunityForm = () => {
             number: numberRef.current.value,
             age: ageRef.current.value,
             gender: genderRef.current.value,
-            title: titleRef.current.value
+            title: titleRef.current.value,
+            commForm: 'filled'
         }).catch(err => setLoading(false))
         setLoading(true)
         setwelcommsg(true)
@@ -42,13 +43,13 @@ const CommunityForm = () => {
                 <p className='comm-form-title'>Spotin Community</p>
             </header>
             <p className='comm-form_head'>Hi {user.displayName}, tell us more about yourself.. </p>
-            <form onSubmit={(e) => onSubmitForm(e)}>
+            <form autoComplete={true} onSubmit={(e) => onSubmitForm(e)}>
                 <input readOnly={true} required={true} placeholder='Name' value={user.displayName ?? ""} type="text" className='comm-form_input' />
                 <input readOnly={true} required={true} placeholder='Email' value={user.email ?? ""} type="email" className='comm-form_input' />
-                <input autoComplete={true} ref={numberRef} required={true} placeholder='Phone Number' type="number" className='comm-form_input' />
-                <input autoComplete={true} ref={ageRef} required={true} placeholder='Age' type="number" className='comm-form_input' />
-                <input autoComplete={true} ref={genderRef} required={true} placeholder='Gender' type="text" className='comm-form_input' />
-                <input autoComplete={true} ref={titleRef} required={false} placeholder='Title / Collage' type="text" className='comm-form_input' />
+                <input ref={numberRef} required={true} placeholder='Phone Number' type="number" name=" number" className='comm-form_input' />
+                <input ref={ageRef} required={true} placeholder='Age' type="number" className='comm-form_input' />
+                <input ref={genderRef} required={true} placeholder='Gender' type="text" className='comm-form_input' />
+                <input ref={titleRef} required={false} placeholder='Title / Collage' type="text" className='comm-form_input' />
 
                 {
                     loading ?

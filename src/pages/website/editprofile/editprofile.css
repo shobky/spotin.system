@@ -84,6 +84,29 @@
     font-size: 30px;
 }
 
+.edit-profoile_form-subm-btn__laoding {
+    color: #ffa229;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    animation: spinneranim 20s infinite;
+}
+
+@keyframes spinneranim {
+    0% {
+        transform: rotate(5000deg);
+
+    }
+
+    100% {
+        transform: rotate(25000deg);
+
+    }
+}
+
 .profile_x-icon {
     color: #000000;
     position: relative;
@@ -104,22 +127,140 @@
     opacity: 1%;
 }
 
-input:placeholder-shown:focus:invalid {
+.edit-profile_form_input:placeholder-shown:focus:invalid {
     border-color: red !important;
     outline: red;
 }
 
-/* input:placeholder-shown:invalid{
+/* .edit-profile_form_input:placeholder-shown:invalid{
     border-color: red !important;
     outline: red;
 } */
 
-input:not(:focus):not(:placeholder-shown):invalid~.error-message {
+.edit-profile_form_input:not(:focus):not(:placeholder-shown):invalid~.error-message {
     display: block;
 }
 
 /* Only show valid ring while not focused and if a value is entered */
 /* :empty won't work here as that targets elements that have no childeren. Therefore we abuse :placeholder-shown */
-input:not(:focus):not(:placeholder-shown):valid {
+.edit-profile_form_input:not(:focus):not(:placeholder-shown):valid {
     border-color: rgb(0, 216, 97) !important;
+}
+
+.wrong-password-style {
+    border: 1px solid red !important;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    height: 50px;
+    border: none;
+    border: 1px solid rgb(216, 216, 216);
+    padding: 15px;
+    font-size: 18px;
+    display: block;
+    margin: auto auto 20px auto;
+    animation: wrongPassword ease-in-out .2s;
+
+}
+
+.wrong-password-style:focus {
+    outline: red !important;
+
+}
+
+@keyframes wrongPassword {
+    0% {
+        border: 1px solid red !important;
+
+    }
+
+    100% {
+        border: 1px solid red !important;
+        padding: 20px;
+
+
+    }
+
+}
+
+.edit-profile_wrong-err__hid {
+    text-align: center;
+    display: none;
+}
+
+
+.edit-prfile_password-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width:850px) {
+    .edit-profile_show-password-btn {
+        font-size: 25px;
+        width: 25px;
+        position: relative;
+        bottom: 57px;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        left: 170px;
+    }
+
+    .edit-profile-wrong__vis {
+        display: block !important;
+        font-size: 19px;
+        margin-top: 25px;
+        background-color: rgb(255, 135, 131);
+        margin: 0 40vw 0 40vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+        font-weight: bold;
+    }
+
+
+}
+
+@media (max-width:849px) {
+    .edit-profile_show-password-btn {
+        font-size: 25px;
+        width: 25px;
+        position: relative;
+        bottom: 57px;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        left: 130px;
+    }
+
+    .edit-profile-wrong__vis {
+        display: block !important;
+        font-size: 19px;
+        background-color: rgb(255, 135, 131);
+        margin: 0vh 25vw 0 25vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .edit-profile_form label {
+        font-size: 14px;
+        font-weight: bold;
+        color: rgb(32, 32, 32);
+        background-color: white;
+        position: relative;
+        top: 12px;
+        left: 5px;
+        /* display: inline-block; */
+        width: fit-content;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+
 }

@@ -14,7 +14,7 @@ const Tikets = () => {
     }
     return (
         <div className='tkts-page-container'>
-            <Nav />
+            <Nav page='tickets' />
             <p><CgMenuRight onClick={showMoreHome} className="home_burger-menu-icon" /></p>
             <HomeMore />
             <p className='tkts-page_head'>Tickets & Pricing</p>

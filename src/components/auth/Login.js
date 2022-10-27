@@ -48,6 +48,11 @@ export default function Login() {
 
     return (
         <div className="auth-container">
+            {
+                loading ?
+                    <div className="auth_loading-screen-filter">
+                    </div> : ""
+            }
             <div className="auth_backk-container">
                 <Link to="/"> <MdKeyboardBackspace className="auth_back-arr" /></Link>
             </div>

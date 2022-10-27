@@ -76,12 +76,10 @@ const HomeMore = () => {
             </div>
 
             <section className='sochail-links-section'>
-                <RiFacebookCircleFill className="social-link-ico" />
-                <AiFillInstagram className="social-link-ico" />
-                <RiWhatsappFill className="social-link-ico" />
-                <SiGmail className="social-link-ico" />
-
-
+                <a href='https://web.facebook.com/spotin.egy'><RiFacebookCircleFill className="social-link-ico" /></a>
+                <a href='https://www.instagram.com/spotin.egy/'><AiFillInstagram className="social-link-ico" /></a>
+                <a href='https://wa.me/+201277195303'><RiWhatsappFill className="social-link-ico" /></a>
+                <a href="mailto: shobkyy@gmail.com"> <SiGmail className="social-link-ico" /></a>
             </section>
 
 
