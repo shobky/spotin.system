@@ -12,7 +12,7 @@ const SelectUser = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onSh
     const uid = uuidv4().slice(-5)
     const handleAddUser = (e) => {
         setUsername(e.target.value)
-    }
+    } 
     const onSubmitUser = async () => {
         await upload('Users', uid, {
             name: username,
