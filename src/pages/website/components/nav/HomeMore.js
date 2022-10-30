@@ -1,8 +1,8 @@
 import React from 'react'
-import { AiFillInstagram } from 'react-icons/ai'
 import { BsCalendarEvent, BsHouse, BsXLg } from 'react-icons/bs'
 import { IoSettingsOutline } from 'react-icons/io5'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { MdOutlineKeyboardArrowRight, MdSpaceDashboard } from 'react-icons/md'
+import { AiFillInstagram } from 'react-icons/ai'
 import { RiFacebookCircleFill, RiWhatsappFill } from 'react-icons/ri'
 import { SiGmail } from 'react-icons/si'
 import { useNavigate } from 'react-router'
@@ -11,6 +11,7 @@ import { useAuth } from '../../../../contexts/AuthContext'
 import Profileblank from '../../../../assets/avatars/Profile-PNG-File.png'
 
 import './homemore.css'
+import Product from '../../../system/products/Produt'
 
 const HomeMore = () => {
     const { user, logout } = useAuth()
@@ -25,6 +26,7 @@ const HomeMore = () => {
         logout()
         navigate('/login')
     }
+    // console.log(Product.env.REACT_APP_DEV_ID)
     return (
         <div id="homeMore" className="home_showMore__inactive" >
             <header className='homemore-header'>
@@ -36,6 +38,18 @@ const HomeMore = () => {
             </header>
 
             <section className='home_showmore-nav-sect'>
+                {
+                    user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID ?
+                        <div className='home_shomore_nav-option'>
+                            <div className='homeMore-flex-db'>
+                                <p><MdSpaceDashboard className='home-more-nav-ico' /></p>
+                                <Link className='homeMore-link' to='/admin-dashboard'>Admin Dashboard</Link></div>
+                            <Link style={{ color: "black" }} to='/admin-dashboard'><MdOutlineKeyboardArrowRight className='shomore-home-arr-ico' /></Link>
+
+                        </div>
+                        : ""
+                }
+
                 <div className='home_shomore_nav-option'>
                     <div className='homeMore-flex-db'>
                         <p><BsHouse className='home-more-nav-ico' /></p>
@@ -46,8 +60,8 @@ const HomeMore = () => {
 
                 <div className='home_shomore_nav-option'>
                     <div className='homeMore-flex-db'> <p> <BsCalendarEvent className='home-more-nav-ico' /></p>
-                        <Link className='homeMore-link' to="/workshops">Workshops & events</Link></div>
-                    <Link style={{ color: "black" }} to="/workshops"><MdOutlineKeyboardArrowRight className='shomore-home-arr-ico' /></Link>
+                        <Link className='homeMore-link' to="/events">Workshops & events</Link></div>
+                    <Link style={{ color: "black" }} to="/events"><MdOutlineKeyboardArrowRight className='shomore-home-arr-ico' /></Link>
 
                 </div>
                 <div className='home_shomore_nav-option'>
@@ -58,7 +72,7 @@ const HomeMore = () => {
 
                 {
                     user ?
-                        user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID || true ?
+                        user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID ?
                             <div className='home-more-admin-links'>
                                 <Link className='home-more_admin-link' to="cashier.system">Cashier</Link>
                                 <Link className='home-more_admin-link' to="cashier.system/orders">Orders</Link>
@@ -83,13 +97,21 @@ const HomeMore = () => {
             </section>
 
 
-            <div onClick={() => onSignOut()} className='showmore-home-logout-btn'>
-                <p>Logout</p>
-                <p> <MdOutlineKeyboardArrowRight className='settings-arr-ico settings-arr-ico__logout ' /> </p>
-            </div>
+            {
+                user ?
+                    <div onClick={() => onSignOut()} className='showmore-home-logout-btn'>
+                        <p>Logout</p>
+                        <p> <MdOutlineKeyboardArrowRight className='showmore-arr-ico__logout ' /> </p>
+                    </div> :
+                    <Link to="/login" className='showmore-home-login-btn'>
+                        <p>Login</p>
+                        <p> <MdOutlineKeyboardArrowRight className='shomore-arr-ico__login ' /> </p>
+                    </Link>
+
+            }
 
 
-        </div>
+        </div >
     )
 }
 

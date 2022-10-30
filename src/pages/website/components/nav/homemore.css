@@ -6,9 +6,9 @@
     color: black;
     top: 0;
     left: 0;
-    z-index: 10001;
+    z-index: 999999;
     transition: ease-in-out .6s;
-    
+
 }
 
 .home-more_x-icon {
@@ -90,7 +90,8 @@
     text-decoration: none;
 
 }
-.homeMore-link{
+
+.homeMore-link {
     text-decoration: none;
     color: black;
 }
@@ -105,17 +106,33 @@
 .sochail-links-section {
     position: absolute;
     left: 8vw;
-    bottom: 10vh;
+    bottom: 8vh;
 
 }
 
 .showmore-home-logout-btn {
     display: flex;
     justify-content: space-between;
-    margin: 6vh 5vw 0 11vw;
+    margin: 6vh 5vw 0vh 11vw;
     font-weight: bold;
     color: red;
+    font-size: 20px;
+
 }
+
+.showmore-home-login-btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 6vh 5vw 0 11vw;
+    font-weight: bold;
+    color: rgb(0, 238, 119);
+    font-size: 20px;
+}
+
+.shomore-arr-ico__login {
+    font-size: 25px;
+}
+
 
 .home-more-admin-links {
     display: flex;
@@ -126,10 +143,10 @@
 .home-more_admin-link {
     text-decoration: none;
     color: rgb(255, 255, 255);
-    background-color: rgb(255, 152, 56);
     margin: 8px;
     padding: 8px 12px 8px 12px;
     border-radius: 25px;
+    background-color: rgb(255, 163, 57);
     font-weight: bold;
     text-decoration: underline;
 }

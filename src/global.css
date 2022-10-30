@@ -38,26 +38,35 @@
         display: none;
     }
 }
-.events-container p {
+
+/* .events-container p {
     font-weight: bold;
     margin-left: 10vw;
     margin-top: 30vh;
-    
-}
-.event_swap-ico{
+
+} */
+
+.event_swap-ico {
     font-size: 30px;
     /* padding: 5px ;
     border: 1px solid #ffa229;
     border-radius: 50%; */
     color: #ffa229;
-    position:absolute;
+    position: absolute;
+    right: 79px;
+    top: 20px;
+}
+.events_burger-menu-icon{
+    font-size: 28px;
+    position: absolute;
+    top: 19px;
     right: 36px;
-    top: 32px;
 }
 
-a{
+a {
     text-decoration: none;
 }
+
 .footer {
     background-color: rgb(241, 241, 241);
     background: linear-gradient(0deg, rgb(151, 151, 151) 10%, rgb(241, 241, 241) 90%);
@@ -67,6 +76,7 @@ a{
     align-items: center;
     padding-top: 15vh;
 }
+
 .copy-right-footer {
     padding-bottom: 70px;
     font-size: 11px;
@@ -79,4 +89,159 @@ a{
     position: relative;
     top: 1.5px;
     margin-right: 2px;
+}
+
+.event-container {
+    width: 100%;
+    margin-top: 15vh;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+.event_img {
+    width: 90%;
+}
+
+.event-border-top-l {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 900px;
+    z-index: 5;
+
+}
+
+.event-border-top-r {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 900px;
+    z-index: 5;
+
+}
+
+.event-border-bottom-l {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 900px;
+    z-index: 5;
+
+}
+
+.event-border-bootom-r {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 900px;
+    z-index: 5;
+
+}
+
+.event-filter {
+    background-color: rgba(0, 0, 0, 0.274);
+    position: absolute;
+    width: 90%;
+    height: 160px;
+}
+
+.event_filter_content {
+    padding: 35px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin-top: -15px;
+}
+
+.event_filter_txt-content h1 {
+    color: white;
+    font-family: montserrat-ExtraBold;
+    font-size: 35px;
+}
+
+.event_filter_txt-content p {
+    color: white;
+    font-size: 17px;
+}
+
+.event_filter_content button {
+    background-color: transparent;
+    border: 2px solid white;
+    width: 100px;
+    height: 45px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    cursor: pointer;
+
+
+}
+
+.event-btn-goin__active {
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(255, 144, 40) !important;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+.events-header-name {
+    font-size: 27px;
+    position: absolute;
+    top: 20px;
+    left: 15vw;
+    font-weight: bold;
+}
+
+.evemts_loading-spinner {
+    color: #ffffff;
+   
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    animation: spinneranim 20s infinite;
+}
+
+@keyframes spinneranim {
+    0% {
+        transform: rotate(5000deg);
+
+    }
+
+    100% {
+        transform: rotate(25000deg);
+
+    }
+}
+.halloween_event-goings-div{
+    margin-bottom: -40px;
+    margin-top: 10px;
+}
+.halloween_users-in-event-img{
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: relative;
+    left: 12px;
+    margin-left: -12px;
 }

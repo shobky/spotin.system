@@ -133,9 +133,9 @@ const EditProfile = () => {
                 {/* <label>name</label> */}
                 <input value={newUsername} onChange={(e) => setNewUsername(e.target.value)} ref={nameRef} className='edit-profile_form_input' placeholder='Name' type="text" name="username" />
                 {/* <label>phone number</label> */}
-                <input ref={numberRef} className='edit-profile_form_input' placeholder='' type="text" name="number" />
+                <input ref={numberRef} className='edit-profile_form_input' placeholder='phone number' type="text" name="number" />
                 {/* <label>current password</label> */}
-                <input id='editProfilePassId' ref={currentPasswordRef} required={true} className='edit-profile_form_input' placeholder='' type={showPassword} />
+                <input id='editProfilePassId' ref={currentPasswordRef} required={true} className='edit-profile_form_input' placeholder='current password' type={showPassword} />
                 <div className='edit-prfile_password-div'>
                     <button type="button" className="edit-profile_show-password-btn" onClick={(e) => showingthePassword(e)}>{showPassword === 'password' ? <RiEyeCloseLine className="passIco" /> : <RiEyeLine className="passIco" />}</button>
                 </div>

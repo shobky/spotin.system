@@ -60,19 +60,21 @@
 
     .settings-btn {
         font-weight: bold;
-        font-size: 14px;
-    }
-
-    .settings-logout-btn {
-        color: rgb(255, 0, 0);
-        font-weight: bold;
-        margin-top: 6vh;
+        color: black;
     }
 
     .settings-arr-ico__logout {
         color: rgb(255, 0, 0);
+        font-weight: bold;
+        
     }
+    .settings-logout-btn {
+        color: rgb(255, 0, 0);
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 6vh;
 
+    }
 }
 
 @media (min-width:852px) {
@@ -137,6 +139,7 @@
     }
 
     .settings-btn {
+        color: black;
         font-weight: bold;
         font-size: 24px;
     }
@@ -146,6 +149,16 @@
         font-weight: bold;
         margin-top: 4vh;
         font-size: 25px;
+        cursor: pointer;
+
+    }
+    
+    .settings-login-btn {
+        color: rgb(0, 223, 130);
+        font-weight: bold;
+        margin-top: 4vh;
+        font-size: 25px;
+        cursor: pointer;
     }
 
     .settings-arr-ico__logout {

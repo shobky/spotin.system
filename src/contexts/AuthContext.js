@@ -28,13 +28,17 @@ export const AuthProvider = ({ children }) => {
                 email: email,
                 name: name,
                 uid: uid,
-                url: url
+                url: url,
+                isSigned: true
+
             })
         } else {
             setDoc(doc(db, "Users", email), {
                 email: email,
                 name: name,
                 uid: uid,
+                isSigned: true
+
             })
         }
     }
@@ -63,7 +67,8 @@ export const AuthProvider = ({ children }) => {
     //                 email: user.email,
     //                 name: user.displayName,
     //                 uid: user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13],
-    //                 url: user.photoURL
+    //                 url: user.photoURL,
+    //                 isSigned: true
     //             })
     //         }
     //     }

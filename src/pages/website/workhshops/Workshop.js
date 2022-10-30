@@ -103,18 +103,23 @@ const Workshop = () => {
 
     }
     return (
-        <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
-            <Nav page={page} />
-            <header className='workhsops-header'>
-                <h1 className='workshop_name'>workShops</h1>
-                <div style={{
-                    display: "flex", alignItems: "center"
-                }}>
-                    <Link to='/events'><IoMdSwap className='workshop_swap-ico' /></Link>
-                    <p><CgMenuRight onClick={showMoreHome} className="workshop_burger-menu-icon" /></p>
-                </div>
-                <HomeMore />
-            </header>
+        <div style={{ height: "100vh", overflow: "hidden" }} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+
+            <div className='workshops_commint-soon-filter'>
+                    <Nav className="workshops-nav" page={page} />
+
+                    <header className='workhsops-header'>
+                        <h1 className='workshop_name'>workShops</h1>
+                        <div style={{
+                            display: "flex", alignItems: "center"
+                        }}>
+                            <Link to='/events'><IoMdSwap className='workshop_swap-ico' /></Link>
+                            <p><CgMenuRight onClick={showMoreHome} className="workshop_burger-menu-icon" /></p>
+                        </div>
+                        <HomeMore />
+                    </header>
+                <p className='workshop-filter-txt'>comming soon</p>
+            </div>
             <div id='workshopContainer' className='workshop'>
 
                 <div id='graphicReadMore' className='workshop_flier-container'>
@@ -125,7 +130,7 @@ const Workshop = () => {
                         <p className='workshop_workshop-level'>Beginner Level</p>
                         <p className='workshop_workshop-appointment'>Every Mon & Wed 4-6 PM</p>
                         <p className='workshop_workshop-price'>Price: 800LE / Level <br /> {`(10 sessions)`}.</p>
-                        <button className='workshop_join-btn'><RiMenuAddLine/></button>
+                        <button className='workshop_join-btn'><RiMenuAddLine /></button>
                         <button onClick={openGraphic} className='workshop_expand-ico'><MdExpandMore /></button>
                         <article>
                             <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learan how to read notes )`}</p>
@@ -140,7 +145,7 @@ const Workshop = () => {
                             <p>You'll need a labtop with average performance. </p>
                             <br />
                             <p style={{ paddingBottom: "10px" }}>Phone number: 01211216618</p>
-                            <button className='workshop_join-btn-pc'><RiMenuAddLine/></button>
+                            <button className='workshop_join-btn-pc'><RiMenuAddLine /></button>
 
                         </article>
                     </div>
@@ -154,7 +159,7 @@ const Workshop = () => {
                         <p className='workshop_workshop-level'>Beginner to advanced</p>
                         <p className='workshop_workshop-appointment'>Every Friday 1-3 PM</p>
                         <p className='workshop_workshop-price'>Price: 250LE / Month.</p>
-                        <button className='workshop_join-btn'><RiMenuAddLine/></button>
+                        <button className='workshop_join-btn'><RiMenuAddLine /></button>
                         <button onClick={openWorkshop} className='workshop_expand-ico'><MdExpandMore /></button>
                         <article>
                             <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learan how to read notes )`}</p>
@@ -169,7 +174,7 @@ const Workshop = () => {
                             <p>You'll need a Music notebook and a pencil. </p>
                             <br />
                             <p style={{ paddingBottom: "10px" }}>Phone number: 01271165428</p>
-                            <button className='workshop_join-btn-pc'><RiMenuAddLine/></button>
+                            <button className='workshop_join-btn-pc'><RiMenuAddLine /></button>
 
                         </article>
                     </div>
@@ -183,7 +188,7 @@ const Workshop = () => {
                         <p className='workshop_workshop-level'>Beginner to advanced</p>
                         <p className='workshop_workshop-appointment'>Every Friday 1-3 PM</p>
                         <p className='workshop_workshop-price'>Price: 250LE / Month.</p>
-                        <button className='workshop_join-btn'><RiMenuAddLine/></button>
+                        <button className='workshop_join-btn'><RiMenuAddLine /></button>
                         <button onClick={openWorkshopgd} className='workshop_expand-ico'><MdExpandMore /></button>
                         <article>
                             <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learan how to read notes )`}</p>
@@ -198,7 +203,7 @@ const Workshop = () => {
                             <p>You'll need a Music notebook and a pencil. </p>
                             <br />
                             <p style={{ paddingBottom: "10px" }}>Phone number: 01271165428</p>
-                            <button className='workshop_join-btn-pc'><RiMenuAddLine/></button>
+                            <button className='workshop_join-btn-pc'><RiMenuAddLine /></button>
 
                         </article>
                     </div>

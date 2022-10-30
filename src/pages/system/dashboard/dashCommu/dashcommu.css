@@ -1,0 +1,27 @@
+.dashboard_commform-answer_user-img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 15vh auto 0 auto;
+    border-radius: 50%;
+}
+.dashboard_commform-answer_username{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+.dashboard_commform-ansers-info{
+    font-size: 20px;
+    width: calc(100% - 15px);
+    margin-top: 7vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 15px;
+    align-items: center;
+
+
+}
+.dashboard_commform-ansers-info p{
+    margin-bottom: 10px;
+}

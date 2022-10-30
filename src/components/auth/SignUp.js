@@ -93,7 +93,7 @@ export default function Signup() {
         if (file?.name) {
             const url = await getDownloadURL(ref(storage, `user-photos/${file.name}`))
             setError("")
-            await signup(emailRef.current.value, passwordRef.current.value, nameRef.current.value, url)
+            await signup(emailRef.current.value, passwordRef.current.value, nameRef.current.value, url ?? "")
                 .then((userCredential) => {
                     // Signed in 
                     navigate('/')
@@ -127,11 +127,11 @@ export default function Signup() {
     }
     return (
         <div className="auth-container">
-            {
+            {/* {
                 loading ?
                     <div className="auth_loading-screen-filter">
                     </div> : ""
-            }
+            } */}
             <div className="auth_backk-container">
                 <Link to="/"> <MdKeyboardBackspace className="auth_back-arr" /><span className="auth_back-arrow-longer"></span> </Link>
             </div>

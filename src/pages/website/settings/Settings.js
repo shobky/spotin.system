@@ -46,8 +46,6 @@ const Settings = () => {
     return (
         <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} >
             <Nav page={page} />
-            <Link to="/"> <TbArrowNarrowLeft className="auth_back-arr" /> </Link>
-
             <Link className='setting-profile-link' to='/profile' style={{ textDecoration: "none", color: "black" }}>
                 <header className='settings-header'>
                     <p className='settings_head'>Profile</p>
@@ -57,8 +55,8 @@ const Settings = () => {
             <hr className='settings-line' />
             <main className='settings_main'>
                 <p className='settings_main-label'>Account</p>
-                <Link className='settings-list-div'>
-                    <p className='settings-btn'>Account Settings</p>
+                <Link to='/settings/my-account' className='settings-list-div'>
+                    <p className='settings-btn'>Reset Password</p>
                     <p>
                         <MdOutlineKeyboardArrowRight className='settings-arr-ico' />
                     </p>

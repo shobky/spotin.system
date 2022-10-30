@@ -104,7 +104,7 @@ const Profile = () => {
                                     <h1 className='profile_heder_user-name'>{user.displayName}</h1>
                                     <p className='profile_heder_uid'>#{user.email[3] + user.uid[0] + user.uid[15] + user.uid[5] + user.uid[13]}</p>
                                 </div>}
-                        <p className='special-badge'><DiJsBadge className='special-badge-icon' /> Website Developer</p>
+                        {/* <p className='special-badge'><DiJsBadge className='special-badge-icon' /> Website Developer</p> */}
                     </div>
 
 
@@ -138,7 +138,7 @@ const Profile = () => {
                 <div className='profile_open-order-container'>
                     {
                         !openExis ? 
-                        <p className='profile_no-open-order-msg'>Your receipt will be shown here..</p>
+                        <p className='profile_no-open-order-msg'>No open order,  Looking to see you soon!</p>
                         :""
                     }
                     {

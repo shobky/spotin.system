@@ -1,0 +1,42 @@
+.dashboard-events{
+    height: 100%;
+    background: rgb(255, 166, 50);
+    background: linear-gradient(180deg, rgba(255, 166, 50, 1) 38%, rgba(255, 255, 255, 1) 100%);
+}
+.dashboard_events-main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 10vh 0 0 0;
+   
+}
+
+.dashboard_events_halloween {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    position: relative;
+    width: 100%;
+
+
+}
+
+.dashboard_event-name {
+    font-family: montserrat-ExtraBold;
+}
+
+.dasboard_events_halloween-user-go {
+    position: absolute;
+    top: 110%;
+    font-weight: 100 !important;
+    text-align: center;
+    font-size: 17px;
+}
+.dashboard_events-users-in-halloween{
+    margin-top: 70px;
+    height: 62%;
+    overflow-y: scroll;
+}

@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
 //icons
-import { CgMenuRight } from 'react-icons/cg'
-import { BsSearch, BsCalendarEventFill, BsFillInfoCircleFill } from 'react-icons/bs'
-import thinkerIllus from '../../assets/imgs/thinkerIllus.png'
-import { FaUserAlt, FaChalkboardTeacher } from 'react-icons/fa'
-import { HiLogout } from 'react-icons/hi'
+import { CgCommunity, CgMenuRight } from 'react-icons/cg'
 // imgs
 import man from '../../assets/avatars/man.png'
 import woman from '../../assets/avatars/woman.png'
-import googleMap from '../../assets/imgs/googlemap.png'
-import commu from '../../assets/imgs/community.png'
 
-import { Link, useNavigate } from 'react-router-dom'
+import commu from '../../assets/imgs/community.png'
+import commu2 from '../../assets/imgs/comunity2.png'
+
+
+import { HashRouter, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 //components
 import Nav from './components/nav/Nav'
-import { useDb } from '../../contexts/Database'
 import HomeMore from './components/nav/HomeMore'
 import dnatree from '../../assets/imgs/dnaTreetxt.png'
-import { MdCopyright } from 'react-icons/md'
 import { collection } from 'firebase/firestore'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
-import { auth, db } from '../../firebase/Config'
+import { db } from '../../firebase/Config'
 import Footer from './footer/Footer'
-import musicImg from '../../assets/imgs/music.png'
-import playstaionImg from '../../assets/imgs/playstaion.png'
+import musicImg from '../../assets/imgs/music.png';
+import playstaionImg from '../../assets/imgs/playstaion.png';
+import pumpkin from '../../assets/imgs/BackgroundEraser_20221028_195711752.png'
+import { TbTrafficCone } from 'react-icons/tb'
+
 
 
 
@@ -63,9 +62,9 @@ const Home = () => {
         if (isLeftSwipe || isRightSwipe) {
             // ('swipe', isLeftSwipe ? navigate('/home') : navigate('/profile'))
             if (isRightSwipe) {
-                navigate('/settings')
+                // navigate('/settings')
             } else if (isLeftSwipe) {
-                navigate('/workshops')
+                // navigate('/workshops')
             }
         }
         // add your conditional logic here
@@ -75,6 +74,8 @@ const Home = () => {
 
     const ownderId = "NcHM2FUvdgNQ2BGhrIFCrl7oPTt1"
     const devId = process.env.REACT_APP_DEV_ID
+    console.log(process.env.REACT_APP_DEV_ID, devId)
+
 
 
 
@@ -99,7 +100,6 @@ const Home = () => {
             setCounter(0)
         }
     }
-
 
 
     useEffect(() => {
@@ -145,50 +145,73 @@ const Home = () => {
                         <HomeMore />
                     </header>
                     <img alt='' src={avatar} className='home_logo' />
-                    {/* <div className='db-n-mb'>
-                        <ul className="home_nav-container">
-                            <li className="home_nav-link active-link">home</li>
-                            <li className="home_nav-link">profile</li>
-                            <li className="home_nav-link">events</li>
-                            <li className="home_nav-link">workshops</li>
-                        </ul>
-
-                        <div className='home_img-btn-div'>
-                            <img alt='' src={avatar} className='home_user-photo' />
-                            <button className='home_nav_login'>{user ? "logout" : "login"} <HiLogout style={{ marginLeft: "5px" }} /></button>
-                        </div>
-                    </div> */}
 
                 </div>
                 <main>
-                    <h2 className='home_slogan'>The Space Of The Future.</h2>
-                    <p className='home_trafic-teller'>The trafic in the space now is
+                    <div className='home_main-flex-container'>
+                        <h2 className='home_slogan'>The Space Of The Future.</h2>
+                        <div >
+                            <div className='home_main-aloone-div'>
+                                <Link to={user ? "/join-community-form" : "/login"} className=' home_main-Link-div dashboard_community'><p>
+                                    <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
+                                    <span className='home-link-sub-ifo'>
+
+                                        {
+                                            commForm ? `Thanks for joining. Welcome.` :
+                                                user ? `join us, login first` : `join and become one of us`
+                                        } </span>
+                                </p>
+                                </Link>
+                            </div>
+                            <div className='home_link_div-container'>
+                                <div className='home_main-alone_trafic'>
+                                    <p className={tktNum > 30 ? "home_main-trafic__high" : tktNum < 10 ? "home_main-alone_trafic-low" : "home_main-trafic__normal"}>
+                                        <TbTrafficCone className='dashboard_ico' /> TRAFIC
+                                        <span className='dashboard-link-sub-ifo'>{tktNum} checkins </span></p>
+                                </div>
+                                <div className='home_main-halloween-event-div'>
+                                    <a href='#halloween' className=' home_main-Link-div'><p>
+                                        HALLOWEEN
+                                        <span className='home-link-sub-ifo'> Ready to party? </span>
+                                    </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <img alt='' src={commu2} className="homee_section-1-img" />
+
+                    {/* <p className='home_trafic-teller'>The trafic in the space now is
                         {
-                            tktNum > 15 ? <span className='home_trafic__high'> High </span> : tktNum < 5 ? <span className='home_trafic__low'> Low </span> : <span className='home_trafic__normal'> Normal</span>
+                            tktNum > 30 ? <span className='home_trafic__high'> High </span> : tktNum < 10 ? <span className='home_trafic__low'> Low </span> : <span className='home_trafic__normal'> Normal</span>
                         }</p>
                     <section className='nre0sdi'>
                         {
                             !commForm ?
                                 <div>
                                     <p className='home_section-1-header'>New from SpotIN:</p>
-                                    <p className='home_sectio-1-main'>Join our community and become one of us. {
+                                    <p className='home_sectio-1-main'>Join our community and become one of us. <br/>{
                                         user ?
                                             <Link to="/join-community-form" className='home_section-1-btn'>Join</Link>
                                             :
-                                            <Link style={{
-                                                color: "black", fontWeight: "bold",
-                                            }} to="/login"> Login First</Link>
+                                            <Link className='home_section-1-login-link' to="/login"> Login First</Link>
                                     } </p>
                                 </div>
                                 :
                                 <p className='home_sectio-1-main'>Thank you for joining our community.</p>
                         }
-                        <img alt='' src={commu} className="hom_section-1-img" />
-                    </section>
+                    </section> */}
 
                 </main>
 
             </section>
+            <div id='halloween' className="home_halloween-container">
+                <p className='home_halloween_header'>HALLO <br /> <span>WEEN</span></p>
+                <p className='home_halloween-sub-header'>party at spotin</p>
+                <Link to='/events' className='home_halloween-btn'>Events</Link>
+                <img alt="" src={pumpkin} className="home_halloween-img" />
+            </div>
             <div className='home-page-second-section'>
                 <h1 className='s2_header'>Don't get lost, here is the location:</h1>
                 <iframe className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowfullscreen={true} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -206,7 +229,7 @@ const Home = () => {
                 <img alt='' src={musicImg} className="home_forth-secition-music-img" />
                 <div>
                     <p className='home_forth_txt'><span>KARAOKE</span> NIGHTS </p>
-                    <p className='home_forth-subtxt'>check for <Link className='home_forth-link' to='/events'>NEW EVENTS</Link></p>
+                    <p className='home_forth-subtxt'><Link className='home_forth-link' to='/events'>NEW EVENTS</Link></p>
                 </div>
             </div>
             <div className='home_fifth-section'>

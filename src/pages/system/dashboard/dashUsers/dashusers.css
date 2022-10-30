@@ -1,0 +1,77 @@
+.dashboard_header-name{
+    margin-top: 10px;
+    font-size: 16px;
+}
+.dashboard_burger-menu-icon{
+    font-size: 30px;
+    position: fixed;
+    top: 35px;
+    right: 30px;
+    border-radius: 50%;
+    padding: 3px;
+    z-index: 999999;
+}
+.dashusers_back-ico {
+    margin: 12.5px ;
+    color: black;
+
+}
+.dash-users-header-nav{
+    display: flex;
+}
+.dashboard-users_search-ico{
+    margin-left: 25px;
+    margin-top: -2px;
+    background-color: transparent;
+    border: 1px solid rgb(240, 240, 240);
+    font-size: 17px;
+    width: 200px;
+    height: 30px;
+    padding: 3px 0px 3px 15px ;
+    border-radius: 25px;
+}
+.dashboard_user-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 33px;
+}
+.dashboard_user-flex{
+    display: flex;
+    align-items: centers;
+    margin: 25px 25px -10px 25px;
+    gap: 15px;
+
+}
+.dashboard_user-flex img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+.dashboard_user-info{
+    width: 50vw;
+    overflow: scroll;
+}
+.dashboard_user-info p{
+    font-size: 12px;
+}
+.dashboard_user-name{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.dashboard_users_container{
+    height: 80vh;
+    margin-top: 20px;
+    overflow-y: scroll;
+}
+.dashboard_user-community-btn{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    margin-top: 40px;
+    position: relative;
+
+
+}

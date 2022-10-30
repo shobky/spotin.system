@@ -5,7 +5,7 @@ import Nav from "../../pages/website/components/nav/Nav"
 const UserRotues = () => {
     const { user } = useAuth()
     return (
-        user?.uid ?<Outlet />: <Navigate to='/login' />
+        user?.uid ? <Outlet /> : <Navigate to='/login' />
     )
 }
 

@@ -1,0 +1,98 @@
+.accSettings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.accsettings-form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.acc-settings_input {
+    max-width: 300px;
+    font-size: 17px;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    margin-top: 10px;
+}
+
+.accsettings-form-section label {
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.accSettings-lsgo-btn {
+    font-size: 18px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1.5px solid black;
+    margin-top: 30px;
+    margin-bottom: -100px;
+    font-weight: bold;
+}
+
+.acc-settings-err {
+    background-color: rgb(255, 62, 62);
+    color: white;
+    padding: 10px;
+    margin-top: -30px;
+    font-weight: bold;
+}
+
+.acc-settig-header {
+
+    margin-top: 10vh;
+    margin-bottom: -15vh;
+    text-align: center;
+}
+
+.acc-settings-msg {
+    background-color: rgb(6, 233, 82);
+    color: white;
+    padding: 10px;
+    margin-top: -30px;
+    font-weight: bold;
+}
+
+.accSettings-lsgo-btn__loadign {
+    font-size: 18px;
+    padding: 10px;
+    background-color: transparent;
+    margin-top: 30px;
+    border: none;
+    color: rgb(255, 255, 255);
+    margin-bottom: -100px;
+    font-weight: bold;
+    background-color: rgb(219, 219, 219);
+
+}
+
+.accSettings-lsgo-btn__loadign:hover {
+    position: relative;
+    animation: anima 2s ;
+
+}
+
+@keyframes anima {
+    0% {
+        position: relative;
+        bottom: 0;
+    }
+
+    45% {
+        position: relative;
+        bottom: 600px;
+    } 
+    100%{
+        position: relative;
+        bottom: 0;
+    }
+
+}

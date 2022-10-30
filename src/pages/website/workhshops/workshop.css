@@ -24,6 +24,7 @@
 
 .workshop {
     padding-bottom: 10vh;
+    
 }
 
 
@@ -240,10 +241,11 @@
         margin-bottom: 250px;
     }
 
-    .workshop_join-btn-pc{
+    .workshop_join-btn-pc {
         display: none;
     }
-    
+
+
 
 }
 
@@ -391,11 +393,12 @@
         display: flex;
         height: 200px;
     }
-    .workshop_join-btn{
+
+    .workshop_join-btn {
         display: none;
     }
-    
-    .workshopReadMore__active .workshop_join-btn-pc  {
+
+    .workshopReadMore__active .workshop_join-btn-pc {
         display: block !important;
         height: 40px;
         width: 100px;
@@ -408,7 +411,31 @@
         background-color: white;
         transition: ease-in-out 4;
 
-   
+
 
     }
+}
+.workshop-filterheader{
+    position: absolute;
+    top: 0;
+}
+
+.workshops_commint-soon-filter {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.925);
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+
+}
+
+.workshop-filter-txt{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 40vh;
 }
