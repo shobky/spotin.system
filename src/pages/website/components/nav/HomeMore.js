@@ -39,7 +39,7 @@ const HomeMore = () => {
 
             <section className='home_showmore-nav-sect'>
                 {
-                    user.uid === process.env.REACT_APP_DEV_ID || user.uid === process.env.REACT_APP_OWNER_ID ?
+                    user?.uid === process.env.REACT_APP_DEV_ID || user?.uid === process.env.REACT_APP_OWNER_ID ?
                         <div className='home_shomore_nav-option'>
                             <div className='homeMore-flex-db'>
                                 <p><MdSpaceDashboard className='home-more-nav-ico' /></p>
