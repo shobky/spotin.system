@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./nav.css"
 
-import { BsCalendarEvent, BsCalendarEventFill, BsExclamationCircle, BsExclamationCircleFill, BsHouse, BsHouseFill, BsPeople, BsPeopleFill, BsPerson, BsPersonFill } from 'react-icons/bs'
+import { BsCalendarEvent, BsCalendarEventFill, BsExclamationCircle, BsExclamationCircleFill, BsHouse, BsHouseFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../../contexts/AuthContext'
 import { BiCoffeeTogo } from 'react-icons/bi'

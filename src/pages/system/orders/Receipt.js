@@ -4,16 +4,13 @@ import './receipt.css'
 import { ImShrink2 } from 'react-icons/im'
 import TimeSpent from './TimeSpent'
 
-import { BsCartPlus, BsFillCircleFill } from 'react-icons/bs'
-import { deleteDoc, doc, setDoc, updateDoc } from 'firebase/firestore'
+import { BsFillCircleFill } from 'react-icons/bs'
+import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { GiPlainCircle } from 'react-icons/gi'
 import { db } from '../../../firebase/Config'
 
-import avataro from '../../../assets/avatars/man.png'
-import { MdCancel, MdOutlineAddShoppingCart, MdOutlineNoteAdd } from 'react-icons/md'
-import { HiOutlineCurrencyDollar } from 'react-icons/hi'
-import { uuidv4 } from '@firebase/util'
-import { Link } from 'react-router-dom'
+import { MdCancel, MdOutlineAddShoppingCart } from 'react-icons/md'
+
 const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSetter }) => {
     const [timeSpent, setTimeSpent] = useState()
     const [loading, setLoading] = useState(false)
@@ -53,8 +50,8 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
         const data = {
             id: order.id,
             status: "closed",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "", email:order.user.email ?? "" },
-            userOrderId : order.userOrderId,
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "", email: order.user.email ?? "" },
+            userOrderId: order.userOrderId,
             time: order.time,
             date: order.date,
             total: order.total,
@@ -75,7 +72,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
         const data = {
             id: `${order.id}`,
             status: "archived",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url , email: order.user.email?? "" },
+            user: { name: order.user.name, uid: order.user.uid, url: order.user.url, email: order.user.email ?? "" },
             time: order.time,
             date: order.date,
             total: order.total,
@@ -296,7 +293,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                     </div>
                     :
 
-                    <div style={{display:"flex", justifyContent:"center", marginTop:"55px"}}>
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "55px" }}>
                         {
                             order.status === "open" ?
                                 timeSpent?.length > 0 ?

@@ -4,13 +4,10 @@ import './home.css'
 import { CgCommunity, CgMenuRight } from 'react-icons/cg'
 // imgs
 import man from '../../assets/avatars/man.png'
-import woman from '../../assets/avatars/woman.png'
-
-import commu from '../../assets/imgs/community.png'
 import commu2 from '../../assets/imgs/comunity2.png'
 
 
-import { HashRouter, Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 //components
 import Nav from './components/nav/Nav'
@@ -29,12 +26,8 @@ import { TbTrafficCone } from 'react-icons/tb'
 
 
 const Home = () => {
-    const { user, logout } = useAuth()
-    const navigate = useNavigate()
-    const [avatar, setAvatar] = useState(user?.photoURL ? user.photoURL : man)
-    const [counter, setCounter] = useState(0)
+    const { user } = useAuth()
     const [tktNum, setTktNum] = useState()
-    const [searchActv, setSearchActv] = useState(false)
     const [touchStart, setTouchStart] = useState(null)
     const [touchEnd, setTouchEnd] = useState(null)
     const [commForm, setCommForm] = useState(false)
@@ -71,37 +64,6 @@ const Home = () => {
     }
 
 
-
-    const ownderId = "NcHM2FUvdgNQ2BGhrIFCrl7oPTt1"
-    const devId = process.env.REACT_APP_DEV_ID
-    console.log(process.env.REACT_APP_DEV_ID, devId)
-
-
-
-
-
-    const signOut = () => {
-        logout()
-        navigate("/login")
-    }
-
-    const changeAvatar = () => {
-        if (counter === 0) {
-            setAvatar(man)
-            setCounter(counter + 1)
-        } else if (counter === 1) {
-            setAvatar(woman)
-            setCounter(counter + 1)
-        } else if (counter === 2 && user?.photoURL) {
-            setAvatar(user.photoURL)
-            setCounter(0)
-        } else if (counter === 2) {
-            setAvatar(man)
-            setCounter(0)
-        }
-    }
-
-
     useEffect(() => {
         const countPropleInSpace = () => {
             let Allpeople = [];
@@ -111,10 +73,10 @@ const Home = () => {
             setTktNum(Allpeople.reduce((a, b) => a + b, 0))
         }
         countPropleInSpace()
-    }, openOrders)
+    }, [openOrders])
 
     useEffect(() => {
-        users?.map((userDb) => {
+        users?.forEach((userDb) => {
             if (userDb.email === user?.email) {
                 if (userDb.commForm === "filled") {
                     setCommForm(true)
@@ -144,7 +106,7 @@ const Home = () => {
                         <p><CgMenuRight onClick={showMoreHome} className="home_burger-menu-icon" /></p>
                         <HomeMore />
                     </header>
-                    <img alt='' src={avatar} className='home_logo' />
+                    <img alt='' src={user?.photoURL ? user.photoURL : man} className='home_logo' />
 
                 </div>
                 <main>
@@ -152,7 +114,7 @@ const Home = () => {
                         <h2 className='home_slogan'>The Space Of The Future.</h2>
                         <div >
                             <div className='home_main-aloone-div'>
-                                <Link to={user ? "/join-community-form" : "/login"} className=' home_main-Link-div dashboard_community'><p>
+                                <Link to={user ? "/join-community-form" : "/login"} className=' home_main-Link-div'><p>
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
@@ -167,7 +129,7 @@ const Home = () => {
                                 <div className='home_main-alone_trafic'>
                                     <p className={tktNum > 30 ? "home_main-trafic__high" : tktNum < 10 ? "home_main-alone_trafic-low" : "home_main-trafic__normal"}>
                                         <TbTrafficCone className='dashboard_ico' /> TRAFIC
-                                        <span className='dashboard-link-sub-ifo'>{tktNum} checkins </span></p>
+                                        <span className='dashboard-link-sub-ifo'>{tktNum > 30 ? "high" : tktNum < 10 ? "low" : "normal"}</span></p>
                                 </div>
                                 <div className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
@@ -181,28 +143,6 @@ const Home = () => {
                     </div>
 
                     <img alt='' src={commu2} className="homee_section-1-img" />
-
-                    {/* <p className='home_trafic-teller'>The trafic in the space now is
-                        {
-                            tktNum > 30 ? <span className='home_trafic__high'> High </span> : tktNum < 10 ? <span className='home_trafic__low'> Low </span> : <span className='home_trafic__normal'> Normal</span>
-                        }</p>
-                    <section className='nre0sdi'>
-                        {
-                            !commForm ?
-                                <div>
-                                    <p className='home_section-1-header'>New from SpotIN:</p>
-                                    <p className='home_sectio-1-main'>Join our community and become one of us. <br/>{
-                                        user ?
-                                            <Link to="/join-community-form" className='home_section-1-btn'>Join</Link>
-                                            :
-                                            <Link className='home_section-1-login-link' to="/login"> Login First</Link>
-                                    } </p>
-                                </div>
-                                :
-                                <p className='home_sectio-1-main'>Thank you for joining our community.</p>
-                        }
-                    </section> */}
-
                 </main>
 
             </section>
@@ -214,7 +154,7 @@ const Home = () => {
             </div>
             <div className='home-page-second-section'>
                 <h1 className='s2_header'>Don't get lost, here is the location:</h1>
-                <iframe className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowfullscreen={true} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe title="map" className='home-s2_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6404.045531184958!2d32.310388161918524!3d31.271092226201386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f99de50d7e99ed%3A0xcacb714f1b1aba84!2sSpotIN!5e0!3m2!1sen!2seg!4v1666661292838!5m2!1sen!2seg" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div className='home-page-third-section'>

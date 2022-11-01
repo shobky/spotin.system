@@ -43,7 +43,7 @@ const Evets = () => {
 
             }
         })
-    }, [user, halloween])
+    }, [users, user, halloween])
 
     const userGoingHalloween = () => {
         setLoading(true)
@@ -93,6 +93,7 @@ const Evets = () => {
 
                 {/* <p>There is no upcoming events, come back soon.</p> */}
                 <div className='event-container'>
+                    <div className='events-nomore-going'></div>
                     <div className='event-border-top-r'></div>
                     <div className='event-border-top-l'></div>
 
@@ -116,11 +117,8 @@ const Evets = () => {
                                 }
                                 <div className='halloween_event-goings-div'>
                                     {
-                                        halloween?.slice(-5).map((usersInEvent) => (
-                                            <>
-                                                <img alt="" className='halloween_users-in-event-img' src={usersInEvent.photoURL} />
-                                            </>
-
+                                        halloween?.slice(-5).map((usersInEvent, index) => (
+                                                <img key={index} alt="" className='halloween_users-in-event-img' src={usersInEvent.photoURL} />
                                         ))
                                     }
                                 </div>

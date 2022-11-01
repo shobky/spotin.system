@@ -104,10 +104,9 @@
 }
 
 .sochail-links-section {
-    position: absolute;
-    left: 8vw;
-    bottom: 8vh;
-
+    display: flex;
+    justify-content: center;
+    
 }
 
 .showmore-home-logout-btn {

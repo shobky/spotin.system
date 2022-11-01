@@ -1,7 +1,7 @@
 import { updateProfile } from 'firebase/auth'
 import { doc, updateDoc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { BsXLg } from 'react-icons/bs'
 import { GoCheck } from 'react-icons/go'
 import { TbEditCircle } from 'react-icons/tb'
@@ -12,9 +12,7 @@ import Nav from '../components/nav/Nav'
 import Profileblank from '../../../assets/avatars/Profile-PNG-File.png'
 
 import './editprofile.css'
-import { number } from 'prop-types'
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
-import { AiOutlineLoading } from 'react-icons/ai'
 import { ImSpinner2 } from 'react-icons/im'
 
 const EditProfile = () => {
@@ -129,7 +127,7 @@ const EditProfile = () => {
                 <TbEditCircle className='edit-profile_change-photo' />
                 <input onChange={(e) => onChangePhoto(e.target.files[0])} className='file-input-edit-prifle' type="file" />
             </div>
-            <form autoComplete={true} id='form-edit-prfile' onSubmit={onSubmitForm} className='edit-profile_form'>
+            <form autoComplete='on' id='form-edit-prfile' onSubmit={onSubmitForm} className='edit-profile_form'>
                 {/* <label>name</label> */}
                 <input value={newUsername} onChange={(e) => setNewUsername(e.target.value)} ref={nameRef} className='edit-profile_form_input' placeholder='Name' type="text" name="username" />
                 {/* <label>phone number</label> */}

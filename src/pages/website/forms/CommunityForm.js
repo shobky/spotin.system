@@ -1,11 +1,10 @@
-import logo from '../../../assets/logo.png'
 import React, { useRef, useState } from 'react'
 import './commform.css'
 import { useAuth } from '../../../contexts/AuthContext'
 
 import { BiArrowBack } from 'react-icons/bi'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import { doc, setDoc, updateDoc } from 'firebase/firestore'
+import { Link, useNavigate } from 'react-router-dom'
+import { doc, updateDoc } from 'firebase/firestore'
 import { db } from '../../../firebase/Config'
 const CommunityForm = () => {
     const { user } = useAuth()
@@ -43,7 +42,7 @@ const CommunityForm = () => {
                 <p className='comm-form-title'>Spotin Community</p>
             </header>
             <p className='comm-form_head'>Hi {user.displayName}, tell us more about yourself.. </p>
-            <form autoComplete={true} onSubmit={(e) => onSubmitForm(e)}>
+            <form autoComplete='on' onSubmit={(e) => onSubmitForm(e)}>
                 <input readOnly={true} required={true} placeholder='Name' value={user.displayName ?? ""} type="text" className='comm-form_input' />
                 <input readOnly={true} required={true} placeholder='Email' value={user.email ?? ""} type="email" className='comm-form_input' />
                 <input ref={numberRef} required={true} placeholder='Phone Number' type="number" name=" number" className='comm-form_input' />

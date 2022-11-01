@@ -1,6 +1,6 @@
 import { db } from '../../../firebase/Config'
 import { deleteDoc, doc } from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import { useDb } from '../../../contexts/Database'
 import User from './User'

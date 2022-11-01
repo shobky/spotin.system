@@ -18,22 +18,17 @@ import { useAuth } from '../../../contexts/AuthContext'
 
 const Orders = () => {
   const { remove, openOrders, closedOrders, deletedOrders } = useDb()
-  const { wantedOrder, setWantedOrder } = useAuth()
+  const { wantedOrder } = useAuth()
   const [tab, setTab] = useState('open')
   const [order, setOrder] = useState()
   const [showSearch, setShowSearch] = useState(false)
   const [searchTerm, setSearchTerm] = useState(wantedOrder)
   const [newCart, setNewCart] = useState(false)
-  const { user } = useAuth()
   const [receipt, setReceipt] = useState(false)
   const msg = document.getElementById("orders_msg_confirm")
 
   const ownerId = process.env.REACT_APP_OWNER_ID;
   const devId = process.env.REACT_APP_DEV_ID;
-
-
-  console.log(wantedOrder ? wantedOrder : "no")
-
 
 
   const onSetTab = (tabName) => {

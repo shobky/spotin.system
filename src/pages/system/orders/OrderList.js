@@ -19,8 +19,6 @@ const OrderList = ({ orders, onSetReceipt, searchTerm, tab }) => {
     countDayTotal()
   }, [deletedOrders])
 
-  console.log(searchTerm)
-
   orders?.sort((a, b) => {
     return a.id - b.id
   })

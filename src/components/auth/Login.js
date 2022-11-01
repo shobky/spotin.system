@@ -1,11 +1,9 @@
 import React, { useRef, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
 import "./auth.css"
-import Loading from '../../assets/loading.gif'
 import { useNavigate, Link } from "react-router-dom"
-import { TbArrowNarrowLeft } from "react-icons/tb";
 import { RiEyeLine, RiEyeCloseLine } from "react-icons/ri";
-import { MdKeyboardBackspace, MdRemove } from "react-icons/md";
+import { MdKeyboardBackspace } from "react-icons/md";
 import { GiPlainCircle, GiCircle } from 'react-icons/gi'
 import { IoSend } from "react-icons/io5"
 
@@ -70,7 +68,7 @@ export default function Login() {
                 {error &&
                     <p className="auth_err">{error}</p>
                 }
-                <form autoComplete={true} onSubmit={handleSubmit} className="auth_form">
+                <form autoComplete="on" onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div">
                         <label className="auth_label">Email </label>
                         <input autoComplete="email" placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />

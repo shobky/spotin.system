@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 
 import './profile.css'
-import { DiJsBadge } from 'react-icons/di'
 import { RiEdit2Fill } from 'react-icons/ri'
-import { BsTelephone } from 'react-icons/bs'
 import { MdOutlineEmail } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDb } from '../../../contexts/Database'
@@ -78,7 +76,7 @@ const Profile = () => {
 
         }
         onSetOrderTotal()
-    }, [timeSpent])
+    }, [timeSpent, userOrders])
     return (
         <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} className='profile'>
             <nav>
@@ -110,14 +108,14 @@ const Profile = () => {
 
                 </header>
 
-                <sectoin className='profile_user-contacts-section'>
+                <div className='profile_user-contacts-section'>
                     <div>
                         {/* <p className='profile_user-contacts'> <BsTelephone style={{ marginRight: "10px" }} /> {user.phoneNumber ?? "Nan"}</p> */}
                         <p className='profile_user-contacts'> <MdOutlineEmail style={{ position: "relative", top: "3px", marginRight: "10px" }} /> {user.email}</p>
                     </div>
-                </sectoin>
+                </div>
 
-                <section className='profile_activity-section'>
+                <div className='profile_activity-section'>
                     <div>
                         <p className='profile_activity-num'>0</p>
                         <p className='profile_activity-label'>Events</p>
@@ -131,15 +129,15 @@ const Profile = () => {
                             <p className='profile_activity-num'>{userOrders?.length ?? 0}</p>
                             <p className='profile_activity-label'>Orders</p>
                         </div></Link>
-                </section>
+                </div>
 
                 <hr className='inbetweenline' />
 
                 <div className='profile_open-order-container'>
                     {
-                        !openExis ? 
-                        <p className='profile_no-open-order-msg'>No open order,  Looking to see you soon!</p>
-                        :""
+                        !openExis ?
+                            <p className='profile_no-open-order-msg'>No open order,  Looking to see you soon!</p>
+                            : ""
                     }
                     {
                         userOrders?.filter((filtUserORder) => {

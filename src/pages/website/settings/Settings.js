@@ -4,7 +4,6 @@ import './settings.css'
 import Nav from '../components/nav/Nav'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
-import { TbArrowNarrowLeft } from 'react-icons/tb'
 
 const Settings = () => {
     const { user, logout } = useAuth()

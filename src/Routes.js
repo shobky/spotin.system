@@ -4,13 +4,10 @@ import { Route, Routes } from "react-router-dom"
 import AdminRoutes from "./components/privateRoutes/AdminRoutes"
 import OwnerRoutes from "./components/privateRoutes/OwnerRoutes"
 // pages imports
-
-import Loading from "./components/loadingAnimaitno/Loading"
 import UserRotues from "./components/privateRoutes/UserRoutes"
 import AddNewItems from "./components/addNewItems/AddNewItems"
 import { DataProvider } from "./contexts/Database"
 import Logo from "./components/loadingAnimaitno/Logo"
-import History from "./pages/website/history/History"
 import Settings from "./pages/website/settings/Settings"
 import Workshop from "./pages/website/workhshops/Workshop"
 import Profile from "./pages/website/profile/Profile"

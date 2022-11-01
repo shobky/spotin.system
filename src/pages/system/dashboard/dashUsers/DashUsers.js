@@ -43,8 +43,8 @@ const DashUsers = () => {
 
                             }
                         }
-                    }).map((user) => (
-                        <UserDash user={user} />
+                    }).map((user, index) => (
+                        <UserDash key={index} user={user} />
                     ))
                 }
             </main>

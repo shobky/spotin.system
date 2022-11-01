@@ -5,8 +5,7 @@ import HomeMore from '../../website/components/nav/HomeMore'
 import { Link } from 'react-router-dom'
 import { BsFillCalendarEventFill, BsPeopleFill } from 'react-icons/bs'
 import { FaReceipt } from 'react-icons/fa'
-import { GrWorkshop } from 'react-icons/gr'
-import { IoIosRemoveCircleOutline, IoMdAddCircleOutline, IoMdRemoveCircleOutline } from 'react-icons/io'
+import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from 'react-icons/io'
 import { SiFuturelearn } from 'react-icons/si'
 import { useDb } from '../../../contexts/Database'
 import { TbTrafficCone } from 'react-icons/tb'
@@ -15,9 +14,6 @@ const Dashboard = () => {
 
     const { users, openOrders } = useDb()
     const [tktNum, setTktNum] = useState()
-
-    let date = new Date()
-    let hours = date.getHours() + ":" + date.getMinutes()
 
     const showMoreHome = () => {
         const moreHome = document.getElementById('homeMore')
@@ -34,7 +30,7 @@ const Dashboard = () => {
             setTktNum(Allpeople.reduce((a, b) => a + b, 0))
         }
         countPropleInSpace()
-    }, openOrders)
+    }, [openOrders])
     return (
         <div className='dashboard'>
             <header>

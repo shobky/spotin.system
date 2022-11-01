@@ -25,13 +25,13 @@ const User = ({ user, onSetSelectedUser, onSetChoose, onShowPrepare, onSetUser }
                     navigate('/cashier.system/orders')
                 }
                 else {
-                    onSetSelectedUser(user.name, user.uid, user.url, user.email ?? "")
+                    onSetSelectedUser(user.name, user.uid, user.url ?? "", user.email ?? "")
                     onSetChoose()
                     onShowPrepare()
                 }
             })
         } else {
-            onSetSelectedUser(user.name, user.uid, user.url, user.email ?? "")
+            onSetSelectedUser(user.name, user.uid, user.url ?? "", user.email ?? "")
             onSetChoose()
             onShowPrepare()
         }

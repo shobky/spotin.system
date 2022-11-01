@@ -76,8 +76,8 @@ const DashEvents = () => {
 
                                         }
                                     }
-                                }).map((user) => (
-                                    <UserDash community={'true'} onChooseUser={onChooseUser} user={user} />
+                                }).map((user, index) => (
+                                    <UserDash key={index} community={'true'} onChooseUser={onChooseUser} user={user} />
                                 ))
                             }
                         </div>

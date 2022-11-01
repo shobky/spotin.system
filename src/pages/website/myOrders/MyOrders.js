@@ -1,9 +1,7 @@
 import { deleteDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { AiFillDelete } from 'react-icons/ai';
-import { BsBookmarkStar, BsStar, BsXLg } from 'react-icons/bs';
-import { IoArrowBackSharp, IoStarOutline, IoStarSharp } from 'react-icons/io5';
-import { MdDeleteOutline } from 'react-icons/md';
+import {  BsXLg } from 'react-icons/bs';
 import { TbArrowNarrowLeft } from 'react-icons/tb';
 import { VscHistory } from "react-icons/vsc";
 import { Link } from 'react-router-dom';

@@ -11,7 +11,6 @@ import { useAuth } from '../../../../contexts/AuthContext'
 import Profileblank from '../../../../assets/avatars/Profile-PNG-File.png'
 
 import './homemore.css'
-import Product from '../../../system/products/Produt'
 
 const HomeMore = () => {
     const { user, logout } = useAuth()
@@ -27,6 +26,9 @@ const HomeMore = () => {
         navigate('/login')
     }
     // console.log(Product.env.REACT_APP_DEV_ID)
+
+
+
     return (
         <div id="homeMore" className="home_showMore__inactive" >
             <header className='homemore-header'>
@@ -89,14 +91,6 @@ const HomeMore = () => {
                 <p><Link className='secndsection_optoin-name'>About</Link> </p>
             </div>
 
-            <section className='sochail-links-section'>
-                <a href='https://web.facebook.com/spotin.egy'><RiFacebookCircleFill className="social-link-ico" /></a>
-                <a href='https://www.instagram.com/spotin.egy/'><AiFillInstagram className="social-link-ico" /></a>
-                <a href='https://wa.me/+201277195303'><RiWhatsappFill className="social-link-ico" /></a>
-                <a href="mailto: shobkyy@gmail.com"> <SiGmail className="social-link-ico" /></a>
-            </section>
-
-
             {
                 user ?
                     <div onClick={() => onSignOut()} className='showmore-home-logout-btn'>
@@ -109,6 +103,14 @@ const HomeMore = () => {
                     </Link>
 
             }
+
+            <section className='sochail-links-section'>
+                <a href='https://web.facebook.com/spotin.egy'><RiFacebookCircleFill className="social-link-ico" /></a>
+                <a href='https://www.instagram.com/spotin.egy/'><AiFillInstagram className="social-link-ico" /></a>
+                <a href='https://wa.me/+201277195303'><RiWhatsappFill className="social-link-ico" /></a>
+                <a href="mailto: shobkyy@gmail.com"> <SiGmail className="social-link-ico" /></a>
+            </section>
+
 
 
         </div >
