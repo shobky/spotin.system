@@ -120,7 +120,7 @@ const Home = () => {
 
                                         {
                                             commForm ? `Thanks for joining. Welcome.` :
-                                                user ? `join us, login first` : `join and become one of us`
+                                                user ? `join and become one of us` : `join us, login first`
                                         } </span>
                                 </p>
                                 </Link>
