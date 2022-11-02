@@ -142,7 +142,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <img alt='' src={commu2} className="homee_section-1-img" />
+                    <img alt='' src={commu2} loading="lazy" className="homee_section-1-img" />
                 </main>
 
             </section>

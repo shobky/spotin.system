@@ -198,6 +198,40 @@
 
     }
 
+    .home_main-trafic__high {
+        background-color: rgb(238, 59, 59) !important;
+        font-weight: 400;
+        width: 17vw;
+        font-weight: bold;
+        position: relative;
+        border-radius: 5px;
+        height: 150px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 6;
+
+    }
+
+    .home_main-trafic__normal {
+        background-color: rgb(121, 182, 134) !important;
+        font-weight: 400;
+        width: 17vw;
+        font-weight: bold;
+        position: relative;
+        border-radius: 5px;
+        height: 150px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 6;
+
+    }
+
     .home_main-aloone-div {
         border-radius: 5px;
         color: white;
@@ -216,13 +250,15 @@
 
 
     }
-    .home_link_div-container{
+
+    .home_link_div-container {
         display: flex;
         align-items: center;
         margin-top: 5px;
         gap: 5px;
         width: 42vw;
     }
+
     .home_main-halloween-event-div {
         background-color: rgb(255, 170, 42);
         font-weight: 400;
@@ -616,7 +652,7 @@
         display: flex;
         width: 90vw;
         gap: 5vw;
-        
+
     }
 
     .home_section-1-header {
@@ -696,13 +732,15 @@
         margin-top: 30px;
 
     }
-    .home_link_div-container{
+
+    .home_link_div-container {
         display: flex;
         align-items: center;
         margin-top: 5px;
         gap: 5px;
         width: 45vw;
     }
+
     .home_main-halloween-event-div {
         background-color: rgb(255, 170, 42);
         font-weight: 400;
@@ -1374,7 +1412,7 @@
         display: flex;
     }
 
-    .home_link_div-container{
+    .home_link_div-container {
         display: flex;
         align-items: center;
         margin-top: 5px;
@@ -1392,7 +1430,6 @@
 
     .home_main-alone_trafic-low {
         background-color: rgb(172, 172, 172) !important;
-
         font-weight: 400;
         width: 32vw;
         font-weight: bold;
@@ -1405,7 +1442,8 @@
         align-items: center;
         text-align: center;
     }
-    .home_main-trafic__high{
+
+    .home_main-trafic__high {
         background-color: rgb(238, 59, 59) !important;
         font-weight: 400;
         width: 32vw;
@@ -1419,7 +1457,8 @@
         align-items: center;
         text-align: center;
     }
-    .home_main-trafic__normal{
+
+    .home_main-trafic__normal {
         background-color: rgb(121, 182, 134) !important;
         font-weight: 400;
         width: 32vw;
@@ -1490,21 +1529,4 @@
         font-weight: 1;
     }
 
-}
-
-
-
-
-
-
-.home_trafic__high {
-    color: red;
-}
-
-.home_trafic__low {
-    color: rgb(0, 207, 79);
-}
-
-.home_trafic__normal {
-    color: rgb(0, 233, 89);
 }
