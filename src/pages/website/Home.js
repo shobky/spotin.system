@@ -19,7 +19,7 @@ import { db } from '../../firebase/Config'
 import Footer from './footer/Footer'
 import musicImg from '../../assets/imgs/music.png';
 import playstaionImg from '../../assets/imgs/playstaion.png';
-import pumpkin from '../../assets/imgs/BackgroundEraser_20221028_195711752.png'
+import pumpkin from '../../assets/imgs/community.png'
 import { TbTrafficCone } from 'react-icons/tb'
 
 
@@ -118,23 +118,20 @@ const Home = () => {
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
-                                        {
-                                            commForm ? `Thanks for joining. Welcome.` :
-                                                user ? `join and become one of us` : `join us, login first`
-                                        } </span>
+                                    Thanks for joining our community, welcome </span>
                                 </p>
                                 </Link>
                             </div>
                             <div className='home_link_div-container'>
                                 <div className='home_main-alone_trafic'>
                                     <p className={tktNum > 30 ? "home_main-trafic__high" : tktNum < 10 ? "home_main-alone_trafic-low" : "home_main-trafic__normal"}>
-                                        <TbTrafficCone className='dashboard_ico' /> TRAFIC
+                                        <TbTrafficCone className='dashboard_ico' /> TRAFFIC
                                         <span className='dashboard-link-sub-ifo'>{tktNum > 30 ? "high" : tktNum < 10 ? "low" : "normal"}</span></p>
                                 </div>
                                 <div className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
-                                        HALLOWEEN
-                                        <span className='home-link-sub-ifo'> Ready to party? </span>
+                                        WORKHSOPS
+                                        <span className='home-link-sub-ifo'> start learning </span>
                                     </p>
                                     </a>
                                 </div>
@@ -147,9 +144,9 @@ const Home = () => {
 
             </section>
             <div id='halloween' className="home_halloween-container">
-                <p className='home_halloween_header'>HALLO <br /> <span>WEEN</span></p>
-                <p className='home_halloween-sub-header'>party at spotin</p>
-                <Link to='/events' className='home_halloween-btn'>Events</Link>
+                <p className='home_halloween_header'>WORK <br /> <span>SHOPS</span></p>
+                <p className='home_halloween-sub-header'>learn new stuff at spotin</p>
+                <Link to='/events' className='home_halloween-btn'>Workshops</Link>
                 <img alt="" src={pumpkin} className="home_halloween-img" />
             </div>
             <div className='home-page-second-section'>
@@ -171,12 +168,6 @@ const Home = () => {
                     <p className='home_forth_txt'><span>KARAOKE</span> NIGHTS </p>
                     <p className='home_forth-subtxt'><Link className='home_forth-link' to='/events'>NEW EVENTS</Link></p>
                 </div>
-            </div>
-            <div className='home_fifth-section'>
-                <p>gather with your friends </p>
-
-                <h1> <span>& PLAYSTATION</span> At Spotin.</h1>
-                <img alt='' src={playstaionImg} className="home_fifth-secition-music-img" />
             </div>
             <Footer />
 

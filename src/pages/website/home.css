@@ -316,7 +316,7 @@
     .home_halloween-img {
         width: 400px;
         position: absolute;
-        bottom: -125px;
+        bottom: 0;
         z-index: 10;
     }
 
@@ -539,8 +539,8 @@
     }
 
     .home_forth-link:hover {
-        background-color: #fa800e;
-        border: 3px solid #fa800e;
+        background-color: rgb(255, 164, 28);
+        border: 3px solid rgb(255, 164, 28);
     }
 
 
@@ -796,7 +796,6 @@
     .home_halloween-img {
         width: 600px;
         position: absolute;
-        bottom: -125px;
         z-index: 10;
     }
 
@@ -1019,8 +1018,8 @@
     }
 
     .home_forth-link:hover {
-        background-color: #fa800e;
-        border: 3px solid #fa800e;
+        background-color: rgb(255, 164, 28);
+        border: 3px solid rgb(255, 164, 28);
     }
 
 
@@ -1274,7 +1273,7 @@
     .home_halloween-img {
         width: 400px;
         position: relative;
-        bottom: 100px;
+        bottom: 0;
     }
 
     .home_halloween_header {

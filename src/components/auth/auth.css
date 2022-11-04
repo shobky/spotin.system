@@ -191,20 +191,6 @@
     justify-content: center;
 }
 
-.auth_footer {
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 30px;
-    padding-bottom: 30px;
-}
-
-.auth_footer-btn {
-    text-decoration: none;
-    border-bottom: 1.5px solid #5a5454;
-    font-weight: bold;
-    color: #5a5454;
-    font-size: 15px;
-}
 
 
 .submit-btn-loading::after {
@@ -533,4 +519,135 @@
     100% {
         background-color: rgba(255, 255, 255, 0.801);
     }
+}
+
+
+.signup_signup-btn {
+    border: 1px solid black;
+    font-size: 20px;
+    padding: 10px 35px 10px 35px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 40vh;
+}
+
+.signup_signup-btn:hover {
+    background-color: rgb(255, 180, 42);
+    color: white;
+    border: 1px solid white;
+}
+
+.signup_goole-ico {
+    font-size: 25px;
+}
+
+.auth_footer {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.auth_footer-btn {
+    text-decoration: none;
+    border-bottom: 1.5px solid #5a5454;
+    font-weight: bold;
+    color: #5a5454;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.signup_form_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15vh 30vw 0 30vw;
+}
+
+.signup_form_info input {
+    border: none;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 15px;
+
+}
+.signup_form_info input:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+.signup_from-gender-div {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.signup_from-gender-div button {
+    font-size: 20px;
+    border-radius: 25px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.signup_form-gender-btn_male {
+    background-color: rgb(109, 177, 255);
+}
+
+.signup_form-gender-btn_female {
+    background-color: rgb(255, 119, 153);
+
+}
+.signup_form_info label {
+    font-weight: bold;
+}
+.submit_btn_form-info{
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    font-size: 20px;
+
+    border-bottom: 2px solid black  ;
+    font-weight: bold;
+    margin: 100px 6vw 0 6vw;
+    cursor: pointer;
+}
+.submit_btn_form-info:hover{
+    font-size: 22px;
+    color: #ff8800;
+    margin: 100px 5vw 0 5vw;
+    border-bottom: 2px solid #ff8800  ;
+
+
+}
+
+.signup_form-gender-btn_male__active{
+    border: 2px solid black !important;
+}
+
+.signup_form-gender-btn_female__active{
+    border: 2px solid black !important;
+}
+.login_signup-btn{
+    border: 1px solid black;
+    font-size: 20px;
+    padding: 10px 35px 10px 35px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 25vh;
 }

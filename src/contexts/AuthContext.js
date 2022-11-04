@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth, db } from "../firebase/Config"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { auth, db, signInWithGoogle } from "../firebase/Config"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, GoogleAuthProvider } from 'firebase/auth';
+import { doc, setDoc } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
+import { useNavigate } from "react-router";
 const AuthContext = React.createContext()
 
 export const useAuth = () => {
@@ -11,37 +12,61 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
 
+    const navigate = useNavigate()
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
     const [wantedOrder, setWantedOrder] = useState('')
 
+    const signup = (login) => {
+        signInWithGoogle()
+            .then((res) => {
+                const credential = GoogleAuthProvider.credentialFromResult(res);
+                const token = credential.accessToken;
+                setUser(res.user);
+                setLoading(true)
 
-    const signup = async (email, password, name, url) => {
-        await createUserWithEmailAndPassword(auth, email, password);
-        const uid = uuidv4().slice(-5)
-        await updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: url
-        })
-        if (url?.length > 0) {
-            setDoc(doc(db, "Users", email), {
-                email: email,
-                name: name,
-                uid: uid,
-                url: url,
-                isSigned: true
-
+                if (login || user?.commForm === "filled") {
+                    navigate('/')
+                }
+                //
             })
-        } else {
-            setDoc(doc(db, "Users", email), {
-                email: email,
-                name: name,
-                uid: uid,
-                isSigned: true
+            .catch((err) => {
+                setError(err.message)
+                // const credential = GoogleAuthProvider.credentialFromError(err)
+                setLoading(true)
 
+                //
+                console.log(error, 'er')
             })
-        }
     }
+
+    // const signup = async (email, password, name, url) => {
+    //     await createUserWithEmailAndPassword(auth, email, password);
+    //     const uid = uuidv4().slice(-5)
+    //     await updateProfile(auth.currentUser, {
+    //         displayName: name,
+    //         photoURL: url
+    //     })
+    //     if (url?.length > 0) {
+    //         setDoc(doc(db, "Users", email), {
+    //             email: email,
+    //             name: name,
+    //             uid: uid,
+    //             url: url,
+    //             isSigned: true
+
+    //         })
+    //     } else {
+    //         setDoc(doc(db, "Users", email), {
+    //             email: email,
+    //             name: name,
+    //             uid: uid,
+    //             isSigned: true
+
+    //         })
+    //     }
+    // }
 
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
