@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth, db, signInWithGoogle } from "../firebase/Config"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, GoogleAuthProvider, getRedirectResult } from 'firebase/auth';
 import { doc, setDoc } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
 import { useNavigate } from "react-router";
@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
 
     const signup = (login) => {
         signInWithGoogle()
+        getRedirectResult(auth)
             .then((res) => {
                 const credential = GoogleAuthProvider.credentialFromResult(res);
                 const token = credential.accessToken;
