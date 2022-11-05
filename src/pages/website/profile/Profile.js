@@ -84,7 +84,7 @@ const Profile = () => {
             </nav>
             <div className='profile_ico-section'>
                 {/* <Link to="/"><IoArrowBackSharp className='profile_back-ico profile_ico' /></Link> */}
-                {/* <Link to="/edit-profile"><RiEdit2Fill className='profile_edit-ico profile_ico' /></Link> */}
+                <Link to="/edit-profile"><RiEdit2Fill className='profile_edit-ico profile_ico' /></Link>
             </div>
             <div className='profile_content-container'>
                 <header>

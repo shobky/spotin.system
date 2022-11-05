@@ -1,4 +1,11 @@
 @media (max-width:851px) {
+    .tkts_burger-menu-icon{
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        font-size: 30px;
+
+    }
     .tkts-page-container{
         width: 100vw;
         height: 100%;

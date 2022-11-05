@@ -61,6 +61,11 @@ const AllRoutes = () => {
                 <Home />
             </Suspense>} />
             <Route path="/workshops" element={<Workshop />} />
+            <Route path="/settings/reset-password" element={
+                <DataProvider>
+                    <AccSettings />
+                </DataProvider>
+            } />
 
             {
                 /* user Routes */
@@ -98,11 +103,7 @@ const AllRoutes = () => {
                         <Settings />
                     </DataProvider>
                 } />
-                 <Route path="/settings/my-account" element={
-                    <DataProvider>
-                        <AccSettings />
-                    </DataProvider>
-                } />
+
 
                 {
                     /* Admin Routes */
@@ -149,21 +150,21 @@ const AllRoutes = () => {
                                 </DataProvider>
                             </Suspense>
                         } />
-                         <Route path="/admin-dashboard/users" element={
+                        <Route path="/admin-dashboard/users" element={
                             <Suspense fallback={<Logo />}>
                                 <DataProvider>
                                     <DashUsers />
                                 </DataProvider>
                             </Suspense>
                         } />
-                         <Route path="/admin-dashboard/community.members" element={
+                        <Route path="/admin-dashboard/community.members" element={
                             <Suspense fallback={<Logo />}>
                                 <DataProvider>
                                     <DashCommunity />
                                 </DataProvider>
                             </Suspense>
                         } />
-                           <Route path="/admin-dashboard/all-events" element={
+                        <Route path="/admin-dashboard/all-events" element={
                             <Suspense fallback={<Logo />}>
                                 <DataProvider>
                                     <DashEvents />

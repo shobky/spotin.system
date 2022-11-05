@@ -53,8 +53,8 @@ const Settings = () => {
                 </header></Link>
             <hr className='settings-line' />
             <main className='settings_main'>
-                {/* <p className='settings_main-label'>Account</p>
-                <Link to='/settings/my-account' className='settings-list-div'>
+                <p className='settings_main-label'>Account</p>
+                <Link to='/settings/reset-password' className='settings-list-div'>
                     <p className='settings-btn'>Reset Password</p>
                     <p>
                         <MdOutlineKeyboardArrowRight className='settings-arr-ico' />
@@ -63,7 +63,7 @@ const Settings = () => {
                 <Link to="/edit-profile" className='settings-list-div'>
                     <p className='settings-btn'>Edit Profile</p>
                     <p> <MdOutlineKeyboardArrowRight className='settings-arr-ico' /> </p>
-                </Link> */}
+                </Link>
 
                 <br />
 

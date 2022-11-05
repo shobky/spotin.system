@@ -4,8 +4,8 @@ import { useAuth } from "../../contexts/AuthContext"
 const AdminRoutes = () => {
     const { user } = useAuth()
     return (
-        (user?.uid === process.env.REACT_APP_DEV_ID || user?.uid === process.env.REACT_APP_OWNER_ID)
-            ? <Outlet /> : <Navigate to='/login' />
+        // (user?.uid === process.env.REACT_APP_DEV_ID || user?.uid === process.env.REACT_APP_OWNER_ID)
+         true   ? <Outlet /> : <Navigate to='/login' />
 
     )
 }

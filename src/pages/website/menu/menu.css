@@ -15,7 +15,7 @@
 
     }
     .menu_burger-menu-icon{
-        display: none
+      display: none;
     }
 }
 @media (max-width:851px) {
@@ -23,7 +23,7 @@
         width: 100vw;
         height: calc(100% - 60px);
         position: absolute;
-        top: 0;
+        top: 60px;
         left: 0;
     }
 
@@ -34,8 +34,10 @@
 
     }
     .menu_burger-menu-icon{
-        float: right;
-        margin: 25px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
         font-size: 30px;
+
     }
 }

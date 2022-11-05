@@ -40,6 +40,8 @@ const Home = () => {
     // the required distance between touchStart and touchEnd to be detected as a swipe
     const minSwipeDistance = 50
 
+    console.log(user)
+
     const onTouchStart = (e) => {
         setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
         setTouchStart(e.targetTouches[0].clientX)
@@ -114,7 +116,7 @@ const Home = () => {
                         <h2 className='home_slogan'>The Space Of The Future.</h2>
                         <div >
                             <div className='home_main-aloone-div'>
-                                <Link to={user ? "/join-community-form" : "/login"} className=' home_main-Link-div'><p>
+                                <Link className=' home_main-Link-div'><p>
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
@@ -131,7 +133,7 @@ const Home = () => {
                                 <div className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
                                         WORKHSOPS
-                                        <span className='home-link-sub-ifo'> start learning </span>
+                                        <span className='home-link-sub-ifo'> comming soon </span>
                                     </p>
                                     </a>
                                 </div>
@@ -146,7 +148,7 @@ const Home = () => {
             <div id='halloween' className="home_halloween-container">
                 <p className='home_halloween_header'>WORK <br /> <span>SHOPS</span></p>
                 <p className='home_halloween-sub-header'>learn new stuff at spotin</p>
-                <Link to='/events' className='home_halloween-btn'>Workshops</Link>
+                <Link to='/workshops' className='home_halloween-btn'>Workshops</Link>
                 <img alt="" src={pumpkin} className="home_halloween-img" />
             </div>
             <div className='home-page-second-section'>

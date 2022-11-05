@@ -44,7 +44,7 @@ const Dashboard = () => {
                     <Link to="/admin-dashboard/users" className=' dashboard_main-Link-div dashboard_users'><BsPeopleFill className='dashboard_user-ico dashboard_ico' /><span>USERS</span>
                         <span className='dashboard-link-sub-ifo'>{
                             users?.filter((user) => {
-                                if (user.isSigned === true) {
+                                if (user.isSigned === 'true') {
 
                                     return user
                                 } else {

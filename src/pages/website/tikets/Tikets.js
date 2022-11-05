@@ -15,7 +15,7 @@ const Tikets = () => {
     return (
         <div className='tkts-page-container'>
             <Nav page='tickets' />
-            <p><CgMenuRight onClick={showMoreHome} className="home_burger-menu-icon" /></p>
+            <p><CgMenuRight onClick={showMoreHome} className="tkts_burger-menu-icon" /></p>
             <HomeMore />
             <p className='tkts-page_head'>Tickets & Pricing</p>
             <p className='tkts-page_sub-head'>you can find how long you have been staying in the space in your profile.</p>

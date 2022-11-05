@@ -19,7 +19,7 @@ const AccSettings = () => {
         e.preventDefault()
         setLoading(true)
         sendPasswordResetEmail(auth, newemail, {
-            url: "http://localhost:3000/login"
+            url: "https://spotin.space/"
         }).then(() => {
             setMsg(` sent, check your spam folder. `)
             setLoading(false)
