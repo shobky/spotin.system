@@ -132,8 +132,8 @@ const Home = () => {
                                 </div>
                                 <div className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
-                                        WORKHSOPS
-                                        <span className='home-link-sub-ifo'> comming soon </span>
+                                        WORKSHOPS
+                                        <span className='home-link-sub-ifo'> coming soon </span>
                                     </p>
                                     </a>
                                 </div>
