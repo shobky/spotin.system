@@ -8,12 +8,12 @@ import { auth } from '../../../firebase/Config'
 
 const AccSettings = () => {
     const { user } = useAuth()
-    const [newemail, setNewEmail] = useState(user?.email?? '')
+    const [newemail, setNewEmail] = useState(user? user.email : '')
     const [err, setErr] = useState('')
     const [msg, setMsg] = useState('')
 
     const [loading, setLoading] = useState(false)
-  
+
 
     const handleChangeCredential = (e) => {
         e.preventDefault()
@@ -66,11 +66,11 @@ const AccSettings = () => {
                         </div> */}
 
                         {
-                            loading ? 
-                        <button type='button' disabled={true} className='accSettings-lsgo-btn__loadign'>sending..</button>
-                            
-                            :
-                        <button type='submit' className='accSettings-lsgo-btn'>SEND</button>
+                            loading ?
+                                <button type='button' disabled={true} className='accSettings-lsgo-btn__loadign'>sending..</button>
+
+                                :
+                                <button type='submit' className='accSettings-lsgo-btn'>SEND</button>
 
                         }
 
