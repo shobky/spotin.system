@@ -8,7 +8,7 @@ import { auth } from '../../../firebase/Config'
 
 const AccSettings = () => {
     const { user } = useAuth()
-    const [newemail, setNewEmail] = useState(user.email)
+    const [newemail, setNewEmail] = useState(user?.email?? '')
     const [err, setErr] = useState('')
     const [msg, setMsg] = useState('')
 
