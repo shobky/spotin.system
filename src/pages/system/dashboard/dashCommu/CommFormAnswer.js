@@ -11,7 +11,7 @@ const CommFormAnswer = ({ user, halloween }) => {
                 <p style={{ marginTop: "11px" }}>dashboard\forms\</p>
             </header>
             <div>
-                <img alt='' src={user?.url ?? ""} className="dashboard_commform-answer_user-img" />
+                <img alt='' src={user?.photoURL ?? ""} className="dashboard_commform-answer_user-img" />
                 <h2 className='dashboard_commform-answer_username'>{user.name}</h2>
                 <div className='dashboard_commform-ansers-info'>
                     <div>
@@ -19,16 +19,14 @@ const CommFormAnswer = ({ user, halloween }) => {
                         <p className='dashboard_commform-answer_'> <strong>Email: </strong> {user.email}</p>
                         <p className='dashboard_commform-answer_'> <strong>Number: </strong> {user.number}</p>
                         <p className='dashboard_commform-answer_'> <strong>Gender: </strong> {user.gender}</p>
-                        <p className='dashboard_commform-answer_'> <strong>Age: </strong> {user.age}</p>
-                        <p className='dashboard_commform-answer_'> <strong>Title/Collage: </strong> {user.title}</p>
-                        {
+                        {/* {
                             halloween === "going" ?
                                 <p><strong>Halloween: </strong>
 
                                     {user?.events.halloween}
                                 </p>
                                 : ""
-                        }
+                        } */}
 
                     </div>
                 </div>
