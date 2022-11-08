@@ -47,7 +47,7 @@ const DashCommunity = () => {
                         <main className='dashboard_users_container'>
                             {
                                 users?.filter((user) => {
-                                    if (user.commForm === 'filled') {
+                                    if (user.firebaseUID) {
                                         if (user.name.toLowerCase().includes(searchQ.toLocaleLowerCase())) {
                                             return user
                                         } else if (searchQ === "") {
