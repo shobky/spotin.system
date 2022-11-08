@@ -48,10 +48,14 @@
     height: 60px;
     border-radius: 5px;
 }
-.dashboard_user-info{
-    width: 50vw;
-    overflow: scroll;
+@media (max-width:800px) {
+    .dashboard_user-info{
+        width: 50vw;
+        overflow-x: scroll;
+    }
+    
 }
+
 .dashboard_user-info p{
     font-size: 12px;
 }

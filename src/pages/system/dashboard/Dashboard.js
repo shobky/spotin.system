@@ -44,7 +44,7 @@ const Dashboard = () => {
                     <Link to="/admin-dashboard/users" className=' dashboard_main-Link-div dashboard_users'><BsPeopleFill className='dashboard_user-ico dashboard_ico' /><span>USERS</span>
                         <span className='dashboard-link-sub-ifo'>{
                             users?.filter((user) => {
-                                if (user.isSigned === 'true') {
+                                if (user.firebaseUID) {
 
                                     return user
                                 } else {
@@ -62,7 +62,7 @@ const Dashboard = () => {
                     <Link to="/admin-dashboard/community.members" className=' dashboard_main-Link-div dashboard_community'><CgCommunity className='dashboard_comm-ico dashboard_ico' />COMMUNITY
                         <span className='dashboard-link-sub-ifo'> {
                             users?.filter((user) => {
-                                if (user.isSigned === true) {
+                                if (user.firebaseUID ) {
                                     if (user.commForm && user?.commForm === 'filled') {
                                         return user
                                     } else {

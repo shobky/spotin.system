@@ -8,7 +8,7 @@ const UserDash = ({ user, community, onChooseUser }) => {
     return (
         <div className='dashboard_user-container'>
             <div className='dashboard_user-flex'>
-                <img src={user.url ?? noPhoto} alt="" />
+                <img src={user.photoURL ?? noPhoto} alt="" />
                 <div className='dashboard_user-info'>
                     <p className='dashboard_user-name'>{user.name ?? 'no name'} </p>
                     <p>#{user.uid ?? 'no id'} </p>

@@ -32,7 +32,7 @@ const DashUsers = () => {
             <main className='dashboard_users_container'>
                 {
                     users?.filter((user) => {
-                        if (user.isSigned === 'true') {
+                        if (user.firebaseUID) {
                             if (user.name.toLowerCase().includes(searchQ.toLocaleLowerCase())) {
                                 return user
                             } else if (searchQ === "") {
