@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
             photoURL: url
         })
         if (url?.length > 0) {
-            setDoc(doc(db, "Users", email), {
+            setDoc(doc(db, "Users", email.toLowerCase()), {
                 email: email,
                 name: name,
                 uid: uuidv4().slice(-5),
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
                 url: url
             })
         } else {
-            setDoc(doc(db, "Users", email), {
+            setDoc(doc(db, "Users", email.toLowerCase()), {
                 email: email,
                 name: name,
                 number:number,

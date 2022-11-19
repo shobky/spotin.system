@@ -1,0 +1,101 @@
+.item-ls_header {
+    margin-left: 6vw;
+    padding-top: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.item-ls_filter-btns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 5vw;
+
+
+}
+
+.item-ls_filter-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    width: fit-content;
+    color: black;
+    padding: 2px 15px 2px 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.item-ls_filter_active {
+    color: rgb(255, 183, 49) !important;
+    cursor: pointer;
+
+
+}
+
+.item-ls_filter-btn:hover {
+    opacity: .8;
+}
+
+.item_list-item-img {
+    width: 50px;
+    height: 50px;
+}
+
+.items-list_items-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    margin: 80px 50px 0 50px;
+    border-radius: 25px;
+}
+
+.items-ls_item {
+    display: grid;
+    grid-template-columns: 80px 205px 150px 50px 40px;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px 15px 12px 15px;
+    height: 60px;
+
+}
+
+.items-ls_item:hover {
+    background-color: rgba(255, 179, 79, 0.493);
+}
+
+.item-ls_seach-input {
+    margin-left: 50vw;
+    font-size: 20px;
+    color: black;
+    border-radius: 25px;
+    padding: 7px 15px 7px 15px;
+    border: 1px solid rgb(204, 204, 204);
+    position: relative;
+}
+
+.item-ls_item-remove {
+    color: rgb(255, 50, 50);
+    font-size: 30px;
+}
+
+.item-ls_item-remove:hover {
+    color: rgb(165, 0, 0);
+    cursor: pointer;
+
+
+}
+
+.item-ls_item-edit {
+    color: rgb(0, 230, 88);
+    font-size: 30px;
+}
+
+.item-ls_item-edit:hover {
+    color: rgb(19, 107, 59);
+    cursor: pointer;
+
+
+}

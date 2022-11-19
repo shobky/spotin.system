@@ -3,7 +3,6 @@ import { CgMenuRight } from 'react-icons/cg'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { useDb } from '../../../../contexts/Database'
-import HomeMore from '../../../website/components/nav/HomeMore'
 import './dashcommu.css'
 import '../dashUsers/dashusers.css'
 import UserDash from '../dashUsers/UserDash'
@@ -18,16 +17,8 @@ const DashCommunity = () => {
     const onChooseUser = (data) => {
         setClickedUser(data)
     }
-    const showMoreHome = () => {
-        const moreHome = document.getElementById('homeMore')
-        moreHome.classList.remove('home_showMore__inactive')
-        moreHome.classList.add('home_showMore__active')
-    }
     return (
         <div>
-            <p><CgMenuRight onClick={showMoreHome} className="dashboard_burger-menu-icon" /></p>
-            <HomeMore />
-
             {
 
                 clickedUser ?
@@ -40,7 +31,6 @@ const DashCommunity = () => {
                                 <p className='dashboard_header-name'>dashboard\<strong>community</strong></p>
                             </div>
                             <div className='dash-users-header-nav'>
-                                <p><CgMenuRight onClick={showMoreHome} className="dashboard_burger-menu-icon" /></p>
                                 <input onChange={(e) => setSearchQ(e.target.value)} className='dashboard-users_search-ico' type='text' placeholder="search..." />
                             </div>
                         </header>

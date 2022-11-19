@@ -15,15 +15,16 @@ export const DataProvider = ({ children }) => {
 
     const productsQ = collection(db, `pos`)
     const [products] = useCollectionData(productsQ)
-
-    const currentOrderq = collection(db, `current-order`)
-    const [currentOrder] = useCollectionData(currentOrderq)
-
+    
     const freshQ = collection(db, `fresh`)
     const [freshProducts] = useCollectionData(freshQ)
 
     const fillQ = collection(db, `fill`)
     const [fillProducts] = useCollectionData(fillQ)
+
+
+    const currentOrderq = collection(db, `current-order`)
+    const [currentOrder] = useCollectionData(currentOrderq)
 
     const openOrdersQ = collection(db, `open-orders`)
     const [openOrders,] = useCollectionData(openOrdersQ)

@@ -3,15 +3,17 @@ import { IoArrowBackSharp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import User from '../../selectUser/User'
 
-const CommFormAnswer = ({ user, halloween }) => {
+const CommFormAnswer = ({ user, onGoBackDAshUser }) => {
     return (
         <div>
             <header style={{ display: "flex" }}>
-                <Link to="/admin-dashboard"><IoArrowBackSharp className='dashusers_back-ico' /></Link>
+            <p onClick={() => onGoBackDAshUser(false)}><IoArrowBackSharp className='dashusers_back-ico' /></p>
                 <p style={{ marginTop: "11px" }}>dashboard\forms\</p>
             </header>
             <div>
-                <img alt='' src={user?.photoURL ?? ""} className="dashboard_commform-answer_user-img" />
+                <div className='dahsboard-commform-img-containet'>
+                    <img alt='' src={user?.photoURL ?? ""} className="dashboard_commform-answer_user-img-2" />
+                </div>
                 <h2 className='dashboard_commform-answer_username'>{user.name}</h2>
                 <div className='dashboard_commform-ansers-info'>
                     <div>

@@ -2,15 +2,6 @@
     margin-top: 10px;
     font-size: 16px;
 }
-.dashboard_burger-menu-icon{
-    font-size: 30px;
-    position: fixed;
-    top: 35px;
-    right: 30px;
-    border-radius: 50%;
-    padding: 3px;
-    z-index: 999999;
-}
 .dashusers_back-ico {
     margin: 12.5px ;
     color: black;
@@ -30,27 +21,24 @@
     padding: 3px 0px 3px 15px ;
     border-radius: 25px;
 }
+.dashboard_users_container{
+    margin: 5%;
+}
 .dashboard_user-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 33px;
+
+  
 }
 .dashboard_user-flex{
     display: flex;
-    align-items: centers;
-    margin: 25px 25px -10px 25px;
-    gap: 15px;
 
 }
 .dashboard_user-flex img {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 @media (max-width:800px) {
     .dashboard_user-info{
-        width: 50vw;
         overflow-x: scroll;
     }
     
@@ -66,16 +54,23 @@
 }
 
 .dashboard_users_container{
-    height: 80vh;
     margin-top: 20px;
-    overflow-y: scroll;
+    max-width: 100vw;
+    overflow-x: scroll;
 }
 .dashboard_user-community-btn{
     background-color: transparent;
     border: none;
     font-size: 20px;
-    margin-top: 40px;
     position: relative;
+}
 
+.dashboard_user-flex{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 85px 200px 150px 400px 200px 50px;
+    border-bottom: 1px solid rgba(206, 206, 206, 0.678);
+    padding: 7px;
+    width: fit-content;
 
 }

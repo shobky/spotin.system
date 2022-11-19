@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import './settings.css'
-import Nav from '../components/nav/Nav'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -44,7 +43,6 @@ const Settings = () => {
     }
     return (
         <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} >
-            <Nav page={page} />
             <Link className='setting-profile-link' to='/profile' style={{ textDecoration: "none", color: "black" }}>
                 <header className='settings-header'>
                     <p className='settings_head'>Profile</p>

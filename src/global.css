@@ -45,3 +45,26 @@
     margin-top: 30vh;
 
 } */
+
+.dahsboard-commform-img-containet {
+    position: relative;
+    width: 250px !important;
+    border-radius: 50%;
+    height: 250px;
+    display: block;
+    margin: 10vh auto auto auto;
+    overflow: hidden !important;
+    border: 1px solid black;
+
+}
+
+.dashboard_commform-answer_user-img-2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
