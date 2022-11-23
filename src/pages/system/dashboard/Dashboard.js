@@ -74,7 +74,7 @@ const Dashboard = () => {
                     </div>
                     <div className='dashboard_main-horizntal-div'>
                         <Link to="/cashier.system/add-new-item" className=' dashboard_main-Link-div dashboard_PRODUCTS-plus'><IoMdAddCircleOutline className='dashboard_add-ico dashboard_ico' /> PRODUCTS</Link>
-                        <Link className=' dashboard_main-Link-div dashboard_PRODUCTS-minus'> <IoMdRemoveCircleOutline className='dashboard_remove-ico dashboard_ico' /> PRODUCTS</Link>
+                        <Link  to="/cashier.system/orders/ledger" className=' dashboard_main-Link-div dashboard_PRODUCTS-minus'> LEDGER</Link>
 
                     </div>
                 </div>
