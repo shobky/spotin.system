@@ -11,18 +11,17 @@ import { BsReceipt } from 'react-icons/bs'
 const Ledger = () => {
     const { user } = useAuth()
     const { openOrders, closedOrders, deletedOrders } = useDb()
-    console.log(openOrders)
 
     const [dayTotal, setDayTotal] = useState()
     const [waitTotal, swtWaitTotal] = useState()
 
     const [tktNum, setTktNum] = useState()
 
+     console.log(closedOrders)
 
     useEffect(() => {
         const countDayTotal = () => {
             let allPrices = [];
-            console.log(allPrices, "jhk")
             closedOrders?.map((order) =>
                 allPrices.push(order.timeSpent[0] >= 2 ? (order.total + order.tickets.number * 15) : order.total)
             )
