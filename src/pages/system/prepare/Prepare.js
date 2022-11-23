@@ -44,7 +44,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
   const countTotalPrice = () => {
     let allPrices = [];
     cart?.map((products) =>
-      allPrices.push(products.item.price * products.qty)
+      allPrices.push((products.item.price ?? products.item.large_price?.large_Price ?? products.item.small_price?.small_Price ?? products.item.med_price?.med_Price) * products.qty)
     )
     setTotal(allPrices.reduce((a, b) => a + b, 0) + tickets.price)
   }
@@ -68,8 +68,10 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
 
 
   const onPlaceOrder = async () => {
-    const userOrderId =  uuidv4().slice(-7);
-  await setDoc(doc(db, `open-orders`, `${orderId}#${selectedUser.uid}`), {
+    setChecked(false)
+
+    const userOrderId = uuidv4().slice(-7);
+    await setDoc(doc(db, `open-orders`, `${orderId}#${selectedUser.uid}`), {
       id: orderId,
       status: "open",
       userOrderId: userOrderId,
@@ -83,17 +85,24 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
     cart?.map(async (cartItem) => {
       await remove(`cart#${orderId}-${(user?.uid).slice(-5)}/${cartItem.item.name}`)
     })
-    await setDoc(doc(db, `Users/${selectedUser.email}/orders/${userOrderId}`), {
-      id: orderId,
-      userOrderId: userOrderId,
-      status: "open",
-      user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "", email: selectedUser.email ?? "" },
-      time,
-      date,
-      total,
-      tickets,
-      cart,
-    });
+    if (selectedUser.email) {
+      await setDoc(doc(db, `Users/${selectedUser.email}/orders/${userOrderId}`), {
+        id: orderId,
+        userOrderId: userOrderId,
+        status: "open",
+        user: { name: selectedUser.name, uid: selectedUser.uid, url: selectedUser.url ?? "", email: selectedUser.email ?? "" },
+        time,
+        date,
+        total,
+        tickets,
+        cart,
+      }).catch(() => {
+        setChecked(false)
+        onSetSelectedUser("")
+        setTickets({ number: 0, price: 0 })
+        onShowPrepare()
+      })
+    }
     setChecked(false)
     onSetSelectedUser("")
     setTickets({ number: 0, price: 0 })

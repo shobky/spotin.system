@@ -61,7 +61,9 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
             paidAmout
         }
         await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
-        await setDoc(doc(db, `Users/${order.user.email}/orders/${order.userOrderId}`), data);
+        if (order.user?.email) {
+            await setDoc(doc(db, `Users/${order.user.email}/orders/${order.userOrderId}`), data);
+        }
         await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
         onSetReceipt()
         setLoading(false)

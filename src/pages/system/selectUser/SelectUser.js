@@ -7,17 +7,12 @@ import { TbEditCircle, TbListSearch, TbArrowBack } from 'react-icons/tb'
 
 const SelectUser = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowPrepare }) => {
 
-    const { upload } = useDb()
     const [username, setUsername] = useState('')
     const uid = uuidv4().slice(-5)
     const handleAddUser = (e) => {
         setUsername(e.target.value)
     } 
     const onSubmitUser = async () => {
-        await upload('Users', uid, {
-            name: username,
-            uid: uid
-        })
         onSetSelectedUser(username, uid)
         setUsername("")
         document.getElementById('id').reset()
