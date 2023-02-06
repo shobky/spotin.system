@@ -12,10 +12,10 @@ const OrderList = ({ orders, onSetReceipt, searchTerm, tab }) => {
     const countDayTotal = () => {
       let allPrices = [];
       deletedOrders?.map((order) =>
-        allPrices.push(order.timeSpent[0] >= 2 ? order.total + order.tickets.number * 15 : order.total)
+        allPrices.push(order.timeSpent[0] >= 1 ? order.total + order.tickets.number * 15 : order.total)
       )
       setDayTotal(allPrices.reduce((a, b) => a + b, 0))
-    }
+    } 
     countDayTotal()
   }, [deletedOrders])
 
