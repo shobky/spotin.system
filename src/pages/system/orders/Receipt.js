@@ -26,13 +26,13 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
             setOrderTotal(
                 order.status === "open" ?
                     timeSpent?.length > 0 ?
-                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                        timeSpent[0] >= 1 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                         : order.total
                     : order.timeSpent ?
-                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                        order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                         : order.total
             )
-        }
+        } 
         onSetOrderTotal()
     }, [order, timeSpent])
 
@@ -145,11 +145,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                         order.status === "open" ?
                             timeSpent?.length > 0 ?
                                 <p className='rece_total-price'>Subtotal: {
-                                    timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    timeSpent[0] >= 1 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                 }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total}L.e</p>
                             : order.timeSpent ?
                                 <p className='rece_total-price'>Subtotal: {
-                                    order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                    order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                 }L.e</p> : <p className='rece_total-price'>Subtotal: {order.total}L.e</p>
                     }
 
@@ -169,11 +169,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                                     order.timeSpent ?
                                         <>
                                             <p> <strong>Ticket type: </strong>{
-                                                order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? "Full day" : "Half Day"
+                                                order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? "Full day" : "Half Day"
                                             }</p>
                                             <p><strong>{order.tickets.number} people checked in for: <br /> </strong>{(order.timeSpent[0] < 0 ? 24 + order.timeSpent[0] + " hours : " : order.timeSpent[0] + " hours : ") + (order.timeSpent[1] < 0 ? 60 + order.timeSpent[1] + " minutes" : order.timeSpent[1] + " minutes")}</p>
                                             <p> <strong>Total: </strong>{
-                                                order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.tickets.price + 15 * order.tickets.number : order.tickets.price
+                                                order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? order.tickets.price + 15 * order.tickets.number : order.tickets.price
                                             }L.e</p>
                                         </>
                                         :
@@ -186,10 +186,10 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                                     timeSpent?.length > 0 ?
                                         <>
                                             <p> <strong>Ticket type: </strong>{
-                                                timeSpent[0] >= 2 || timeSpent[0] < 0 ? "Full day" : "Half Day"
+                                                timeSpent[0] >= 1 || timeSpent[0] < 0 ? "Full day" : "Half Day"
                                             }</p>
                                             <p> <strong>Total: </strong>{
-                                                timeSpent[0] >= 2 || timeSpent[0] < 0 ? (order.tickets.price + 15 * order.tickets.number) : order.tickets.price
+                                                timeSpent[0] >= 1 || timeSpent[0] < 0 ? (order.tickets.price + 15 * order.tickets.number) : order.tickets.price
                                             }L.e</p>
                                         </> : ""
                                 }
@@ -269,11 +269,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                             order.status === "open" ?
                                 timeSpent?.length > 0 ?
                                     <p className='total_in-bottom'>{
-                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                        timeSpent[0] >= 1 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                     }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                                 : order.timeSpent ?
                                     <p className='total_in-bottom'>{
-                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                        order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                     }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                         }
                         {
@@ -300,11 +300,11 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                             order.status === "open" ?
                                 timeSpent?.length > 0 ?
                                     <p className='total_in-bottom'>{
-                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                        timeSpent[0] >= 1 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                     }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                                 : order.timeSpent ?
                                     <p className='total_in-bottom'>{
-                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
+                                        order.timeSpent[0] >= 1 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
                                     }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
                         }
                     </div>

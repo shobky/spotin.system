@@ -23,10 +23,10 @@ const Ledger = () => {
         const countDayTotal = () => {
             let allPrices = [];
             closedOrders?.map((order) =>
-                allPrices.push(order.timeSpent[0] >= 2 ? (order.total + order.tickets.number * 15) : order.total)
+                allPrices.push(order.timeSpent[0] >= 1 ? (order.total + order.tickets.number * 15) : order.total)
             )
             setDayTotal(allPrices.reduce((a, b) => a + b, 0))
-        }
+        } 
         const countwaitiTotal = () => {
             let waitingTotalprices = [];
             openOrders?.map((order) =>
@@ -103,7 +103,7 @@ const Ledger = () => {
                 </div>
             </div>
 
-            <div className='ledger-2-sec'>
+            <div className='ledger-1-sec'>
                 .....</div></>
     )
 }
