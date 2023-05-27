@@ -37,7 +37,7 @@ const Prepare = ({ onSetChoose, choose, onSetSelectedUser, selectedUser, onShowP
   const onSetTickets = (number) => {
     setTickets({
       number: number,
-      price: number * 20
+      price: number * 15
     })
   }
 
